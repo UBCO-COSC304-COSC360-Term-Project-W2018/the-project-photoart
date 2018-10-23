@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login - PhotoArt</title>
+  <!-- will add stylesheets, js and php header and footers
+   (STYLE THEM AND THEN WE CAN COPY AND PASTE THEM INTO A HEADER AND FOOOTER PHP PAGES LATER ON) -->
+</head>
+<body>
+  <header>
+    <p>PhotoArt</p>
+    <nav>
+    <button type="button" name="exploreBtn">Explore</button>
+    <button type="button" name="loginBtn">Login</button> <!-- use javascript to make these reference register page and login page? -->
+    <button type="button" name="registerBtn">Register</button>
+    </nav>
+  </header>
+  <form method="post" action="server.php"> <!-- server.php will have to be changed to an appropriate location -->
+    <fieldset>
+      <p id="formLogo">PhotoArt<p>
+        <p>
+          <input type="text" name="username" placeholder="Username"/>
+        </p>
+        <p>
+          <input type="password" name="password" placeholder="Password"/>
+        </p>
+        <p>
+        <a href="PhotoArtRegister.html">Register</a> <!-- references register html page -->
+        <a href="PhotoArtPasswordReset">Forgot Password?</a> <!-- references password reset html page -->
+        </p>
+    </fieldset>
+  </form>
+  <footer>
+    <p>&copy 2018 PhotoArt All Rights Reserved | Website created for COSC 360/304</p> 
+</body>
+</html>
