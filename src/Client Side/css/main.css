@@ -1,5 +1,7 @@
 body{
-  background-image: url();
+  background: url("../images/background.jpg");
+  background-size: auto 100%;
+
 }
 /* Modify but general header format*/
 header p {
@@ -11,7 +13,7 @@ header{
   height:10%;
 }
 header nav{
-  margin-left: 25em;
+  float:right;
 
 }
 nav button{
@@ -21,14 +23,14 @@ nav button{
 
 /* body */
 .search-container{
-  clear: left;
+  clear: both;
   margin: 20% 30%;
   width:40%;
   height:7%;
 
 }
 #columnWrapper{
-height:38%;
+
 }
 .column{
   float: left;
