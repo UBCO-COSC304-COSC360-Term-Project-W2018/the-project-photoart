@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile - PhotoArt</title>
+  <!-- will add stylesheets, js and php header and footers
+   (STYLE THEM AND THEN WE CAN COPY AND PASTE THEM INTO A HEADER AND FOOOTER PHP PAGES LATER ON) -->
+</head>
+<body>
+  <header>
+    <p>PhotoArt</p>
+    <nav>
+    <button type="button" name="exploreBtn">Explore</button>
+    <button type="button" name="loginBtn">Login</button> <!-- use javascript to make these reference register page and login page? -->
+    <button type="button" name="registerBtn">Register</button>
+    </nav>
+  </header>
+    <div id="entireBG">
+      <p>My Profile</p>
+      <div id="sideBar">
+        <img src="profPic.jpg" alt="Profile Picture" title="Profile Picture">
+        <!-- CHANGING PROFILE PICTURE HOWTO LINK: https://stackoverflow.com/questions/40441482/making-user-edited-profile-pictures-html -->
+        <p class="sbarFunctions">Edit Profile</p>
+        <p class="sbarFunctions">Payment Information</p> <!-- these buttons will have to have functionality added -->
+        <p class="sbarFunctions">Log Out</p>
+      </div>
+        <form method="post" action="profile.php"> <!-- profile.php will have to be changed to appropriate location -->
+          <fieldset> <!-- should this section even be a form??? -->
+            <p>
+              <label>First Name</label>
+              <input type="text" name="firstName"/>
+              <label>Last Name</label>
+              <input type="text" name="lastName"/>
+            </p>
+            <p>
+              <!--  <label>Username</label>  we could later change it so your username is shown where "profile" is -->
+              <label>About Me</label>
+              <textarea placeholder="Tell us about yourself!"></textarea>
+            </p>
+            <p>
+              <label>Email</label>
+              <input type="text" name="email"/>
+            </p>
+            <p>
+              <label>Change Password</label>
+              <input type="password" name="oldPass" placeholder="Old Password"/> <!-- should be the type "password" or "text"? -->
+              <input type="password" name="newPass" placeholder="New Password"/>
+            </p>
+            <p>
+              <button type="button" name="confChanges">Confirm Changes</button>
+            </p>
+          </fieldset>
+        </form>
+    </div>
+  <footer>
+    <p>&copy 2018 PhotoArt All Rights Reserved | Website created for COSC 360/304</p>
+  </footer>
+</body>
+</html>
