@@ -4,6 +4,7 @@
   <title>Home - PhotoArt</title>
   <!-- will add stylesheets, js and php header and footers
    (STYLE THEM AND THEN WE CAN COPY AND PASTE THEM INTO A HEADER AND FOOOTER PHP PAGES LATER ON) -->
+   <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
   <header>
@@ -22,24 +23,25 @@
     <button type="submit"><!-- image of magnifying glass similar to the link above!--></button>
     </form>
   </div>
-  <div id="3columnBackground"> <!-- this will be the background of the 3 columns -->
-    <div id="columnOne">
+  <div id="columnWrapper"> <!-- this will be the background of the 3 columns -->
+    <div class="column" id="left">
       <p>About Us<p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod cursus dapibus. Morbi massa nunc,lacinia a iaculis non, sollicitudin quis ipsum. Morbi euismod sapien aliquet neque auctor luctus. Cras venenatis orci et turpis tristique sollicitudin quis sit amet arcu. Mauris eu elit quis leo aliquam tristique et at elit. Duis non mi commodo, tincidunt tellus id, consectetur est. In non vehicula diam, a posuere urna. Curabitur bibendum magna vitae tortor imperdiet, sed sodales augue gravida. Morbi ac nisl sit amet odio malesuada tincidunt.
       </p>
     </div>
-    <div id="columnTwo">
+    <div class="column" id="middle">
       <p>Photo of the Week</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod cursus dapibus.
         <span> <!-- image of the week goes here? --> </span>
         Morbi massa nunc, lacinia a iaculis non, sollicitudin quis ipsum. Morbi euismod sapien aliquet neque auctor luctus. Cras venenatis orci et turpis tristique sollicitudin quis sit amet arcu. Mauris eu elit quis leo aliquam tristique et at elit. Duis non mi commodo, tincidunt tellus id, consectetur est. In non vehicula diam, a posuere urna. Curabitur bibendum magna vitae tortor imperdiet, sed sodales augue gravida. Morbi ac nisl sit amet odio malesuada tincidunt.
       </p>
     </div>
-    <div id="columnThree">
+    <div class="column"id = "right">
       <p>Join Our Team</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod cursus dapibus. Morbi massa nunc, lacinia a iaculis non, sollicitudin quis ipsum. Morbi euismod sapien aliquet neque auctor luctus. Cras venenatis orci et turpis tristique sollicitudin quis sit amet arcu. Mauris eu elit quis leo aliquam tristique et at elit. Duis non mi commodo, tincidunt tellus id, consectetur est. In non vehicula diam, a posuere urna. Curabitur bibendum magna vitae tortor imperdiet, sed sodales augue gravida. Morbi ac nisl sit amet odio malesuada tincidunt.
       </p>
     </div>
+  </div>
     <footer>
       <p>&copy 2018 PhotoArt All Rights Reserved | Website created for COSC 360/304</p>
     </footer>
