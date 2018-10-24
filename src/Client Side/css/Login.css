@@ -1,0 +1,17 @@
+/* Modify but general header format*/
+header p {
+  float:left;
+  margin: 0;
+  font-size: 3em;
+}
+header{
+  height:10%;
+}
+header nav{
+  float:right;
+
+}
+nav button{
+  margin-left: 1em;
+  
+}
