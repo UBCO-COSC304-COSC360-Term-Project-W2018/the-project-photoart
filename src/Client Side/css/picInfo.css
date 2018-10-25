@@ -1,32 +1,37 @@
 #surroundingBackground{
-  padding: 3em;
+  width: 90em;
   background-color:  rgba(255, 255, 255, 0.7);
-  width: 80em;
-  height: 30em;
+  /* width: 80em; */
+  /* height: 36em; */
   margin: auto;
   margin-top: 5em;
+  overflow-x: hidden;
 }
 
 /*main picture sizing*/
 #mainPic{
-  width: 35em;
+  /* width: 10em; */
   height: 25em;
 }
 
 /*photo positioning*/
 figure{
-  position: relative;
-  top: 1.20em;
+  margin: 2em;
+  float: left;
 }
 
 /*image info background styling*/
 #imgInfoBG{
-  position: relative;
+  float: left;
+  /* height: 40em; */
+  margin: 2em;
+
+}
+#imgInfoNoBtn{
+  float: left;
   width: 40em;
-  height: 25.10em;
-  left: 39em;
-  bottom: 26.15em;
-  background-color: rgba(255, 255, 255, 1);
+  height: 25em;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 figcaption{
@@ -70,9 +75,9 @@ h2{
 
 /*button styling and coloring*/
 button[name=addCart]{
-  position: relative;
-  bottom: 9.75em;
-  left: 18.25em;
+  /* margin: 5em; */
+  clear:both;
+  float: left;
   font-size: 2.5em;
   border: 0;
   background-color: rgb(103, 135, 156, 1);
@@ -85,4 +90,9 @@ button[name=addCart]{
 /*hover for register button*/
 button[name=addCart]:hover{
   background-color: #516b7c;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
 }
