@@ -1,3 +1,4 @@
+/*main background with oppacity*/
 #mainBG{
   background-color: rgba(255,255,255,.4);
   height:60em;
@@ -5,13 +6,16 @@
   padding: 4em;
 
 }
+/* put the cart beside shoppingcart*/
 #mainBG h2{
   display: inline-block;
 }
+/*wrapper for all three divs(left right and order button)*/
 #cartPriceWrapper{
   margin:5em 3em;
 
 }
+/*left div with cart items*/
 #cartItems{
   float: left;
   height:40em;
@@ -20,7 +24,8 @@
   margin-right: 2em;
 
 }
-#priceOther{
+/*contains button and info*/
+#rightDiv{
   margin-left: 60em;
   height:40em;
   width:25em;
@@ -28,10 +33,13 @@
 
 
 }
+/*info on right side*/
 #content{
+  
   height:35em;
     background-color: rgba(255, 255, 255, 1);
 }
+/*button under info*/
 button[name=checkOut]{
   width:100%;
   margin-top: 2em;
