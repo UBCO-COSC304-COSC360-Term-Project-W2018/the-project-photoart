@@ -22,6 +22,10 @@
 }
 form{
   float: left;
+  margin-left: 2em;
+}
+fieldset{
+  border: none;
 }
 input {
     border: 2px solid #67879c;
