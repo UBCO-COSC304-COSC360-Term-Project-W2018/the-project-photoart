@@ -3,7 +3,8 @@
 /* body */
 .search-container{
   clear: both;
-  margin: 18em 50em;
+  margin: 18em 37em;'
+  top: 10em;
   }
   .search-container input{
     width:25em;

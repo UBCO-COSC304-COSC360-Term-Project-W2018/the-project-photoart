@@ -12,9 +12,9 @@
   <header>
     <h1>PhotoArt</h1>
     <nav>
-    <button type="button" name="exploreBtn">Explore</button>
-    <button type="button" name="loginBtn">Login</button> <!-- use javascript to make these reference register page and login page? -->
-    <button type="button" name="registerBtn">Register</button>
+    <button type="button" name="exploreBtn" class="shadow">Explore</button>
+    <button type="button" name="loginBtn" class="shadow">Login</button> <!-- use javascript to make these reference register page and login page? -->
+    <button type="button" name="registerBtn" class="shadow">Register</button>
     </nav>
   </header>
   <div id="mainDiv">
@@ -28,11 +28,12 @@
           <input type="password" name="password" placeholder="Password" required/>
         </p>
         <p>
-        <a href="PhotoArtRegister.html">Register</a> <!-- references register html page -->
-        <a href="PhotoArtPasswordReset">Forgot Password?</a> <!-- references password reset html page -->
+        <button type="button" name="loginSubmit" class="shadow">Log in</button> <!-- use javascript? or just make href to reference another page? DISCUSS -->
         </p>
         <p>
-          <button type="button" name="loginSubmit">Login</button> <!-- use javascript? or just make href to reference another page? DISCUSS -->
+          <a href="PhotoArtRegister.html" class="regStyle">Register</a> <!-- references register html page -->
+          <a href="PhotoArtPasswordReset" class="pswStyle">Forgot Password?</a> <!-- references password reset html page -->
+        </p>
     </fieldset>
   </form>
   </div>
