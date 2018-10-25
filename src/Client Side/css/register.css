@@ -27,7 +27,7 @@ h2{
 input[name=firstName]{
   position: relative;
   bottom: 24.25em;
-  left: 6.5em;
+  left: 6.4em;
   height: 2em;
   width: 15em;
 }
@@ -71,15 +71,16 @@ button[name=regSubmit]{
   left: 2.35em;
   font-size: 2.5em;
   border: 0;
-  background-color: rgba(77, 166, 255, 1);
+  background-color: #67879c;
   border-radius: 0px;
   width: 10.75em;
   height: 1.25em;
+  color: white;
 }
 
 /*hover for register button*/
 button[name=regSubmit]:hover{
-  background-color: #0080ff;
+  background-color: #516b7c;
 }
 
 #termsCond{

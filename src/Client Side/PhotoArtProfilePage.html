@@ -28,30 +28,27 @@
         <a href="" class="sbarFunctions">Log Out</a><!-- these buttons will have to have functionality added -->
       </div>
         <form method="post" action="profile.php"> <!-- profile.php will have to be changed to appropriate location -->
-          <fieldset> <!-- should this section even be a form??? -->
-            <p>
-              <label>First Name</label>
-              <input type="text" name="firstName"/>
-              <label>Last Name</label>
-              <input type="text" name="lastName"/>
-            </p>
-            <p>
-              <!--  <label>Username</label>  we could later change it so your username is shown where "profile" is -->
-              <label>About Me</label>
-              <textarea placeholder="Tell us about yourself!"></textarea>
-            </p>
-            <p>
-              <label>Email</label>
-              <input type="text" name="email"/>
-            </p>
-            <p>
-              <label>Change Password</label>
-              <input type="password" name="oldPass" placeholder="Old Password"/> <!-- should be the type "password" or "text"? -->
-              <input type="password" name="newPass" placeholder="New Password"/>
-            </p>
-            <p>
-              <button type="button" name="confChanges">Confirm Changes</button>
-            </p>
+          <fieldset>
+            <table>
+              <tr>
+                <td><label>First Name</label></td>
+                <td><label>Last Name</label></td>
+                </tr>
+              <tr>
+                <td><input class="button1" type="text" name="firstName"/></td>
+                <td><input class="button1" type="text" name="lastName"/></td>
+              </tr>
+              <tr><td><label>Username</label><td></tr>
+              <tr><td colspan="2"><input class="button2" type="text" name="username"/></td></tr>
+              <tr><td><label>About Me</label></td><tr>
+              <tr><td colspan="2"><textarea class="button2" placeholder="Tell us about yourself!"></textarea></td><tr>
+              <tr><td><label>Email</label></td><tr>
+              <tr><td colspan="2"><input class="button2" type="text" name="email"/></td><tr>
+              <tr><td><label>Change Password</label></td><tr>
+              <tr><td><input class="button1" type="password" name="oldPass" placeholder="Old Password"/></td> <!-- should be the type "password" or "text"? -->
+              <td><input class="button1" type="password" name="newPass" placeholder="New Password"/></td></tr>
+              <tr><td colspan="2"><button id="confirm" class="button2" type="button" name="confChanges">Confirm Changes</button></td></tr>
+          </table>
           </fieldset>
         </form>
     </div>

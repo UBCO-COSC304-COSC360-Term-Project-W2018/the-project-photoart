@@ -1,11 +1,11 @@
 /* Container for profile info */
 #entireBG{
-  background-color: rgba(255, 255, 255, 0.6);
-  /* width: 100em; */
+  background-color: rgba(255, 255, 255, 1);
+  opacity: 0.6;
   margin: auto;
   width: 70em;
-  height: 20em;
-  margin-top: 3em;
+  height: 40em;
+  margin-top: 5em;
 }
 /* My Profile heading */
 #entireBG h2{
@@ -14,7 +14,6 @@
   margin-top: 1.5em;
   margin-bottom: 1em;
   font-size: 26pt;
-  font-weight: lighter;
 }
 /* Container with profile img and links */
 #sideBar{
@@ -27,16 +26,16 @@
   display: block;
   margin: 0.25em;
 }
+/* Container containing profile inputs */
 form{
   float: left;
-  margin-left: 2em;
+  margin-left: 8em;
 }
 fieldset{
   border: none;
 }
 input {
-    border: 2px solid #67879c;
-    border-radius: 4px;
+    height: 2em;
 }
 #profileImg{
   padding: 2em;+
@@ -45,4 +44,27 @@ input {
   display: block;
   font-size: 8pt;
   text-align: center;
+  margin-bottom: 5em;
+}
+/* Input Data */
+/* Button 1 is the small width, Button 2 is the longer width */
+.button1{
+  width: 100%;
+  margin-bottom: 2em;
+}
+.button2{
+  width: 100%;
+  margin-bottom: 2em;
+}
+#confirm{
+  font-size: 1.5em;
+  border: 0;
+  background-color: #67879c;
+  border-radius: 0px;
+  height: 1.5em;
+  color: white;
+  width: 20em;
+}
+td{
+  padding-right: 2em;
 }
