@@ -59,12 +59,18 @@ input {
 #confirm{
   font-size: 1.5em;
   border: 0;
-  background-color: #67879c;
+  background-color: rgba(103, 135, 156, 1);
   border-radius: 0px;
   height: 1.5em;
   color: white;
   width: 20em;
 }
+
+/*hover for confirm button NOT WORKING*/
+button[name=confChanges]:hover{
+  background-color: #516b7c;
+}
+
 td{
   padding-right: 2em;
 }
