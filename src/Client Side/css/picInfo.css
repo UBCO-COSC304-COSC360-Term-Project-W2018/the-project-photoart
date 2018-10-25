@@ -1,34 +1,44 @@
 #surroundingBackground{
-  width: 90em;
   background-color:  rgba(255, 255, 255, 0.7);
-  /* width: 80em; */
-  /* height: 36em; */
-  margin: auto;
-  margin-top: 5em;
-  overflow-x: hidden;
+  width: 100em;
+  text-align: center;
 }
 
 /*main picture sizing*/
 #mainPic{
-  /* width: 10em; */
   height: 25em;
 }
 
 /*photo positioning*/
 figure{
-  margin: 2em;
-  float: left;
+  /* margin: 2em; */
+  display: inline-block;
+  /* max-width: 30em; */
 }
+
+/* .container
+{
+     text-align: center;
+}
+.left-div
+{
+     display: inline-block;
+     max-width: 300px;
+     vertical-align: top;
+}
+.right-div
+{
+     display: inline-block;
+     max-width: 150px;
+} */
 
 /*image info background styling*/
 #imgInfoBG{
-  float: left;
-  /* height: 40em; */
   margin: 2em;
-
+  display: inline-block;
 }
+
 #imgInfoNoBtn{
-  float: left;
   width: 40em;
   height: 25.10em;
   left: 39em;
@@ -71,14 +81,13 @@ h2{
 .picCost{
   position: relative;
   top: 4.5em;
-  left: 16.5em;
+  /* left: 16.5em; */
   font-size: 2em;
   color: #67879c;
 }
 
 /*button styling and coloring*/
 button[name=addCart]{
-  /* margin: 5em; */
   clear:both;
   float: left;
   font-size: 2.5em;
@@ -93,9 +102,4 @@ button[name=addCart]{
 /*hover for register button*/
 button[name=addCart]:hover{
   background-color: #516b7c;
-}
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
 }
