@@ -74,3 +74,11 @@ button[name=loginSubmit]:hover{
   top: 2.5em;
   left: 3.5em;
 }
+
+.linkColor{
+  color: rgba(103, 135, 156, 1);
+}
+
+.linkColor:visited{
+  color: rgba(103, 135, 156, 1);
+}
