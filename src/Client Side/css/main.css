@@ -3,10 +3,10 @@
 /* body */
 .search-container{
   clear: both;
-  margin: 20% 30%;
+  margin: 18em 50em;
   }
   .search-container input{
-    width:40em;
+    width:25em;
     height: 2em;
     align-items: center;
 
