@@ -1,34 +1,55 @@
+/* main body*/
 #mainBG{
   padding:2em;
-  background-color: rgba(255,255,255,.7);
-  height: 100%;
+  background-color: rgba(255,255,255,.3);
+  height: 75em;
+  margin:4em;
+
 
 }
+
 /* selects the larger image(first one)*/
 #mainBG div a .firstPhoto{
-  height:20em;
+  height:21em;
   width:10em;
-  float: left;
+  box-sizing: border-box;
   margin: 1em;
+  margin-top: 2em;
+  float: left;
 }
-.clear{
+
+/*third image of the 4 smaller ones(makes new line)*/
+.clearImg{
   clear: left;
 }
-.img{
+/*container for the group of 4 images*/
+.imgContainer{
   display: inline-block;
+  margin: 1em 0;
 }
+/*selecting the smaller images */
 #mainBG div .img a img{
   height:10em;
   width:10em;
-  padding: 1em;
+  box-sizing: border-box;
+  margin-left: 1em;
+  margin-top: 1em;
   float:left;
 }
+/*selecting the category types*/
 #mainBG div h3{
   clear: left;
 }
+/*container for the categories (4 of them)*/
 .catContainer{
   float: left;
+  padding: 1em;
+  background-color: rgba(255, 255, 255, 1);
+  box-sizing: border-box;
+  margin: 1em;
+
 }
-.clearContainer{
+/*puts the third category container on new line*/
+#clearContainer{
   clear:left;
 }
