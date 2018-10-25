@@ -1,10 +1,12 @@
 
 
 /* body */
+/* space between header and columns*/
 .search-container{
   clear: both;
   margin: 18em 50em;
   }
+  /* */
   .search-container input{
     width:25em;
     height: 2em;

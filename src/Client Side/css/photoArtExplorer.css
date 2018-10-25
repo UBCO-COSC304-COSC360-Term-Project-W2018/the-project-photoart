@@ -1,0 +1,34 @@
+#mainBG{
+  padding:2em;
+  background-color: rgba(255,255,255,.7);
+  height: 100%;
+
+}
+/* selects the larger image(first one)*/
+#mainBG div a .firstPhoto{
+  height:20em;
+  width:10em;
+  float: left;
+  margin: 1em;
+}
+.clear{
+  clear: left;
+}
+.img{
+  display: inline-block;
+}
+#mainBG div .img a img{
+  height:10em;
+  width:10em;
+  padding: 1em;
+  float:left;
+}
+#mainBG div h3{
+  clear: left;
+}
+.catContainer{
+  float: left;
+}
+.clearContainer{
+  clear:left;
+}
