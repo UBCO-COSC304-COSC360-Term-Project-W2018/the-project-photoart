@@ -1,33 +1,31 @@
-/* main body*/
+/*selects backContainer*/
 #mainBG{
   padding:2em;
   background-color: rgba(255,255,255,.3);
   height: 75em;
   margin:4em;
 
-
 }
-
 /* selects the larger image(first one)*/
 #mainBG div a .firstPhoto{
   height:21em;
-  width:10em;
+  width:16em;
   box-sizing: border-box;
   margin: 1em;
   margin-top: 2em;
   float: left;
 }
+/*clears third images of the four smaller ones*/
 
-/*third image of the 4 smaller ones(makes new line)*/
 .clearImg{
   clear: left;
 }
-/*container for the group of 4 images*/
-.imgContainer{
+/*container for the 4 smaller photos*/
+.img{
   display: inline-block;
   margin: 1em 0;
 }
-/*selecting the smaller images */
+/*selects each one of the smaller images*/
 #mainBG div .img a img{
   height:10em;
   width:10em;
@@ -36,11 +34,7 @@
   margin-top: 1em;
   float:left;
 }
-/*selecting the category types*/
-#mainBG div h3{
-  clear: left;
-}
-/*container for the categories (4 of them)*/
+/*container for each category*/
 .catContainer{
   float: left;
   padding: 1em;
@@ -49,7 +43,7 @@
   margin: 1em;
 
 }
-/*puts the third category container on new line*/
+/*clears the third container to make new row*/
 #clearContainer{
   clear:left;
 }
