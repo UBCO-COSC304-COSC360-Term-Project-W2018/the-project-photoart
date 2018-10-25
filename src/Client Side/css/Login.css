@@ -26,7 +26,7 @@ fieldset{
   padding-right: 10px;
   bottom: 1em;
   font-size: 4em;
-  background-color: rgba(200,150,5,1);
+  background-color: rgba(77, 166, 255, 1);
 }
 
 
@@ -50,7 +50,7 @@ button[name=loginSubmit]{
   top: 0.75em;
   font-size: 2.5em;
   border: 0;
-  background-color: rgba(200,150,5,1);
+  background-color: rgba(77, 166, 255, 1);
   border-radius: 0px;
   width: 7.65em;
   height: 1.25em;
