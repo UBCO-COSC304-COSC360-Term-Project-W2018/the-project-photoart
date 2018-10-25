@@ -1,0 +1,30 @@
+#mainBG{
+  background-color: rgba(255,255,255,.4);
+  height:60em;
+  margin: 5em;
+  padding: 4em;
+}
+#cartPriceWrapper{
+  margin-top: 5em
+}
+#cartItems{
+  float: left;
+  height:40em;
+  width:50em;
+  background-color: rgba(255,255,255,1);
+}
+#priceOther{
+  margin-left: 60em;
+  height:40em;
+  width:25em;
+
+}
+#content{
+  height:35em;
+    background-color: rgba(255, 255, 255, 1);
+}
+button[name=checkOut]{
+  width:100%;
+  margin-top: 2em;
+  height: 4em;
+}
