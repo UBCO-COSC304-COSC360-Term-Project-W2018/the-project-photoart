@@ -1,51 +1,43 @@
-body{
-  background: url("../images/background.jpg");
-  background-size: auto 100%;
 
-}
-/* Modify but general header format*/
-header p {
-  float:left;
-  margin: 0;
-  font-size: 3em;
-}
-header{
-  height:10%;
-  width: 100%;
-}
-header nav{
-  float:right;
-
-}
-nav button{
-  margin-left: 1em;
-
-}
 
 /* body */
 .search-container{
   clear: both;
   margin: 20% 30%;
-  width:40%;
-  height:7%;
+  }
+  .search-container input{
+    width:40em;
+    height: 2em;
+    align-items: center;
 
-}
-#columnWrapper{
+  }
+.columnWrapper{
+height:30em;
+background-color: rgba(255, 255, 255, 0.7);
 
 }
 .column{
   float: left;
+  margin-top: 5em;
+  box-sizing: border-box;
+  background-color: white;
+  padding: 1em;
 }
 #left,#right{
   margin-left: 2%;
   margin-right: 2%;
   width:31%;
-  height:37%;
+  height:20em;
+  text-align:
+
 }
 #middle{
 width: 30%;
 height:37%;
+text-align: center;
+height: 20em;
 }
+
 footer{
   clear: left;
 }
