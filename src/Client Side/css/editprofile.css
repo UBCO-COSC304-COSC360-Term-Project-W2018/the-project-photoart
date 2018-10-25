@@ -3,10 +3,11 @@
   background-color: rgba(255, 255, 255, 0.6);
   /* width: 100em; */
   margin: auto;
-  width: 50em;
+  width: 70em;
   height: 20em;
   margin-top: 3em;
 }
+/* My Profile heading */
 #entireBG h2{
   float: left;
   margin-left: 3em;
@@ -15,10 +16,16 @@
   font-size: 26pt;
   font-weight: lighter;
 }
+/* Container with profile img and links */
 #sideBar{
   clear: both;
   margin-left: 5em;
   float: left;
+  width: 15em;
+}
+.sbarFunctions{
+  display: block;
+  margin: 0.25em;
 }
 form{
   float: left;
@@ -30,4 +37,12 @@ fieldset{
 input {
     border: 2px solid #67879c;
     border-radius: 4px;
+}
+#profileImg{
+  padding: 2em;+
+}
+#changePic{
+  display: block;
+  font-size: 8pt;
+  text-align: center;
 }
