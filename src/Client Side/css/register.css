@@ -18,8 +18,84 @@ fieldset{
   border: white
 }
 
+/*sign up text*/
 h2{
   position: relative;
-  margin-left: 1em;
-  font-size: 3em;
+  font-size: 2.5em;
+  bottom: 1.5em;
+  right: 6.5em;
+}
+
+/*input boxes*/
+input[name=firstName]{
+  position: relative;
+  bottom: 24.25em;
+  left: 6.5em;
+  height: 2em;
+  width: 15em;
+}
+
+input[name=lastName]{
+  position: relative;
+  bottom: 24.25em;
+  left: 7.5em;
+  height: 2em;
+  width: 15em;
+}
+
+input[type=email]{
+  position: relative;
+  bottom: 21.75em;
+  left: 7em;
+  height: 2em;
+  width: 31.80em;
+}
+
+input[name=regUsername]{
+  position: relative;
+  bottom: 19.5em;
+  left: 7em;
+  height: 2em;
+  width: 31.80em;
+}
+
+input[name=regPassword]{
+  position: relative;
+  bottom: 17em;
+  left: 7em;
+  height: 2em;
+  width: 31.80em;
+}
+
+/*styling the register button*/
+button[name=regSubmit]{
+  position: relative;
+  bottom: 4.75em;
+  left: 2.35em;
+  font-size: 2.5em;
+  border: 0;
+  background-color: rgba(77, 166, 255, 1);
+  border-radius: 0px;
+  width: 10.75em;
+  height: 1.25em;
+}
+
+/*hover for register button*/
+button[name=regSubmit]:hover{
+  background-color: #0080ff;
+}
+
+#termsCond{
+  font-size: 0.75em;
+  position: relative;
+  bottom: 15em;
+  left: 7.45em;
+}
+
+#camPic{
+  position: relative;
+  bottom: 4em;
+  right: 16.5em;
+  height: 10em;
+  width: 10em;
 }
