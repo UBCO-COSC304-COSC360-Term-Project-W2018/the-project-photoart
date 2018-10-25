@@ -4,6 +4,7 @@
   <title>PhotoInfo - PhotoArt</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/picInfo.css">
   <!-- will add stylesheets, js and php header and footers
    (STYLE THEM AND THEN WE CAN COPY AND PASTE THEM INTO A HEADER AND FOOOTER PHP PAGES LATER ON) -->
 </head>
@@ -16,14 +17,14 @@
     <button type="button" name="registerBtn">Register</button>
     </nav>
   </header>
-  <div id="surroundingBackground">
+  <div id="surroundingBackground" class="shadow">
     <figure>
-      <img src="productPicture" alt="PictureofProduct" title="a walk in the forest"> <!-- image source will need to be dynamic? -->
+      <img src="images/Abstract/breakfast.jpg" alt="PictureofProduct" title="a walk in the forest" id="mainPic"> <!-- image source will need to be dynamic? -->
       <figcaption>A walk in the forest</figcaption>
     </figure>
-    <div id="imgInfoBG">
-      <h2>Image info</h2>
-      <p>Information about the image here, stuff that makes it unique</p>
+    <div id="imgInfoBG" class="shadow">
+      <h2>Image Info</h2>
+      <p id="uniqueInfo">Information about the image here, stuff that makes it unique</p>
       <p class="shotInfo">Shot with: </p>
       <p class="shotInfo">ISO: </p>
       <p class="shotInfo">Location: </p>
@@ -32,6 +33,7 @@
     </div>
     <button type="button" name="addCart">Add to Cart</button>
   </div>
+  <div id="comment section">
   <!-- we may need to add a comment section or something so we'll leave this open for now... -->
   <!-- share button? -->
   <footer>
