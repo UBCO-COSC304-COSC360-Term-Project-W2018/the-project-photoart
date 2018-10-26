@@ -15,9 +15,9 @@
   <header>
     <a href="PhotoArtMain.html"><h1>PhotoArt</h1></a>
     <nav>
-    <a href="PhotoArtExplore.html"><button type="button" name="exploreBtn">Explore</button></a>
-    <a href="PhotoArtLogin.html"><button type="button" name="loginBtn">Login</button></a> <!-- use javascript to make these reference register page and login page? -->
-    <a href="PhotoArtRegister.html"><button type="button" name="registerBtn">Register</button></a>
+      <a href="PhotoArtExplore.html" class="navBtns">Explore</a>
+      <a href="PhotoArtLogin.html" class="navBtns">Login</a> <!-- use javascript to make these reference register page and login page? -->
+      <a href="PhotoArtRegister.html" class="navBtns">Register</a>
     </nav>
   </header>
     <div id="entireBG" class="shadow">
@@ -33,6 +33,7 @@
         <form method="post" action="profile.php"> <!-- profile.php will have to be changed to appropriate location -->
           <fieldset>
             <table>
+              <tbody>
               <tr>
                 <td><label>First Name</label></td>
                 <td><label>Last Name</label></td>
@@ -43,20 +44,20 @@
               </tr>
               <tr><td><label>Username</label><td></tr>
               <tr><td colspan="2"><input class="button2 required" type="text" name="username"/></td></tr>
-              <tr><td><label>About Me</label></td><tr>
-              <tr><td colspan="2"><textarea class="button2" placeholder="Tell us about yourself!"></textarea></td><tr>
-              <tr><td><label>Email</label></td><tr>
-              <tr><td colspan="2"><input class="button2 required" type="text" name="email"/></td><tr>
-              <tr><td><label>Change Password</label></td><tr>
+              <tr><td><label>About Me</label></td></tr>
+              <tr><td colspan="2"><textarea class="button2" placeholder="Tell us about yourself!"></textarea></td></tr>
+              <tr><td><label>Email</label></td></tr>
+              <tr><td colspan="2"><input class="button2 required" type="text" name="email"/></td></tr>
+              <tr><td><label>Change Password</label></td></tr>
               <tr><td><input class="button1" type="password" name="oldPass" placeholder="Old Password"/></td> <!-- should be the type "password" or "text"? -->
               <td><input class="button1" type="password" name="newPass" placeholder="New Password"/></td></tr>
               <tr><td colspan="2"><button id="submit" class="button2" type="submit" name="confChanges">Confirm Changes</button></td></tr>
-          </table>
+          </tbody></table>
           </fieldset>
         </form>
     </div>
   <footer>
-    <p>&copy 2018 PhotoArt All Rights Reserved | Website created for COSC 360/304</p>
+    <p>&copy; 2018 PhotoArt All Rights Reserved | Website created for COSC 360/304</p>
   </footer>
 </body>
 </html>
