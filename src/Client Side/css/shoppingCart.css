@@ -22,21 +22,47 @@
   width:50em;
   background-color: rgba(255,255,255,1);
   margin-right: 2em;
+  margin-left: 15em;
 
 }
 /*contains button and info*/
 #rightDiv{
-  margin-left: 60em;
+  margin-left: 70em;
   height:40em;
   width:25em;
   margin-right: 50em;
 
 
 }
+
+
+#cartItems img{
+  width:10em;
+  height:10em;
+  display: block;
+  margin: 2em 0;
+  margin-left: 12em;
+}
+.Price{
+  width:10em;
+  height:10em;
+  margin: 1em 0;
+  margin-left: 4em;
+}
+#grandTotal{
+  float: left;
+}
+#totalPrice{
+  margin-left: 14em;
+}
+
+#total p{
+  display: inline;
+}
+
 /*info on right side*/
 #content{
-  
-  height:35em;
+    height:35em;
     background-color: rgba(255, 255, 255, 1);
 }
 /*button under info*/
