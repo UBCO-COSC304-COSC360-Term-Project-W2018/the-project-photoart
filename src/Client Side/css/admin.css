@@ -36,14 +36,12 @@ button[name="Edit Info"]{
   padding: 1em;
   border: 1px solid black;
   position: relative;
-}
-.price{
-
-}
-.photo p{
-  display: inline;
+  float: left;
 }
 .photo{
+  float: left;
+  border: 1px solid black;
+  position: relative;
 }
 .price{
   right: 1em;
