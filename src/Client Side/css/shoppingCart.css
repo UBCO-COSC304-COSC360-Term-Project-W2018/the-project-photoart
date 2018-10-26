@@ -1,7 +1,7 @@
 /*main background with oppacity*/
 #mainBG{
   background-color: rgba(255,255,255,.4);
-  height:60em;
+  height:50em;
   margin: 5em;
   padding: 4em;
 
@@ -12,7 +12,7 @@
 }
 /*wrapper for all three divs(left right and order button)*/
 #cartPriceWrapper{
-  margin:5em 3em;
+  margin:5em -16.75em;
 
 }
 /*left div with cart items*/
@@ -68,10 +68,15 @@
 /*button under info*/
 button[name=checkOut]{
   width:100%;
-  margin-top: 2em;
-  height: 4em;
+  margin-top: 0em;
+  height: 2em;
   background-color: #67879c;
+  color: white;
+  font-size: 2.5em;
+  border: 0;
+  border-radius: 0px;
 }
+
 button[name=checkOut]:hover{
   background-color: #516b7c;
 
