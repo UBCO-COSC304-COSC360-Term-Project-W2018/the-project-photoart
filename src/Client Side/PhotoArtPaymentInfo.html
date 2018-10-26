@@ -7,6 +7,8 @@
    <link rel="stylesheet" href="css/reset.css" />
    <link rel="stylesheet" href="css/general.css" />
    <link rel="stylesheet" href="css/paymentInfo.css" />
+   <script type="text/javascript" src="script/checkRequired.js"></script>
+   <script type="text/javascript" src="script/paymentInfoCheck.js"></script>
 </head>
 <body>
   <header>
@@ -35,11 +37,11 @@
           <td><label>Last Name</label></td>
           </tr>
         <tr>
-          <td><input class="button1" type="text" name="firstName"/></td>
-          <td><input class="button1" type="text" name="lastName"/></td>
+          <td><input class="button1 required" type="text" name="firstName"/></td>
+          <td><input class="button1 required" type="text" name="lastName"/></td>
         </tr>
         <tr><td colspan="2"><label>Shipping Address</label><td></tr>
-        <tr><td colspan="2"><input class="shipping" type="text" name="address"/></td></tr>
+        <tr><td colspan="2"><input class="shipping required" type="text" name="address"/></td></tr>
         <tr>
             <td><label>Country</label></td>
             <td><label>Province</label></td>
@@ -65,7 +67,7 @@
           </td>
         </tr>
         <tr><td colspan="2"><label>Email</label></td></tr>
-        <tr><td colspan="2"><input class="button2" type="text" name="email"/></td><tr>
+        <tr><td colspan="2"><input class="button2 required" type="text" name="email"/></td><tr>
         <tr><td colspan="2"><label>Payment method</label></td></tr>
         <tr><td colspan="2">
           <select name="Payment">
@@ -78,12 +80,12 @@
             <td><label>Expiry Date</label></td>
             <td><label>CSV</label></td>
         </tr>
-        <tr>  <td><input class="button2" type="text" name="CardNumber"></td>
-              <td><input class="button2" type="text" name="CardNumber"></td>
-              <td><input class="button2" type="text" name="CardNumber"></td>
+        <tr>  <td><input maxlength="16" class="button2 required" type="text" name="CardNumber"></td>
+              <td><input class="button2" type="month" name="CardDate" value="2020-01" required></td>
+              <td><input maxlength="3" class="button2 required" type="text" name="CardCSV"></td>
         </tr>
     </table>
-    <button type="button" name="saveChanges" class="shadow">Save Changes</button>
+    <button id="submit" type="submit" name="saveChanges" class="shadow">Save Changes</button>
     </fieldset>
   </form>
 </div>

@@ -7,6 +7,9 @@
    <link rel="stylesheet" href="css/reset.css" />
    <link rel="stylesheet" href="css/general.css" />
    <link rel="stylesheet" href="css/editprofile.css" />
+   <script type="text/javascript" src="script/checkRequired.js"></script>
+   <script type="text/javascript" src="script/profilePage.js"></script>
+
 </head>
 <body>
   <header>
@@ -39,15 +42,15 @@
                 <td><input class="button1" type="text" name="lastName"/></td>
               </tr>
               <tr><td><label>Username</label><td></tr>
-              <tr><td colspan="2"><input class="button2" type="text" name="username"/></td></tr>
+              <tr><td colspan="2"><input class="button2 required" type="text" name="username"/></td></tr>
               <tr><td><label>About Me</label></td><tr>
               <tr><td colspan="2"><textarea class="button2" placeholder="Tell us about yourself!"></textarea></td><tr>
               <tr><td><label>Email</label></td><tr>
-              <tr><td colspan="2"><input class="button2" type="text" name="email"/></td><tr>
+              <tr><td colspan="2"><input class="button2 required" type="text" name="email"/></td><tr>
               <tr><td><label>Change Password</label></td><tr>
               <tr><td><input class="button1" type="password" name="oldPass" placeholder="Old Password"/></td> <!-- should be the type "password" or "text"? -->
               <td><input class="button1" type="password" name="newPass" placeholder="New Password"/></td></tr>
-              <tr><td colspan="2"><button id="confirm" class="button2" type="button" name="confChanges">Confirm Changes</button></td></tr>
+              <tr><td colspan="2"><button id="submit" class="button2" type="submit" name="confChanges">Confirm Changes</button></td></tr>
           </table>
           </fieldset>
         </form>

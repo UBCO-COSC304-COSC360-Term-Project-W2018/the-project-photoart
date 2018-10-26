@@ -14,10 +14,18 @@ function checkTarget(e){
     if (pwd1.value !== pwd2.value){
       alert("Passwords don't match");
       e.preventDefault();
+      pw2.classList.toggle("markReq");
+      pw2.addEventListener("change", update);
+      pw1.classList.toggle("markReq");
+      pw1.addEventListener("change", update);
     }
     else if (pwd1.value.length < 8){
       alert("Password must be at least 8 characters long");
       e.preventDefault();
+      pw1.classList.toggle("markReq");
+      pw1.addEventListener("change", update);
+      pw2.classList.toggle("markReq");
+      pw2.addEventListener("change", update);
     }
     }
 
@@ -27,6 +35,8 @@ function checkTarget(e){
     if (email.value.indexOf("@") == -1){
       alert("Please enter a valid email");
       e.preventDefault();
+      email.classList.toggle("markReq");
+      email.addEventListener("change", update);
     }
 
     //check if all required fields are filled

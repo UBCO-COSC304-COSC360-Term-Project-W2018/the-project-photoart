@@ -57,7 +57,7 @@ input {
   width: 100%;
   margin-bottom: 2em;
 }
-#confirm{
+button[name=confChanges]{
   font-size: 1.5em;
   border: 0;
   background-color: rgba(103, 135, 156, 1);
@@ -67,7 +67,6 @@ input {
   width: 20em;
 }
 
-/*hover for confirm button NOT WORKING*/
 button[name=confChanges]:hover{
   background-color: #516b7c;
 }

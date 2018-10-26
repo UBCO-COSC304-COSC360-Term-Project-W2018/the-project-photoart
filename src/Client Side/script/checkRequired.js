@@ -28,5 +28,6 @@ function checkTarget(e){
 
 //If user inputs text, remove red warning
   function update(e){
-    e.target.classList.toggle("markReq");
+    if (e.target.value.length > 0 && e.target.classList.contains("markReq"))
+      e.target.classList.toggle("markReq");
   }
