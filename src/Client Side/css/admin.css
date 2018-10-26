@@ -1,10 +1,12 @@
 .leftFloat{
   float: left;
   background-color: rgba(255,255,255,1);
+  width:20em;
 }
 .rightside{
   margin-left: 35em;
   background-color: rgba(255,255,255,1);
+  width:40em;
 }
 .user{
   margin: 2em 0;
@@ -25,4 +27,17 @@ button[name="Edit Info"]{
 }
 .actions{
   height: 10em;
+}
+.photoWrapper{
+  float: left;
+}
+.price{
+  margin-left: 20em;
+
+}
+.photo p{
+  display: inline;
+}
+.photo{
+  float: left;
 }
