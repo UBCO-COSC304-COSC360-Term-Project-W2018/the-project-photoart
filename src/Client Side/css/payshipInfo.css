@@ -59,6 +59,7 @@ button[name=saveChanges]:hover{
   font-size: 30px;
 }
 
+/*dropdown bars*/
 select{
   height: 2em;
 }
