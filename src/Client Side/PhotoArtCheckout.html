@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/checkout.css">
+  </head>
+  <body>
+    <form method="post" action="profile.php"> <!-- profile.php will have to be changed to appropriate location -->
+      <fieldset>
+        <table>
+          <tr>
+            <td><label>First Name</label></td>
+            <td><label>Last Name</label></td>
+            </tr>
+          <tr>
+            <td><input class="button1" type="text" name="firstName"/></td>
+            <td><input class="button1" type="text" name="lastName"/></td>
+          </tr>
+          <tr><td colspan="2"><label>address</label><td></tr>
+          <tr><td colspan="2"><input class="button2" type="text" name="address"/></td></tr>
+          <tr>
+              <td><label>Country</label></td>
+              <td><label>Province</label></td>
+          </tr>
+          <tr>
+            <td>
+              <select name="country">
+                <option value="CA">CA</option>
+              </select></td>
+            <td colspan="2">
+              <select name="Province">
+                <option value="BC">BC</option>
+                <option value="AB">AB</option>
+                <option value="SK">SK</option>
+                <option value="MB">MB</option>
+                <option value="ON">ON</option>
+                <option value="QC">QC</option>
+              </select>
+            </td>
+          </tr>
+          <tr><td colspan="2"><label>Email</label></td></tr>
+          <tr><td colspan="2"><input class="button2" type="text" name="email"/></td><tr>
+          <tr><td colspan="2"><label>Payment method</label></td></tr>
+          <tr><td colspan="2">
+            <select name="Payment">
+              <option value="MasterCard">MasterCard</option>
+              <option value="Visa">Visa</option>
+            </select>
+            </td> <!-- should be the type "password" or "text"? -->
+          </tr>
+          <tr><td><label>CardNumber</label></td>
+              <td><label>CSV</label></td>
+          </tr>
+          <tr>  <td><input class="button2" type="text" name="CardNumber"></td>
+                <td><input class="button2" type="text" name="CardNumber"></td>
+          </tr>
+          <tr colspan="2">
+            <button type="button" name="Confirm">ConfirmOrder</button>
+          </tr>
+
+      </table>
+      </fieldset>
+    </form>
+
+  </body>
+</html>
