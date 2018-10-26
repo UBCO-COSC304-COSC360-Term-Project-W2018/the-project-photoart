@@ -7,12 +7,35 @@ function checkTarget(e){
 }
 
   function checkInput(e){
+    //check if passwords match
+    var pwd1 = document.getElementById("pwd1");
+    var pwd2 = document.getElementById("pwd2");
+    if (pwd1.value.length > 0){
+    if (pwd1.value !== pwd2.value){
+      alert("Passwords don't match");
+      e.preventDefault();
+    }
+    else if (pwd1.value.length < 8){
+      alert("Password must be at least 8 characters long");
+      e.preventDefault();
+    }
+    }
+
+    //check if email is valid
+    var email = document.getElementById("email");
+    if (email.value.length > 0)
+    if (email.value.indexOf("@") == -1){
+      alert("Please enter a valid email");
+      e.preventDefault();
+    }
+
     //check if all required fields are filled
     var req = document.getElementsByClassName("required");
     for(var i = 0; i < req.length; i++){
       if (req[i].classList.contains("markReq"))
-        if (req[i].value.length <= 0)
+        if (req[i].value.length <= 0){
           e.preventDefault();
+        }
         else {
           e.target.classList.toggle("markReq");
         }

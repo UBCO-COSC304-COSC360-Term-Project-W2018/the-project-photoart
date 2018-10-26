@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/general.css">
   <link rel="stylesheet" href="css/login.css">
+  <script type="text/javascript" src="script/checkRequired.js"></script>
   <!-- will add stylesheets, js and php header and footers
    (STYLE THEM AND THEN WE CAN COPY AND PASTE THEM INTO A HEADER AND FOOOTER PHP PAGES LATER ON) -->
    <script src="script/checkRequired.js"></script>
@@ -23,13 +24,13 @@
     <fieldset>
       <p id="formLogo" class="shadow">PhotoArt<p>
         <p>
-          <input type="text" name="username" placeholder="Username" required/>
+          <input class="required" type="text" name="username" placeholder="Username" required/>
         </p>
         <p>
-          <input type="password" name="password" placeholder="Password" required/>
+          <input class="required" type="password" name="password" placeholder="Password" required/>
         </p>
         <p id= "formLogin">
-        <button type="submit" name="loginSubmit" class="shadow">Log In</button> <!-- use javascript? or just make href to reference another page? DISCUSS -->
+        <button id="submit" type="submit" name="loginSubmit" class="shadow">Log In</button> <!-- use javascript? or just make href to reference another page? DISCUSS -->
         </p>
         <p>
           <a href="PhotoArtRegister.html" class="regStyle linkColor">Register</a> <!-- references register html page -->
