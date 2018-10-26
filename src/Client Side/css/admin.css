@@ -26,3 +26,15 @@ button[name="Edit Info"]{
 .actions{
   height: 10em;
 }
+.photoWrapper{
+  border: 1px solid black;
+  position: relative;
+}
+.price{
+  right: 1em;
+  position: absolute;
+  bottom: 1em;
+}
+.items button{
+  margin: 1em;
+}
