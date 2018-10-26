@@ -1,0 +1,28 @@
+.leftFloat{
+  float: left;
+  background-color: rgba(255,255,255,1);
+}
+.rightside{
+  margin-left: 35em;
+  background-color: rgba(255,255,255,1);
+}
+.user{
+  margin: 2em 0;
+  padding-left: 2em;
+  border-bottom: 1px solid black;
+
+}
+.user p{
+display: inline-block;
+
+}
+.actions button{
+  float: left;
+  margin: 2em 2em;
+}
+button[name="Edit Info"]{
+  clear: left;
+}
+.actions{
+  height: 10em;
+}
