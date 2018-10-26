@@ -40,6 +40,7 @@ button[name=saveChanges]{
   border-radius: 0px;
   width: 7.65em;
   height: 1.25em;
+  width: 100%;
 
 }
 
@@ -65,7 +66,6 @@ font-size: 1.125em;
   background-color: rgba(255, 255, 255, 1);
   padding: 1em 0em;
   margin-right: 2em;
-  border-radius: 1em;
   overflow: auto;
 
 }
@@ -80,6 +80,7 @@ font-size: 1.125em;
   margin-top: 3em;
   margin-left: 40em;
   margin-bottom: 2em;
+  margin-right: 2em;
 }
 
 /*dropdown bars*/
