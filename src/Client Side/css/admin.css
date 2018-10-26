@@ -29,28 +29,12 @@ button[name="Edit Info"]{
   height: 10em;
 }
 .photoWrapper{
-<<<<<<< HEAD
   float: left;
 }
 .price{
   margin-left: 20em;
 
 }
-.photo p{
-  display: inline;
-}
 .photo{
   float: left;
-=======
-  border: 1px solid black;
-  position: relative;
-}
-.price{
-  right: 1em;
-  position: absolute;
-  bottom: 1em;
-}
-.items button{
-  margin: 1em;
->>>>>>> 2ce849989363a08bb4dc60eb9077599adf254699
 }
