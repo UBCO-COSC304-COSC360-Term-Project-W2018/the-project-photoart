@@ -58,3 +58,7 @@ button[name=saveChanges]:hover{
   text-align-last: center;
   font-size: 30px;
 }
+
+select{
+  height: 2em;
+}
