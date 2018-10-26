@@ -3,7 +3,7 @@
   padding: 3em;
   background-color: rgba(255, 255, 255, 0.7);
   width: 45em;
-  height: 26em;
+  height: 29em;
   margin: auto;
   margin-top: 5em;
 }
@@ -61,6 +61,7 @@ input[name=regPassword]{
   left: 7em;
   height: 2em;
   width: 31.80em;
+  margin-bottom: 1em;
 }
 
 /*styling the register button*/
