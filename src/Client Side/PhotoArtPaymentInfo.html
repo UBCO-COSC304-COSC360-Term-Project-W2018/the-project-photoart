@@ -14,9 +14,9 @@
   <header>
     <a href="PhotoArtMain.html"><h1>PhotoArt</h1></a>
     <nav>
-    <a href="PhotoArtExplore.html"><button type="button" name="exploreBtn">Explore</button></a>
-    <a href="PhotoArtLogin.html"><button type="button" name="loginBtn">Login</button></a> <!-- use javascript to make these reference register page and login page? -->
-    <a href="PhotoArtRegister.html"><button type="button" name="registerBtn">Register</button></a>
+      <a href="PhotoArtExplore.html" class="navBtns">Explore</a>
+      <a href="PhotoArtLogin.html" class="navBtns">Login</a> <!-- use javascript to make these reference register page and login page? -->
+      <a href="PhotoArtRegister.html" class="navBtns">Register</a>
     </nav>
   </header>
   <div id="entireBG">
@@ -32,6 +32,7 @@
   <form method="post" action="profile.php"> <!-- profile.php will have to be changed to appropriate location -->
     <fieldset>
       <table>
+        <tbody>
         <tr>
           <td><label>First Name</label></td>
           <td><label>Last Name</label></td>
@@ -67,7 +68,7 @@
           </td>
         </tr>
         <tr><td colspan="2"><label>Email</label></td></tr>
-        <tr><td colspan="2"><input class="button2 required" type="text" name="email"/></td><tr>
+        <tr><td colspan="2"><input class="button2 required" type="text" name="email"/></td></tr>
         <tr><td colspan="2"><label>Payment method</label></td></tr>
         <tr><td colspan="2">
           <select name="Payment">
@@ -84,13 +85,13 @@
               <td><input class="button2" type="month" name="CardDate" value="2020-01" required></td>
               <td><input maxlength="3" class="button2 required" type="text" name="CardCSV"></td>
         </tr>
-    </table>
+    </tbody></table>
     <button id="submit" type="submit" name="saveChanges" class="shadow">Save Changes</button>
     </fieldset>
   </form>
 </div>
   <footer>
-    <p>&copy 2018 PhotoArt All Rights Reserved | Website created for COSC 360/304</p>
+    <p>&copy; 2018 PhotoArt All Rights Reserved | Website created for COSC 360/304</p>
   </footer>
 </body>
 </html>
