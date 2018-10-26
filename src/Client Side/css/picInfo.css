@@ -1,7 +1,9 @@
 #surroundingBackground{
   background-color:  rgba(255, 255, 255, 0.7);
-  width: 100em;
+  max-width: 90em;
   text-align: center;
+  margin: 3em auto;
+
 }
 
 /*main picture sizing*/
@@ -11,7 +13,8 @@
 
 /*photo positioning*/
 figure{
-  /* margin: 2em; */
+  margin: 0;
+  padding: 0;
   display: inline-block;
   /* max-width: 30em; */
 }
@@ -34,17 +37,13 @@ figure{
 
 /*image info background styling*/
 #imgInfoBG{
-  margin: 2em;
   display: inline-block;
 }
 
 #imgInfoNoBtn{
   width: 40em;
   height: 25.10em;
-  left: 39em;
-  bottom: 26.15em;
   background-color: rgba(255, 255, 255, 1);
-  overflow: hidden;
 }
 
 figcaption{
@@ -54,42 +53,28 @@ figcaption{
 
 /*Image info heading styling*/
 h2{
-  position: relative;
-  top: 0.5em;
-  left: 0.5em;
   font-size: 3em;
   color: #67879c;
 }
 
 /*the following are stylings of the info of the picture, shotinfo, and cost in respective order*/
 #uniqueInfo{
-  position: relative;
-  top: 2em;
-  left: 1.5em;
   font-size: 1em;
   color: #67879c;
 }
 
 .shotInfo{
-  position: relative;
-  top: 5em;
-  left: 1em;
   font-size: 1.5em;
   color: #67879c;
 }
 
 .picCost{
-  position: relative;
-  top: 4.5em;
-  /* left: 16.5em; */
   font-size: 2em;
   color: #67879c;
 }
 
 /*button styling and coloring*/
 button[name=addCart]{
-  clear:both;
-  float: left;
   font-size: 2.5em;
   border: 0;
   background-color: rgb(103, 135, 156, 1);
