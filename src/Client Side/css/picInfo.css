@@ -1,9 +1,7 @@
 #surroundingBackground{
-  background-color:  rgba(255, 255, 255, 0.7);
-  max-width: 90em;
+  background-color:  rgba(255, 255, 255, 0.6);
+  margin: 5em;
   text-align: center;
-  margin: 3em auto;
-
 }
 
 /*main picture sizing*/
@@ -13,42 +11,30 @@
 
 /*photo positioning*/
 figure{
-  margin: 0;
+  margin: 3em;
   padding: 0;
   display: inline-block;
-  /* max-width: 30em; */
 }
-
-/* .container
-{
-     text-align: center;
+figcaption{
+  font-size: 2em;
+  color: #67879c;
+  text-align: right;
+  padding-top: 0.4em;
 }
-.left-div
-{
-     display: inline-block;
-     max-width: 300px;
-     vertical-align: top;
-}
-.right-div
-{
-     display: inline-block;
-     max-width: 150px;
-} */
 
 /*image info background styling*/
 #imgInfoBG{
   display: inline-block;
+  margin: 3em;
 }
 
 #imgInfoNoBtn{
-  width: 40em;
-  height: 25.10em;
-  background-color: rgba(255, 255, 255, 1);
-}
-
-figcaption{
-  font-size: 2em;
-  color: #67879c;
+  width: 38em;
+  height: 23.10em;
+  background-color: rgba(255, 255, 255, 0.6);
+  text-align: left;
+  padding: 1em;
+  position: relative;
 }
 
 /*Image info heading styling*/
@@ -71,20 +57,81 @@ h2{
 .picCost{
   font-size: 2em;
   color: #67879c;
+  position: absolute;
+  right: 1em;
+  bottom: 0.5em;
 }
 
 /*button styling and coloring*/
 button[name=addCart]{
   font-size: 2.5em;
   border: 0;
-  background-color: rgb(103, 135, 156, 1);
+  background-color: rgba(103, 135, 156, 1);
   border-radius: 0px;
-  width: 10.75em;
+  width: 100%;
   height: 1.25em;
   color: white;
 }
 
 /*hover for register button*/
-button[name=addCart]:hover{
+button:hover{
+  background-color: #516b7c;
+}
+
+/* Share Button Style */
+button[name=shareBtn]{
+  border: 0;
+  background-color: rgba(103, 135, 156, 1);
+  border-radius: 0px;
+  height: 2.25em;
+  color: white;
+  padding: 0.5em;
+  position: absolute;
+  bottom: 1.5em;
+  left: 1.5em;
+}
+
+/* Reviews Styles */
+#reviewSec{
+  background-color: rgba(255, 255, 255, 0.6);
+  margin-top: 5em;
+  margin: 5em;
+  padding: 5em;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  margin-bottom: 8em;
+}
+#reviewSec h3{
+  font-size: 26pt;
+  float: left;
+}
+.review{
+  clear: both;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin:auto;
+}
+.author{
+  color: rgba(103, 135, 156, 1);
+  padding: 1em;
+  margin-top: 1em;
+  font-size: 1.2em;
+}
+.comment{
+  padding: 1em;
+  padding-top: 0;
+}
+/*writeReview button styling and coloring*/
+button[name=writeReview]{
+  float: right;
+  font-size: 2em;
+  border: 0;
+  background-color: rgba(103, 135, 156, 1);
+  border-radius: 0px;
+  width: 10.75em;
+  height: 1.25em;
+  color: white;
+}
+/*hover for write review button*/
+button[name=writeReview]:hover{
   background-color: #516b7c;
 }
