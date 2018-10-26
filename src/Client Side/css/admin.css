@@ -3,6 +3,10 @@
   background-color: rgba(255,255,255,1);
   width:20em;
 }
+.members{
+  overflow-y: scroll;
+  max-height: 50em;
+}
 .rightside{
   margin-left: 35em;
   background-color: rgba(255,255,255,1);
@@ -29,21 +33,17 @@ button[name="Edit Info"]{
   height: 10em;
 }
 .photoWrapper{
-<<<<<<< HEAD
-  float: left;
+  padding: 1em;
+  border: 1px solid black;
+  position: relative;
 }
 .price{
-  margin-left: 20em;
 
 }
 .photo p{
   display: inline;
 }
 .photo{
-  float: left;
-=======
-  border: 1px solid black;
-  position: relative;
 }
 .price{
   right: 1em;
@@ -52,5 +52,4 @@ button[name="Edit Info"]{
 }
 .items button{
   margin: 1em;
->>>>>>> 2ce849989363a08bb4dc60eb9077599adf254699
 }
