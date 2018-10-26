@@ -4,16 +4,20 @@
 /* space between header and columns*/
 .search-container{
   clear: both;
-  margin: 18em 37em;'
+  margin: 10em 34em;
   top: 10em;
   }
   /* */
-  .search-container input{
-    width:25em;
-    height: 2em;
-    align-items: center;
+.search-container input{
+  font-size: 1em;
+  transform: scale(1.75,1.75);
+  width: 30em;
+  height: 2em;
+  opacity: 0.7;
 
+  align-items: center;
   }
+
 .columnWrapper{
 height:30em;
 background-color: rgba(255, 255, 255, 0.7);
