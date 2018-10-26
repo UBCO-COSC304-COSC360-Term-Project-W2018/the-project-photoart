@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Profile - PhotoArt</title>
+  <title>Payment/Shipping - PhotoArt</title>
   <!-- will add stylesheets, js and php header and footers
    (STYLE THEM AND THEN WE CAN COPY AND PASTE THEM INTO A HEADER AND FOOOTER PHP PAGES LATER ON) -->
-   <link rel="stylesheet" href="css/reset.css" />
-   <link rel="stylesheet" href="css/general.css" />
-   <link rel="stylesheet" href="css/paymentInfo.css" />
+   <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+   <link rel="stylesheet" type="text/css" href="css/general.css"/>
+   <link rel="stylesheet" type="text/css" href="css/payshipInfo.css"/>
 </head>
 <body>
   <header>
@@ -17,18 +17,12 @@
     <a href="PhotoArtRegister.html"><button type="button" name="registerBtn">Register</button></a>
     </nav>
   </header>
-  <div id="entireBG">
-    <h2>Payment and Shipping Information</h2>
-    <div id="sideBar">
-      <img id="profileImg" src="profPic.jpg" alt="Profile Picture" title="Profile Picture">
-      <a href="" id="changePic">Change Profile Picture</a>
-      <!-- CHANGING PROFILE PICTURE HOWTO LINK: https://stackoverflow.com/questions/40441482/making-user-edited-profile-pictures-html -->
-      <a href="PhotoArtProfilePage.html" class="sbarFunctions">Edit Profile</a>
-      <a href="" class="sbarFunctions"><strong>Payment/Shipping Information</strong></a>
-      <a href="" class="sbarFunctions">Log Out</a><!-- these buttons will have to have functionality added -->
-    </div>
+  <div id="mainBG">
+    <p>Payment and Shipping <br>Information</br></p>
+    
   <form method="post" action="profile.php"> <!-- profile.php will have to be changed to appropriate location -->
     <fieldset>
+
       <table>
         <tr>
           <td><label>First Name</label></td>
@@ -39,18 +33,18 @@
           <td><input class="button1" type="text" name="lastName"/></td>
         </tr>
         <tr><td colspan="2"><label>Shipping Address</label><td></tr>
-        <tr><td colspan="2"><input class="shipping" type="text" name="address"/></td></tr>
+        <tr><td colspan="2"><input class="button2" type="text" name="address"/></td></tr>
         <tr>
             <td><label>Country</label></td>
             <td><label>Province</label></td>
         </tr>
         <tr>
           <td>
-            <select name="country" class="margin">
+            <select name="country">
               <option value="CA">CA</option>
             </select></td>
           <td colspan="2">
-            <select name="Province" class="margin">
+            <select name="Province">
               <option value="BC">BC</option>
               <option value="AB">AB</option>
               <option value="SK">SK</option>
@@ -87,8 +81,5 @@
     </fieldset>
   </form>
 </div>
-  <footer>
-    <p>&copy 2018 PhotoArt All Rights Reserved | Website created for COSC 360/304</p>
-  </footer>
 </body>
 </html>
