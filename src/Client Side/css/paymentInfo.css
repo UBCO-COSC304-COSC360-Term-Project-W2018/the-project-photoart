@@ -1,0 +1,83 @@
+/* Container for profile info */
+#entireBG{
+  background-color: rgba(255, 255, 255, 1);
+  opacity: 0.6;
+  margin: auto;
+  width: 70em;
+  height: 40em;
+  margin-top: 5em;
+}
+/* My Profile heading */
+#entireBG h2{
+  float: left;
+  margin-left: 3em;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  font-size: 26pt;
+}
+/* Container with profile img and links */
+#sideBar{
+  clear: both;
+  margin-left: 5em;
+  float: left;
+  width: 15em;
+}
+.sbarFunctions{
+  display: block;
+  margin: 0.25em;
+}
+/* Container containing profile inputs */
+form{
+  float: left;
+  margin-left: 8em;
+  position: relative;
+}
+fieldset{
+  border: none;
+}
+input {
+    height: 2em;
+}
+#profileImg{
+  padding: 2em;+
+}
+#changePic{
+  display: block;
+  font-size: 8pt;
+  text-align: center;
+  margin-bottom: 5em;
+}
+/* Input Data */
+/* Button 1 is the small width, Button 2 is the longer width */
+.button1{
+  width: 100%;
+  margin-bottom: 2em;
+}
+.button2{
+  width: 100%;
+  margin-bottom: 2em;
+}
+.shipping{
+  width: 100%;
+}
+.margin{
+  margin-bottom: 2em;
+}
+button[name="saveChanges"]{
+  font-size: 1.5em;
+  border: 0;
+  background-color: rgba(103, 135, 156, 1);
+  border-radius: 0px;
+  height: 1.5em;
+  color: white;
+  width: 95%;
+}
+
+/*hover for confirm button NOT WORKING*/
+button:hover{
+  background-color: #516b7c;
+}
+
+td{
+  padding-right: 2em;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile - PhotoArt</title>
+  <!-- will add stylesheets, js and php header and footers
+   (STYLE THEM AND THEN WE CAN COPY AND PASTE THEM INTO A HEADER AND FOOOTER PHP PAGES LATER ON) -->
+   <link rel="stylesheet" href="css/reset.css" />
+   <link rel="stylesheet" href="css/general.css" />
+   <link rel="stylesheet" href="css/paymentInfo.css" />
+</head>
+<body>
+  <header>
+    <a href="PhotoArtMain.html"><h1>PhotoArt</h1></a>
+    <nav>
+    <a href="PhotoArtExplore.html"><button type="button" name="exploreBtn">Explore</button></a>
+    <a href="PhotoArtLogin.html"><button type="button" name="loginBtn">Login</button></a> <!-- use javascript to make these reference register page and login page? -->
+    <a href="PhotoArtRegister.html"><button type="button" name="registerBtn">Register</button></a>
+    </nav>
+  </header>
+  <div id="entireBG">
+    <h2>Payment and Shipping Information</h2>
+    <div id="sideBar">
+      <img id="profileImg" src="profPic.jpg" alt="Profile Picture" title="Profile Picture">
+      <a href="" id="changePic">Change Profile Picture</a>
+      <!-- CHANGING PROFILE PICTURE HOWTO LINK: https://stackoverflow.com/questions/40441482/making-user-edited-profile-pictures-html -->
+      <a href="" class="sbarFunctions">Edit Profile</a>
+      <a href="PhotoArtPaymentandShipping.html" class="sbarFunctions">Payment/Shipping Information</a>
+      <a href="" class="sbarFunctions">Log Out</a><!-- these buttons will have to have functionality added -->
+    </div>
+  <form method="post" action="profile.php"> <!-- profile.php will have to be changed to appropriate location -->
+    <fieldset>
+      <table>
+        <tr>
+          <td><label>First Name</label></td>
+          <td><label>Last Name</label></td>
+          </tr>
+        <tr>
+          <td><input class="button1" type="text" name="firstName"/></td>
+          <td><input class="button1" type="text" name="lastName"/></td>
+        </tr>
+        <tr><td colspan="2"><label>Shipping Address</label><td></tr>
+        <tr><td colspan="2"><input class="shipping" type="text" name="address"/></td></tr>
+        <tr>
+            <td><label>Country</label></td>
+            <td><label>Province</label></td>
+        </tr>
+        <tr>
+          <td>
+            <select name="country" class="margin">
+              <option value="CA">CA</option>
+            </select></td>
+          <td colspan="2">
+            <select name="Province">
+              <option value="BC">BC</option>
+              <option value="AB">AB</option>
+              <option value="SK">SK</option>
+              <option value="MB">MB</option>
+              <option value="ON">ON</option>
+              <option value="QC">QC</option>
+              <option value="NB">NB</option>
+              <option value="NS">NS</option>
+              <option value="NL">NL</option>
+              <option value="PE">PE</option>
+            </select>
+          </td>
+        </tr>
+        <tr><td colspan="2"><label>Email</label></td></tr>
+        <tr><td colspan="2"><input class="button2" type="text" name="email"/></td><tr>
+        <tr><td colspan="2"><label>Payment method</label></td></tr>
+        <tr><td colspan="2">
+          <select name="Payment">
+            <option value="MasterCard">MasterCard</option>
+            <option value="Visa">Visa</option>
+          </select>
+          </td> <!-- should be the type "password" or "text"? -->
+        </tr>
+        <tr><td><label>CardNumber</label></td>
+            <td><label>Expiry Date</label></td>
+            <td><label>CSV</label></td>
+        </tr>
+        <tr>  <td><input class="button2" type="text" name="CardNumber"></td>
+              <td><input class="button2" type="text" name="CardNumber"></td>
+              <td><input class="button2" type="text" name="CardNumber"></td>
+        </tr>
+    </table>
+    <button type="button" name="saveChanges" class="shadow">Save Changes</button>
+    </fieldset>
+  </form>
+</div>
+  <footer>
+    <p>&copy 2018 PhotoArt All Rights Reserved | Website created for COSC 360/304</p>
+  </footer>
+</body>
+</html>

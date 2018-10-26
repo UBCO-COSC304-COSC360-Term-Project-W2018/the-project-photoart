@@ -73,11 +73,6 @@ button[name=addCart]{
   color: white;
 }
 
-/*hover for register button*/
-button:hover{
-  background-color: #516b7c;
-}
-
 /* Share Button Style */
 button[name=shareBtn]{
   border: 0;
@@ -132,6 +127,6 @@ button[name=writeReview]{
   color: white;
 }
 /*hover for write review button*/
-button[name=writeReview]:hover{
+button:hover{
   background-color: #516b7c;
 }
