@@ -36,12 +36,6 @@ button[name="Edit Info"]{
   padding: 1em;
   border: 1px solid black;
   position: relative;
-  float: left;
-}
-.photo{
-  float: left;
-  border: 1px solid black;
-  position: relative;
 }
 .price{
   right: 1em;
@@ -50,4 +44,7 @@ button[name="Edit Info"]{
 }
 .items button{
   margin: 1em;
+}
+.scrollable{
+  overflow-y: scroll;
 }
