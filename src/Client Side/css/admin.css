@@ -3,6 +3,10 @@
   background-color: rgba(255,255,255,1);
   width:20em;
 }
+.members{
+  overflow-y: scroll;
+  max-height: 50em;
+}
 .rightside{
   margin-left: 35em;
   background-color: rgba(255,255,255,1);
@@ -29,17 +33,7 @@ button[name="Edit Info"]{
   height: 10em;
 }
 .photoWrapper{
-  float: left;
-}
-.price{
-  margin-left: 20em;
-
-}
-.photo{
-  float: left;
-<<<<<<< HEAD
-=======
-
+  padding: 1em;
   border: 1px solid black;
   position: relative;
 }
@@ -51,8 +45,7 @@ button[name="Edit Info"]{
 .items button{
   margin: 1em;
 }
-
-.items button{
-  /*delete this MATT */s
->>>>>>> fc4a84be5d35947ace73a8384fa3d206a691d17a
+.scrollable{
+  overflow-y: scroll;
+  max-height: 50em;
 }
