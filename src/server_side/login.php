@@ -1,5 +1,6 @@
 <?php
-//credentials nested in connection.php 
+//credentials nested in connection.php
+session_start();
 include('connection.php');
 //setting a variable to make sure all the code does not get executed if it set to false
   $check = true;
@@ -23,24 +24,25 @@ $check = false;
   }
   // if everything went right
 if($check= true){
- //making a variable to check if the username and password exist in the database 
+ //making a variable to check if the username and password exist in the database
   $found = false;
-  $results=mysqli_query($con,"SELECT username,password from users");
+  $results=mysqli_query($con,"SELECT username,password from Member");
   $hashed = md5($pwd);
-  //returns an array called row with keys that are what you are returning from the sql query 
+  //returns an array called row with keys that are what you are returning from the sql query
   while($row = $results->fetch_assoc()){
 //strcasecmp is a method that compares two strings and ingores upper and lower case(i.e Hello and hello will return true)
 //comparing the value from database and value given in form
     if(strcasecmp($row['username'],$uName)==0&&strcasecmp($row['password'],$hashed)==0){
-      echo "<p> valid account</p>";
-      //if they are user logs in 
+      $_SESSION['username']= $row['username'];
+      header("location: ../client_side/PhotoArtMain.php");
+      //if they are user logs in
       $found = true;
       break;
     }
 }if($found == false){
-  echo "<p>username and/or password are invalid";
+    header("location: ".$_SERVER['HTTP_REFERER']);
 }
 }
 mysqli_close($con);
-}
+
  ?>

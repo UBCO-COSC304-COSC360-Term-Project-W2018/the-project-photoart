@@ -9,15 +9,7 @@
    <link rel="stylesheet" type="text/css" href="css/main.css"/>
 </head>
 <body>
-  <header>
-    <a href="PhotoArtMain.html"><h1>PhotoArt</h1></a>
-    <nav>
-      <a href="PhotoArtExplore.html" class="navBtns">Explore</a>
-      <a href="PhotoArtLogin.html" class="navBtns">Login</a> <!-- use javascript to make these reference register page and login page? -->
-      <a href="PhotoArtRegister.html" class="navBtns">Register</a>
-      <a href="PhotoArtCart.html" class="navBtns">Cart</a>
-    </nav>
-  </header>
+  <?php require('../server_side/header.php'); ?>
   <div class="search-container">
     <form action="something.php"> <!-- this can be added later, also the following pages may be useful
       https://www.w3schools.com/howto/howto_css_searchbar.asp

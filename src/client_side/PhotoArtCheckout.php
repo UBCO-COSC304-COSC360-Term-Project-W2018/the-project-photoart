@@ -11,15 +11,7 @@
    <script type="text/javascript" src="script/paymentInfoCheck.js"></script>
 </head>
 <body>
-  <header>
-    <a href="PhotoArtMain.html"><h1>PhotoArt</h1></a>
-    <nav>
-      <a href="PhotoArtExplore.html" class="navBtns">Explore</a>
-      <a href="PhotoArtLogin.html" class="navBtns">Login</a> <!-- use javascript to make these reference register page and login page? -->
-      <a href="PhotoArtRegister.html" class="navBtns">Register</a>
-      <a href="PhotoArtCart.html" class="navBtns">Cart</a>
-    </nav>
-  </header>
+<?php require('../server_side/header.php'); ?>
   <div id="mainBG">
     <h1>Payment and Shipping Information</h1>
   <form method="post" action="profile.php"> <!-- profile.php will have to be changed to appropriate location -->
