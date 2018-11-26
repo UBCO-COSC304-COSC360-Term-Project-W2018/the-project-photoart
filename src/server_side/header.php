@@ -5,7 +5,6 @@ if(isset($_SESSION['username'])){
     <a href='PhotoArtMain.php'><h1>PhotoArt</h1></a>
     <nav>
       <a href='PhotoArtExplore.php' class='navBtns'>Explore</a>
-      <a href='PhotoArtRegister.php' class='navBtns'>Register</a>
       <a href='PhotoArtCart.php' class='navBtns'>Cart</a>
       <a href='../server_side/logout.php' class='navBtns'>Logout</a>
     </nav>
