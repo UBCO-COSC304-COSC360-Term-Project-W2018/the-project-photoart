@@ -18,7 +18,7 @@
   }
 
 .columnWrapper{
-height:30em;
+height:40em;
 background-color: rgba(255, 255, 255, 0.7);
 
 }
@@ -33,15 +33,21 @@ background-color: rgba(255, 255, 255, 0.7);
   margin-left: 2%;
   margin-right: 2%;
   width:31%;
-  height:20em;
-  text-align:
+  height:30em;
+  text-align: center;
 
 }
 #middle{
 width: 30%;
 height:37%;
 text-align: center;
-height: 20em;
+height: 30em;
+}
+
+/* this is the size styling for the image of the week*/
+.columnWrapper #middle span img{
+width: 90%;
+height: auto;
 }
 
 footer{
