@@ -33,7 +33,7 @@
         <a href="PhotoArtPaymentInfo.php" class="sbarFunctions">Payment/Shipping Information</a>
         <a href="logout.php" class="sbarFunctions">Log Out</a> <!-- this button logs out the page -->
       </div>
-        <form method="post" action="../server_side/profile.php">
+        <form method="post" action="../server_side/profileUpdate.php">
           <fieldset>
             <table>
               <tbody>
@@ -48,12 +48,13 @@
               <tr><td><label>Username</label><td></tr>
               <tr><td colspan="2"><input class="button2 required" type="text" name="username" value= "<?php echo $username; ?>"/></td></tr>
               <tr><td><label>About Me</label></td></tr>
-              <tr><td colspan="2"><textarea class="button2" placeholder="Tell us about yourself!" value= "<?php echo $bio; ?>"></textarea></td></tr>
+              <tr><td colspan="2"><textarea class="button2" placeholder="Tell us about yourself!" name="bio" value= "<?php echo $bio; ?>"></textarea></td></tr>
               <tr><td><label>Email</label></td></tr>
               <tr><td colspan="2"><input class="button2 required" type="text" name="email" value= "<?php echo $email; ?>"/></td></tr>
               <tr><td><label>Change Password</label></td></tr>
-              <tr><td><input class="button1" type="password" name="oldPass" placeholder="Old Password"/></td> <!-- should be the type "password" or "text"? -->
-              <td><input class="button1" type="password" name="newPass" placeholder="New Password"/></td></tr>
+              <tr><td><input class="button1" type="password" name="oldPass" placeholder="Old Password"/></td></tr> <!-- should be the type "password" or "text"? -->
+              <tr><td><input class="button1" type="password" name="newPass" placeholder="New Password"/></td>
+                  <td><input class="button1" type="password" name="confPass" placeholder="Confirm Password"/></td></tr>
               <tr><td colspan="2"><button id="submit" class="button2" type="submit" name="confChanges">Confirm Changes</button></td></tr>
           </tbody></table>
           </fieldset>
