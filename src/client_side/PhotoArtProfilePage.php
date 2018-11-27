@@ -26,8 +26,7 @@ if(isset($_SESSION['username'])){
              <a href='PhotoArtPaymentInfo.php' class='sbarFunctions'>Payment/Shipping Information</a>
 
            </div>
-             <form method='post' action=''../server_side/profile.php'>
-               <fieldset>
+
                  <table>
                    <tbody>
                    <tr>
@@ -41,12 +40,11 @@ if(isset($_SESSION['username'])){
                    <tr><td><label>Username</label><td></tr>
                    <tr><td colspan='2'><p class='button2 required'>".$username."</p></td></tr>
                    <tr><td><label>About Me</label></td></tr>
-                   <tr><p colspan='2'>".$bio."</td></tr>
+                   <tr><td colspan='2'><p>".$bio."</p></td></tr>
                    <tr><td><label>Email</label></td></tr>
                    <tr><td colspan='2'><p class='button2 required'>".$email."</p></td></tr>
                    </tbody></table>
-               </fieldset>
-             </form>
+
          </div>
        <footer>
          <p>&copy; 2018 PhotoArt All Rights Reserved | Website created for COSC 360/304</p>

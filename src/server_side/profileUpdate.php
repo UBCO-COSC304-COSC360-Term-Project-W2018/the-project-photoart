@@ -3,6 +3,7 @@ require('connection.php');
 error_reporting(E_ALL);
 ini_set('display_erros',1);
 session_start();
+if(isset($_SESSION['username'])){
 if($_SERVER["REQUEST_METHOD"]=="POST"){
   if(isset($_POST['firstName'])&& isset($_POST['lastName'])&& isset($_POST['username'])&& isset($_POST['email'])&&isset($_POST['oldPass'])&&isset($_POST['newPass'])){
     $fName= $_POST['firstName'];
@@ -38,13 +39,16 @@ if($check ==true && $stmt=$con->prepare( "UPDATE User set username=?,firstName=?
     $hashed = md5($pwd);
      $stmt->bind_param('sssssss',$uName,$fName,$lName,$email,$hashed,$bio,$_SESSION['username']);
      $stmt->execute();
+     $_SESSION['username']= $uName;
      echo "<script type ='text/javascript'>
      alert('Profile updated!')
      location='../client_side/PhotoArtEditProfile.php'
      </script>";
 
 }
-
+}else{
+  header("location: processLogin.php");
+}
 
 mysqli_close($con);
 
