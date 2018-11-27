@@ -37,16 +37,8 @@
           <fieldset>
             <table>
               <tbody>
+            
               <tr>
-                <td><label>First Name</label></td>
-                <td><label>Last Name</label></td>
-                </tr>
-              <tr>
-                <td><input class="button1" type="text" name="firstName" value="<?php echo $firstN; ?>"/></td>
-                <td><input class="button1" type="text" name="lastName" value ="<?php echo $lastN; ?>" /></td>
-              </tr>
-              <tr><td><label>Username</label><td></tr>
-              <tr><td colspan="2"><input class="button2 required" type="text" name="username" value= "<?php echo $username; ?>"/></td></tr>
               <tr><td><label>About Me</label></td></tr>
               <tr><td colspan="2"><textarea class="button2" placeholder="Tell us about yourself!" name="bio" value= "<?php echo $bio; ?>"></textarea></td></tr>
               <tr><td><label>Email</label></td></tr>
