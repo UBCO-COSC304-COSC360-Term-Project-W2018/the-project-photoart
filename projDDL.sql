@@ -9,6 +9,8 @@ create table Warehouse (
 
 create table Product (
 	upc		int,
+	title 		varchar(50) not null,
+	category	varchar(50),
 	price		DECIMAL(8,2) not null,
 	imageLink	varchar(1000) not null,
 	description	text,
