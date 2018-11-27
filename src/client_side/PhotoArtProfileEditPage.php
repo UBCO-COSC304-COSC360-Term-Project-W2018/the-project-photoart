@@ -20,10 +20,10 @@
         <a href="" id="changePic">Change Profile Picture</a>
         <!-- CHANGING PROFILE PICTURE HOWTO LINK: https://stackoverflow.com/questions/40441482/making-user-edited-profile-pictures-html -->
         <a href="" class="sbarFunctions"><strong>Edit Profile</strong></a>
-        <a href="PhotoArtPaymentInfo.html" class="sbarFunctions">Payment/Shipping Information</a>
-        <a href="" class="sbarFunctions">Log Out</a><!-- these buttons will have to have functionality added -->
+        <a href="PhotoArtPaymentInfo.php" class="sbarFunctions">Payment/Shipping Information</a>
+        <a href="logout.php" class="sbarFunctions">Log Out</a> <!-- this button logs out the page -->
       </div>
-        <form method="post" action="profile.php"> <!-- profile.php will have to be changed to appropriate location -->
+        <form method="post" action="../server_side/profile.php">
           <fieldset>
             <table>
               <tbody>
