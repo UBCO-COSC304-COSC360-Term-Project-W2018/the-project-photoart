@@ -22,6 +22,7 @@ create table User (
 	firstName	varchar(50) not null,
 	lastName	varchar(50) not null,
 	email 		varchar(100) not null,
+	bio		text,
 	primary key	(username)
 );
 

@@ -8,12 +8,6 @@ echo  "<link rel='stylesheet' href='css/reset.css' />
  <script type='text/javascript' src='script/checkRequired.js'></script>
  <script type='text/javascript' src='script/profilePage.js'></script>";
 if(isset($_SESSION['username'])){
-  if($_SERVER["REQUEST_METHOD"] == "POST"){
-  $firstname = $_POST["firstName"];
-  $lastname = $_POST["lastName"];
-  $username = $_POST["username"];
-  $email = $_POST["email"];
-}
     $sql = $con->prepare("SELECT username, firstName, lastName, email,bio FROM User WHERE username = ?");
     $sql->bind_param("s", $_SESSION['username']);
     $sql->execute();
@@ -21,6 +15,7 @@ if(isset($_SESSION['username'])){
     $outArray = array();
     while($row = $sql->fetch()){
       $outArray = array('username'=>$username, 'firstName'=>$firstN, 'lastName'=>$lastN, 'email'=>$email,'bio'=>$bio);
+
 }
       echo"<div id='entireBG' class='shadow'>
            <h2>My Profile</h2>
