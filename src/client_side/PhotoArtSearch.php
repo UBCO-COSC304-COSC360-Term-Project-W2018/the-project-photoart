@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search - PhotoArt</title>
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/general.css"/>
+</head>
+
 <?php
 
 require('../server_side/header.php');
@@ -27,3 +35,4 @@ require('../server_side/connection.php');
   echo "There are no results matching your search!";
   }
  ?>
+ </html>
