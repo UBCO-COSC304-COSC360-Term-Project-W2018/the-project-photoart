@@ -119,8 +119,8 @@ create table Cart (
 );		
 
 
-create table ProdInCart (
-	cartId 		int auto_increment,
+create table InCart (
+	cartId 		int,
 	upc		int,
 	price		DECIMAL(8,2) not null,
 	quantity	int,
@@ -129,4 +129,13 @@ create table ProdInCart (
 	foreign key (upc) references Product(upc) on delete cascade on update cascade
 ); 
 
-alter table ProdInCart add column totalPrice decimal(8,2) as (price*quantity);	
+alter table InCart add column totalPrice decimal(8,2) as (price*quantity);	
+
+create table Review (
+	username 	varchar(50),
+	upc		int,
+	details		text,
+	primary key (username, upc),
+	foreign key (username) references User (username) on delete cascade on update cascade,
+	foreign key (upc) references Product (upc) on delete cascade on update cascade
+);
