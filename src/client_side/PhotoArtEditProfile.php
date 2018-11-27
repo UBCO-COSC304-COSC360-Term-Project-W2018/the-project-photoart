@@ -12,7 +12,17 @@
 
 </head>
 <body>
-<?php require('../server_side/header.php'); ?>
+<?php require('../server_side/header.php');
+      require('../server_side/connection.php');
+    $sql = $con->prepare("SELECT username, firstName, lastName, email,bio FROM User WHERE username = ?");
+    $sql->bind_param("s", $_SESSION['username']);
+    $sql->execute();
+    $sql->bind_result($username, $firstN, $lastN, $email,$bio);
+    $outArray = array();
+    while($row = $sql->fetch()){
+      $outArray = array('username'=>$username, 'firstName'=>$firstN, 'lastName'=>$lastN, 'email'=>$email,'bio'=>$bio);
+}
+?>
     <div id="entireBG" class="shadow">
       <h2>My Profile</h2>
       <div id="sideBar">
@@ -32,15 +42,15 @@
                 <td><label>Last Name</label></td>
                 </tr>
               <tr>
-                <td><input class="button1" type="text" name="firstName"/></td>
-                <td><input class="button1" type="text" name="lastName"/></td>
+                <td><input class="button1" type="text" name="firstName" value="<?php echo $firstN; ?>"/></td>
+                <td><input class="button1" type="text" name="lastName" value ="<?php echo $lastN; ?>" /></td>
               </tr>
               <tr><td><label>Username</label><td></tr>
-              <tr><td colspan="2"><input class="button2 required" type="text" name="username"/></td></tr>
+              <tr><td colspan="2"><input class="button2 required" type="text" name="username" value= "<?php echo $username; ?>"/></td></tr>
               <tr><td><label>About Me</label></td></tr>
-              <tr><td colspan="2"><textarea class="button2" placeholder="Tell us about yourself!"></textarea></td></tr>
+              <tr><td colspan="2"><textarea class="button2" placeholder="Tell us about yourself!" value= "<?php echo $bio; ?>"></textarea></td></tr>
               <tr><td><label>Email</label></td></tr>
-              <tr><td colspan="2"><input class="button2 required" type="text" name="email"/></td></tr>
+              <tr><td colspan="2"><input class="button2 required" type="text" name="email" value= "<?php echo $email; ?>"/></td></tr>
               <tr><td><label>Change Password</label></td></tr>
               <tr><td><input class="button1" type="password" name="oldPass" placeholder="Old Password"/></td> <!-- should be the type "password" or "text"? -->
               <td><input class="button1" type="password" name="newPass" placeholder="New Password"/></td></tr>

@@ -26,7 +26,7 @@ $check = false;
 if($check= true){
  //making a variable to check if the username and password exist in the database
   $found = false;
-  $results=mysqli_query($con,"SELECT username,password from Member");
+  $results=mysqli_query($con,"SELECT username,password from User");
   $hashed = md5($pwd);
   //returns an array called row with keys that are what you are returning from the sql query
   while($row = $results->fetch_assoc()){

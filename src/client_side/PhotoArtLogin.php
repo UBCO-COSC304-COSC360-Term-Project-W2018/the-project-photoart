@@ -26,7 +26,7 @@
         <button id="submit" type="submit" name="loginSubmit" class="shadow">Log In</button> <!-- use javascript? or just make href to reference another page? DISCUSS -->
         </p>
         <p>
-          <a href="PhotoArtRegister.html" class="regStyle linkColor">Register</a> <!-- references register html page -->
+          <a href="PhotoArtRegister.php" class="regStyle linkColor">Register</a> <!-- references register html page -->
           <a href="PhotoArtPasswordReset" class="pswStyle linkColor">Forgot Password?</a> <!-- references password reset html page -->
         </p>
     </fieldset>

@@ -21,23 +21,28 @@ include('connection.php');
     echo "<p>fill out all fields</p>";
   }
 if($check==true){
-    $results=mysqli_query($con,"SELECT firstName,lastName,email,username from Member");
+    $results=mysqli_query($con,"SELECT firstName,lastName,email,username from User");
     while($row = $results->fetch_assoc()){
       if((strcasecmp($row['email'],$email)==0)||(strcasecmp($row['username'],$uName)==0)){
-        echo "<p> User already exists with this username and/or email</p>";
-        echo "<a href =".$address."> Return to user entry</a>";
+      echo "<script type ='text/javascript'>
+      alert('Username and/or e-mail already in use')
+      location='../client_side/PhotoArtRegister.php'
+      </script>";
         $check = false;
 
       }
     }
-    if($check ==true && $stmt=$con->prepare("INSERT into Member (username,firstName,lastName,email,password) values(?,?,?,?,?)")){
+  }
+    if($check ==true && $stmt=$con->prepare("INSERT into User (username,firstName,lastName,email,password) values(?,?,?,?,?)")){
         $hashed = md5($pwd);
        $stmt->bind_param('sssss',$uName,$fName,$lName,$email,$hashed);
        $stmt->execute();
-       echo "<p> An accout for the user ". $uName. " has been created";
+       session_start();
+       $_SESSION['username']= $uName;
+       header("location: processLogin.php");
   }
 
-}
+
 mysqli_close($con);
 
 
