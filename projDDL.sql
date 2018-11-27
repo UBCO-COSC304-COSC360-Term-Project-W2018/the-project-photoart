@@ -1,4 +1,3 @@
-
 create table Warehouse (
 	name		varchar(50),
 	address		varchar(100),
@@ -76,7 +75,7 @@ create table Shipment (
 	warehouse	varchar(50), 
 	orderId		int not null,
 	primary key (trackingNum),
-	foreign key (username) references Member (username) 
+	foreign key (username) references User (username) 
 		on delete no action on update cascade,
 	foreign key (warehouse) references Warehouse (name) 
 		on delete no action on update cascade,
@@ -119,16 +118,15 @@ create table Cart (
 		on delete cascade on update cascade
 );		
 
-create table InCart (
-	cartId 		int,
+
+create table ProdInCart (
+	cartId 		int auto_increment,
 	upc		int,
-	pricePerItem	decimal(8,2),
+	price		DECIMAL(8,2) not null,
 	quantity	int,
-	totalPrice decimal(8,2) as (pricePerItem*quantity)
-	primary key(cartId, upc),
-	foreign key (cartId) references Cart (cartId)
-		on delete cascade on update cascade,
-	foreign key (upc, pricePerItem) references Product (upc, price)
-		on delete cascade on update cascade
+	primary key (cartId, upc),
+	foreign key (cartId) references Cart(cartId) on delete cascade on update cascade,
+	foreign key (upc) references Product(upc) on delete cascade on update cascade
 ); 
-	
+
+alter table ProdInCart add column totalPrice decimal(8,2) as (price*quantity);	
