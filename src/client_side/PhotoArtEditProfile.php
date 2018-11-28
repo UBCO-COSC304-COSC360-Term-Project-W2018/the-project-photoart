@@ -37,7 +37,7 @@
           <fieldset>
             <table>
               <tbody>
-            
+
               <tr>
               <tr><td><label>About Me</label></td></tr>
               <tr><td colspan="2"><textarea class="button2" placeholder="Tell us about yourself!" name="bio" value= "<?php echo $bio; ?>"></textarea></td></tr>
