@@ -1,6 +1,33 @@
 SQL stuff:
 //Inserting product example - remember to add a storedat and warehouse as well
-Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Nature/Forest.JPG",39.99,0,1,"A walk in the Forest","Nature");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Nature/Forest.JPG",39.99,0,1,"A walk in the forest","Nature");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Nature/creek.JPG",44.99,0,2,"A beautiful creek with a small waterfall in the distance","Nature");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Nature/crops.JPG",37.99,0,3,"Crops with a view of mountains in the background","Nature");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Nature/squirrel.JPG",28.99,0,4,"The squirrel, nature's savers","Nature");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Nature/trees.JPG",47.99,0,5,"Stunning trees in the night","Nature");
+
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Abstract/breakfast.JPG",29.99,0,6,"A balanced breakfast is key to a great day","Abstract");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Abstract/house.JPG",24.99,0,7,"A modern home with an array of plants","Abstract");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Abstract/pumpkin.JPG",34.99,0,8,"A festive pumpkin to represent fall","Abstract");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Abstract/fire.JPG",49.99,0,9,"Fire represents warmth and life","Abstract");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Abstract/pumpkin.JPG",34.99,0,10,"A festive pumpkin to represent fall","Abstract");
+
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Landscape/forrestry.JPG",29.99,0,11,"A view of a vast woodland area","Landscape");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Landscape/lake.JPG",27.99,0,12,"An aeriel view of the clear Okanagan lake ","Landscape");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Landscape/mountain.JPG",19.99,0,13,"Diverse plant life along the mountain side","Landscape");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Landscape/powerlines.JPG",34.99,0,14,"Where nature meets industrialization","Landscape");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Landscape/skyline.JPG",31.99,0,15,"A look at the Kelowna skyline with the lake in the background","Landscape");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Landscape/slopes.JPG",30.99,0,16,"Steep rock faces on a clear day","Landscape");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Landscape/valley.JPG",28.99,0,17,"A look at a deep valley on a cloudy day","Landscape");
+
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Dogs/Mowgli.JPG",39.99,0,18,"Mowgli, the three-year old Bischon Shih-tzu Poodle","Dogs");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Dogs/MowTank.JPG",41.99,0,19,"Best buddies, Tank and Mowgli","Dogs");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Dogs/Opi.JPG",34.99,0,20,"Opi, the five-year old English Bulldog","Dogs");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Dogs/Tank.JPG",37.99,0,21,""Tank, the seven year old, Bischon Shih-tzu"","Dogs");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Dogs/Thunder.JPG",29.99,0,22,"Thunder, the baby Malti-Poo Affen-Pinscher","Dogs");
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Dogs/WholeGang.JPG",45.99,0,23,"The whole herd of dogs: Mowgli, Thunder, Tank, and Sassy","Dogs");
+
+
 
 //Drop all tables
 Drop Table admin;
