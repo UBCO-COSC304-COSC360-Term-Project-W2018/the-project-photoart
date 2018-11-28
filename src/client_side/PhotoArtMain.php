@@ -11,10 +11,10 @@
 <body>
   <?php require('../server_side/header.php'); ?>
   <div class="search-container">
-    <form method="get" action="../server_side/search.php"> <!-- this can be added later, also the following pages may be useful
+    <form method="get" action="search.php"> <!-- this can be added later, also the following pages may be useful
       https://www.w3schools.com/howto/howto_css_searchbar.asp
       https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar3 -->
-    <input type="text" name="searchBar" placeholder="Search.." class="shadow"/>
+    <input type="text" name="searchBar" placeholder="Search Photos.." class="shadow"/>
     <button type="submit"><!-- image of magnifying glass similar to the link above!--></button>
     </form>
   </div>
@@ -29,7 +29,7 @@
     <div class="column shadow" id="middle">
       <h2>Photo of the Week</h2>
       <br>
-      <p>A walk in the forest</p>
+      <p id="title">A walk in the forest</p>
       <br>
         <span><a href="PhotoArtPictureInfo.php"><img src="images/Nature/Forest.JPG" alt="Photo of the week" id="container"></a></span> <!-- this links to the photoart picture info page -->
       <br>
@@ -45,7 +45,7 @@
         <br> <br>
         Art is borderless, which is why a central goal of our company is to provide a diverse view of the world all around us.  For this reason, our photographers are posted all around the world, from the golden dunes of the Sahara to the snow-covered peaks of the Rocky Mountains.
         <br> <br>
-        So join us, and help us capture our world through your lenses as a PhotoArt member.
+        So join us, and help us capture our world through your lenses as a PhotoArt photographer.
       </p>
     </div>
   </div>

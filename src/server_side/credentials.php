@@ -7,5 +7,5 @@ $password = "group12"; //UNCOMMENT THIS BEFORE PUSHING!!!!
 /*$host = "localhost";
 $database = "PhotoArt";
 $user = "root";
-$password = ""; *///COMMENT THIS BEFORE PUSHING
+$password = "";*/ //COMMENT THIS BEFORE PUSHING
  ?>
