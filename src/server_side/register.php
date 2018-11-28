@@ -41,12 +41,5 @@ if($check==true){
        $_SESSION['username']= $uName;
        header("location: processLogin.php");
   }
-
-
 mysqli_close($con);
-
-
-
-
-
  ?>

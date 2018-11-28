@@ -19,7 +19,7 @@ include('connection.php');
     //if it is sets boolean to false so connection gets closed
   }elseif($_SERVER["REQUEST_METHOD"]=="GET"){
 $check = false;
-    echo "wrong method";
+    echo "Request method is invalid: Post is required.";
     mysqli_close($con);
   }
   // if everything went right

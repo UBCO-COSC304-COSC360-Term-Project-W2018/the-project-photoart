@@ -15,7 +15,7 @@ require('../server_side/connection.php');
 echo "<div id='columnWrapper' class='shadow'>";
 
   $search = $_GET["searchBar"];
-  $sql = ("SELECT title, imageLink FROM Product WHERE title LIKE '%". $search . "%'");
+  $sql = ("SELECT title, imageLink, upc FROM Product WHERE title LIKE '%". $search . "%'");
   $result = mysqli_query($con, $sql);
   if(mysqli_num_rows($result) > 0){
 
@@ -29,10 +29,11 @@ echo "<div id='columnWrapper' class='shadow'>";
     while($row = mysqli_fetch_assoc($result)){
       $title = $row['title'];
       $imgLink = $row['imageLink'];
+      $imgUPC = $row['upc'];
 
       echo "<div id='resultSection' class='shadow'>";
       echo "<h3 id='titles'>".$title."</h3>";
-      echo "<a href='PhotoArtPictureInfo.php'><img src=".$imgLink." id='images'></a></div>"; /*this must be changed to go to picture specific info page*/
+      echo "<a href='PhotoArtPictureInfo.php?upc=".$imgUPC."'><img src=".$imgLink." id='images'></a></div>";
 
 
   }
@@ -44,4 +45,4 @@ echo "<div id='columnWrapper' class='shadow'>";
  ?>
 </div>
 </body>
- </html>
+</html>
