@@ -13,7 +13,7 @@
    include("../server_side/connection.php");
 
    //get product info
-   $sql = "Select upc, price, imageLink, description From product";
+   $sql = "Select upc, price, imageLink, description, title From product";
 
    //get upc of product from referring page
    $upc = 1;
@@ -29,7 +29,7 @@
    while ($row = mysqli_fetch_row($results)){
      if ($row[0]==$upc){
        $imageDesc = $row[3];
-       // $imageTitle = $row["title"];
+       $imageTitle = $row[4];
        $imagePrice = $row[1];
        //get the image quantity by summing all warehouse quantities
        // $imageQuantity = ..
@@ -40,10 +40,11 @@
    ?>
 </head>
 <body>
+  <?php echo($imageSrc); ?>
   <div id="surroundingBackground" class="shadow">
     <figure>
-      <img src="<?php echo($imageSrc); ?>" alt="PictureofProduct" title="a walk in the forest" class="shadow" id="mainPic"/> <!-- image source will need to be dynamic? -->
-      <figcaption>A walk in the forest</figcaption>
+      <img src="../client_side/images/Nature/Forest.JPG" alt="PictureofProduct" title="<?php echo($imageTitle); ?>" class="shadow" id="mainPic"/>
+      <figcaption><?php echo($imageTitle); ?></figcaption>
     </figure>
     <div id="imgInfoBG">
     <div id="imgInfoNoBtn" class="shadow">
