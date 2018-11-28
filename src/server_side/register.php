@@ -15,7 +15,7 @@ include('connection.php');
     }
   }elseif($_SERVER["REQUEST_METHOD"]=="GET"){
 
-    echo "wrong method";
+    echo "Error: Request Method is not Post";
     mysqli_close($con);
   }else{
     echo "<p>fill out all fields</p>";
@@ -25,7 +25,7 @@ if($check==true){
     while($row = $results->fetch_assoc()){
       if((strcasecmp($row['email'],$email)==0)||(strcasecmp($row['username'],$uName)==0)){
       echo "<script type ='text/javascript'>
-      alert('Username and/or e-mail already in use')
+      alert('Username and/or email already in use')
       location='../client_side/PhotoArtRegister.php'
       </script>";
         $check = false;
