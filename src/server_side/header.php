@@ -4,6 +4,7 @@ if(isset($_SESSION['username'])){
   echo "<header>
     <a href='PhotoArtMain.php'><h1>PhotoArt</h1></a>
     <nav>
+      <p>Hello, ". $_SESSION['username'] . " 
       <a href='PhotoArtExplore.php' class='navBtns'>Explore</a>
       <a href='PhotoArtCart.php' class='navBtns'>Cart</a>
       <a href ='PhotoArtProfilePage.php' class='navBtns'>Profile page</a>
