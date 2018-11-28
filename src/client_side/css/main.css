@@ -61,3 +61,8 @@ footer{
 h2{
   text-align: center;
 }
+
+/*making the image title italic*/
+.columnWrapper #middle #title{
+  font-style: italic;
+}
