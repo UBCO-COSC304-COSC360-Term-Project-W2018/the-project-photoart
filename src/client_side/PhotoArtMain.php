@@ -14,7 +14,7 @@
     <form method="get" action="../server_side/search.php"> <!-- this can be added later, also the following pages may be useful
       https://www.w3schools.com/howto/howto_css_searchbar.asp
       https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar3 -->
-    <input type="text" name="searchBar" placeholder="Search.." class="shadow"/>
+    <input type="text" name="searchBar" placeholder="Search Photos.." class="shadow"/>
     <button type="submit"><!-- image of magnifying glass similar to the link above!--></button>
     </form>
   </div>
