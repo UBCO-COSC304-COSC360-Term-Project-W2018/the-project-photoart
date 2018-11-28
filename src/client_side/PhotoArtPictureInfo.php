@@ -7,6 +7,24 @@
   <link rel="stylesheet" href="css/picInfo.css">
   <!-- will add stylesheets, js and php header and footers
    (STYLE THEM AND THEN WE CAN COPY AND PASTE THEM INTO A HEADER AND FOOOTER PHP PAGES LATER ON) -->
+<script>
+window.onload = function() {
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+}
+</script>
 
    <?php
    require('../server_side/header.php');
@@ -40,7 +58,6 @@
    ?>
 </head>
 <body>
-  <?php echo($imageSrc); ?>
   <div id="surroundingBackground" class="shadow">
     <figure>
       <img src="../client_side/images/Nature/Forest.JPG" alt="PictureofProduct" title="<?php echo($imageTitle); ?>" class="shadow" id="mainPic"/>
@@ -57,7 +74,14 @@
   </div></div>
   <div id="reviewSec" class="shadow">
     <h3>Reviews</h3>
-    <button type="button" name="writeReview" class="shadow">Write Review</button>
+    <button type="button" name="writeReview" class="shadow collapsible">Write Review</button>
+    <div class="content review shadow">
+      <form method="post" action="PhotoArtPictureInfo.php" id="mainForm" >
+        <textarea name="review" form="usrform" class="text">Enter review here...</textarea>
+        <br>
+        <input type="submit" name="submit" class="shadow" value="Submit">
+      </form>
+    </div>
     <div class="review shadow">
       <p class="author">AgentMikster44</p> <!-- this will need to be dynamic -->
       <p class="comment">Makes me want to go hiking now... 5/5</p>
