@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Search - PhotoArt</title>
-  <link rel="stylesheet" type="text/css" href="../client_side/css/reset.css"/>
-  <link rel="stylesheet" type="text/css" href="../client_side/css/general.css"/>
+  <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+  <link rel="stylesheet" type="text/css" href="css/general.css"/>
 </head>
 
 <?php
