@@ -44,6 +44,8 @@
       <p>With so many stock photo websites and near unlimited access to pictures readily available on the internet, the true beauty of photography is being lost.  PhotoArt still believes in the importance of photography, which is why we employ a team of highly-experienced professional photographers to deliver our customers with spectacular images.
         <br> <br>
         Art is borderless, which is why a central goal of our company is to provide a diverse view of the world all around us.  For this reason, our photographers are posted all around the world, from the golden dunes of the Sahara to the snow-covered peaks of the Rocky Mountains.
+        <br> <br>
+        So join us, and help us capture our world through your lenses as a PhotoArt member.
       </p>
     </div>
   </div>
