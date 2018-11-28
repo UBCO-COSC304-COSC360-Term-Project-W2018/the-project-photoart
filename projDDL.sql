@@ -12,7 +12,7 @@ create table Product (
 	title 		varchar(50) not null,
 	category	varchar(50),
 	price		DECIMAL(8,2) not null,
-	imageLink	varchar(1000) not null,
+	imageLink	mediumblob not null,
 	description	text,
 	timesOrdered	int,
 	primary key 	(upc)
@@ -20,6 +20,7 @@ create table Product (
 
 create table User (
 	username	varchar(50),
+	profilePic	blob,
 	password	varchar(40) not null,
 	firstName	varchar(50) not null,
 	lastName	varchar(50) not null,
