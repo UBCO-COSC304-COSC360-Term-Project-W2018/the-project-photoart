@@ -7,24 +7,50 @@
   <link rel="stylesheet" href="css/picInfo.css">
   <!-- will add stylesheets, js and php header and footers
    (STYLE THEM AND THEN WE CAN COPY AND PASTE THEM INTO A HEADER AND FOOOTER PHP PAGES LATER ON) -->
+
+   <?php
+   require('../server_side/header.php');
+   include("../server_side/connection.php");
+
+   //get product info
+   $sql = "Select upc, price, imageLink, description From product";
+
+   //get upc of product from referring page
+   $upc = 1;
+   $imageDesc;
+   $imageTitle;
+   $imagePrice;
+   $imageQuantity;
+   $imageSrc;
+
+   $results = mysqli_query($con, $sql);
+   //foreach result(row) in results
+   if (isset($results)){
+   while ($row = mysqli_fetch_row($results)){
+     if ($row[0]==$upc){
+       $imageDesc = $row[3];
+       // $imageTitle = $row["title"];
+       $imagePrice = $row[1];
+       //get the image quantity by summing all warehouse quantities
+       // $imageQuantity = ..
+       $imageSrc = $row[2];
+     }
+   }
+ }
+   ?>
 </head>
 <body>
-  <?php require('../server_side/header.php'); ?>
   <div id="surroundingBackground" class="shadow">
     <figure>
-      <img src="images/Nature/Forest.jpg" alt="PictureofProduct" title="a walk in the forest" class="shadow" id="mainPic"/> <!-- image source will need to be dynamic? -->
+      <img src="<?php echo($imageSrc); ?>" alt="PictureofProduct" title="a walk in the forest" class="shadow" id="mainPic"/> <!-- image source will need to be dynamic? -->
       <figcaption>A walk in the forest</figcaption>
     </figure>
     <div id="imgInfoBG">
     <div id="imgInfoNoBtn" class="shadow">
       <h2>Image Info</h2>
-      <p id="uniqueInfo">Information about the image here, stuff that makes it unique</p>
-      <p class="shotInfo">Shot with: </p>
-      <p class="shotInfo">ISO: </p>
-      <p class="shotInfo">Location: </p>
-      <p class="shotInfo">Format: </p>
+      <p id="uniqueInfo"><?php echo($imageDesc); ?></p>
       <button type="button" name="shareBtn">Share</button>
-      <p class="picCost">$0.00</p>
+      <p class="picCost">$<?php echo($imagePrice); ?></p>
     </div>
     <button type="button" name="addCart">Add to Cart</button>
   </div></div>
