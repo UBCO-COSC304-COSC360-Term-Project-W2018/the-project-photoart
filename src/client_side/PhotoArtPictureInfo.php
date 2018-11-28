@@ -45,7 +45,7 @@ function myFunction() {
    $sql = "Select upc, price, imageLink, description, title From product";
 
    //get upc of product from referring page
-   $upc = 1;
+   $upc = $_GET["upc"];
    $imageDesc;
    $imageTitle;
    $imagePrice;
