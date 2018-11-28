@@ -86,7 +86,7 @@ if(isset($_POST)){
 
   <div id="surroundingBackground" class="shadow">
     <figure>
-      <img src="../client_side/images/Nature/Forest.JPG" alt="PictureofProduct" title="<?php echo($imageTitle); ?>" class="shadow" id="mainPic"/>
+      <img src="<?php echo($imageSrc); ?>" alt="PictureofProduct" title="<?php echo($imageTitle); ?>" class="shadow" id="mainPic"/>
       <figcaption><?php echo($imageTitle); ?></figcaption>
     </figure>
     <div id="imgInfoBG">
