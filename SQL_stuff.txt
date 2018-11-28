@@ -1,0 +1,18 @@
+SQL stuff:
+//Inserting product example - remember to add a storedat and warehouse as well
+Insert Into product(description, imageLink, price, timesOrdered, upc, title, category) values("Description of image","../client_side/images/Nature/Forest.JPG",39.99,0,1,"A walk in the Forest","Nature");
+
+//Drop all tables
+Drop Table admin;
+drop table contains;
+drop Table incart;
+drop table moderator;
+drop table paymentinfo;
+drop table review;
+drop table shipment;
+drop TABLE storedat;
+Drop Table cart;
+drop table orders;
+drop table product;
+drop TABLE user;
+drop table warehouse;
