@@ -1,16 +1,20 @@
 <?php
 
-session_start();
-
 require('../server_side/header.php');
 require('../server_side/connection.php');
-  $sql = $con->prepare("SELECT username, firstName, lastName, email,bio FROM User WHERE username = ?");
-  $sql->bind_param("s", $_SESSION['username']);
-  $sql->execute();
-  $sql->bind_result($username, $firstN, $lastN, $email,$bio);
-  $outArray = array();
-  while($row = $sql->fetch()){
-    $outArray = array('username'=>$username, 'firstName'=>$firstN, 'lastName'=>$lastN, 'email'=>$email,'bio'=>$bio);
+  $search = $_GET["searchBar"];
+  $sql = ("SELECT title, imageLink FROM Product WHERE title LIKE '%'. $search .'%'");
+  $result = mysqli_query($con, $sql);
+  if(mysqli_num_rows($result) != 0){
+    while($row = mysql_fetch_array($result)){
+      $title = $row['title'];
+      $imgLink = $row['imageLink'];
+      echo $title;
+      echo $imgLink;
+      $sql->close();
+  }
 }
-
+  else{
+  echo "No search results found!";
+  }
  ?>

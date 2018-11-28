@@ -11,7 +11,7 @@
 <body>
   <?php require('../server_side/header.php'); ?>
   <div class="search-container">
-    <form action="../server_side/search.php"> <!-- this can be added later, also the following pages may be useful
+    <form method="get" action="../server_side/search.php"> <!-- this can be added later, also the following pages may be useful
       https://www.w3schools.com/howto/howto_css_searchbar.asp
       https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar3 -->
     <input type="text" name="searchBar" placeholder="Search.." class="shadow"/>
