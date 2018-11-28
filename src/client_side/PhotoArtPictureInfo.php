@@ -24,6 +24,17 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 }
+
+function myFunction() {
+    // Get the snackbar DIV
+    var x = document.getElementById("snackbar");
+
+    // Add the "show" class to DIV
+    x.className = "show";
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
 </script>
 
    <?php
@@ -55,9 +66,24 @@ for (i = 0; i < coll.length; i++) {
      }
    }
  }
+
+ //review submit
+if(isset($_POST)){
+ if(isset($_POST["review"])){
+   if(isset($_SESSION["username"])){
+     $msg = "Review has been added";
+   }else{
+     $msg = "You need to be logged in to add a review";
+   }
+   if(empty($_POST["review"]))
+   $msg = "Review text cannot be submitted empty";
+ }
+}
    ?>
 </head>
 <body>
+<div id="snackbar" class="shadow"><?php echo($msg); ?></div>
+
   <div id="surroundingBackground" class="shadow">
     <figure>
       <img src="../client_side/images/Nature/Forest.JPG" alt="PictureofProduct" title="<?php echo($imageTitle); ?>" class="shadow" id="mainPic"/>
@@ -76,10 +102,10 @@ for (i = 0; i < coll.length; i++) {
     <h3>Reviews</h3>
     <button type="button" name="writeReview" class="shadow collapsible">Write Review</button>
     <div class="content review shadow">
-      <form method="post" action="PhotoArtPictureInfo.php" id="mainForm" >
-        <textarea name="review" form="usrform" class="text">Enter review here...</textarea>
+      <form method="POST">
+        <textarea name="review" class="text" placeholder="Enter review here..."></textarea>
         <br>
-        <input type="submit" name="submit" class="shadow" value="Submit">
+        <input type="submit" name="submit" class="shadow" value="Submit"><button type="button" name="cancel" class="shadow">Cancel</button>
       </form>
     </div>
     <div class="review shadow">
@@ -102,3 +128,10 @@ for (i = 0; i < coll.length; i++) {
   </footer>
 </body>
 </html>
+<?php
+//this needs to be at the bottom so it loads after all the html has been loaded
+//Don't try to change this, window.onload also does not work
+if(isset($_POST["submit"])){
+  echo "<script type='text/javascript'>myFunction();</script>";
+}
+ ?>
