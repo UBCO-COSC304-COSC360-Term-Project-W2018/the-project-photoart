@@ -8,11 +8,11 @@ if(isset($_GET['username'])){
     alert('Can not drop an admin')
     location='../client_side/ListAllCustomer.php'
     </script>";
-    $check = false;
+    $check = true;
   }
   $uName=$_GET['username'];
   }
-if($check ==true &&$stmt=$con->prepare("DELETE from User where username=?")){
+if($check ==false &&$stmt=$con->prepare("DELETE from User where username=?")){
   $stmt->bind_param('s',$uName);
   $stmt->execute();
   echo "<script type ='text/javascript'>
@@ -25,6 +25,6 @@ if($check ==true &&$stmt=$con->prepare("DELETE from User where username=?")){
   location='../client_side/ListAllCustomer.php'
   </script>";
 }
-$con->close();
+$con->close()
 
  ?>
