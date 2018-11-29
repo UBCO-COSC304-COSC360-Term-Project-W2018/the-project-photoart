@@ -25,6 +25,11 @@ for (i = 0; i < coll.length; i++) {
 }
 }
 
+function cancelWriteReview() {
+  document.getElementById("writeReview").click();
+  document.getElementById('textArea').value = '';
+ }
+
 function myFunction() {
     // Get the snackbar DIV
     var x = document.getElementById("snackbar");
@@ -86,6 +91,7 @@ if(isset($_POST)){
   //this is to prevent refreshing page from making multiple copies and messing things up
   if(isset($_POST["review"]) and $_POST["review"] != $_SESSION["review"]){
    if(isset($_SESSION["username"]) and !empty($_POST["review"])){
+     $review = $_POST["review"];
      //delete any previous reviews from this product and user before adding
      if($stmt=$con->prepare("Delete From Review Where upc = ? and username = ?")){
         $stmt->bind_param('ss',$upc,$_SESSION["username"]);
@@ -127,13 +133,13 @@ if(isset($_POST)){
   </div></div>
   <div id="reviewSec" class="shadow">
     <h3>Reviews</h3>
-    <button type="button" name="writeReview" class="shadow collapsible">Write Review</button>
+    <button type="button" id="writeReview" name="writeReview" class="shadow collapsible">Write Review</button>
     <div class="content review shadow">
       <form method="POST">
-        <textarea name="review" class="text" placeholder="Enter review here..."></textarea>
+        <textarea id="textArea" name="review" class="text" placeholder="Enter review here..."></textarea>
         <br>
         <input type="submit" name="submit" class="shadow" value="Submit">
-        <button type="button" name="cancel" class="shadow collapsible">Cancel</button>
+        <button type="button" name="cancel" onclick="cancelWriteReview()" class="shadow collapsible">Cancel</button>
       </form>
     </div>
 <?php
@@ -151,7 +157,7 @@ if($stmt=$con->prepare("Select details, username From Review Where upc = ?")){
    }
 
    if($stmt->num_rows() == 0){
-     echo("test");
+     echo("<br><br><br><br>No reviews to display.");
    }
 }
  ?>
