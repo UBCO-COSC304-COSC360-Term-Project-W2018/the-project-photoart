@@ -33,7 +33,7 @@ function myFunction() {
     x.className = "show";
 
     // After 3 seconds, remove the show class from DIV
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 6000);
 }
 </script>
 
@@ -42,7 +42,7 @@ function myFunction() {
    include("../server_side/connection.php");
 
    //get product info
-   $sql = "Select upc, price, imageLink, description, title From product";
+   $sql = "Select upc, price, imageLink, description, title From Product";
 
    //get upc of product from referring page
    $upc = $_GET["upc"];
@@ -85,9 +85,9 @@ if(!isset($imageSrc)){
 if(isset($_POST)){
   //this is to prevent refreshing page from making multiple copies and messing things up
   if(isset($_POST["review"]) and $_POST["review"] != $_SESSION["review"]){
-   if(isset($_SESSION["username"])){
+   if(isset($_SESSION["username"]) and !empty($_POST["review"])){
      //delete any previous reviews from this product and user before adding
-     if($stmt=$con->prepare("Delete From review Where upc = ? and username = ?")){
+     if($stmt=$con->prepare("Delete From Review Where upc = ? and username = ?")){
         $stmt->bind_param('ss',$upc,$_SESSION["username"]);
         $stmt->execute();
       }
@@ -95,7 +95,7 @@ if(isset($_POST)){
      $_SESSION["review"] = $_POST["review"];
      //TODO: Check if user has purchased product before they can write a review
      $msg = "Review has been added";
-     if($stmt=$con->prepare("Insert Into review(details, upc, username) values(?,?,?)")){
+     if($stmt=$con->prepare("Insert Into Review(details, upc, username) values(?,?,?)")){
         $stmt->bind_param('sss',$_POST["review"],$upc,$_SESSION["username"]);
         $stmt->execute();
       }
@@ -138,7 +138,7 @@ if(isset($_POST)){
     </div>
 <?php
 //show all reviews for particular product
-if($stmt=$con->prepare("Select details, username From review Where upc = ?")){
+if($stmt=$con->prepare("Select details, username From Review Where upc = ?")){
    $stmt->bind_param('s',$upc);
    $stmt->execute();
    $stmt->bind_result($details, $username);
@@ -148,6 +148,10 @@ if($stmt=$con->prepare("Select details, username From review Where upc = ?")){
      echo('<p class="author">'.$username.'</p>');
      echo('<p class="comment">'.$details.'</p>');
      echo('</div>');
+   }
+
+   if($stmt->num_rows() == 0){
+     echo("test");
    }
 }
  ?>
