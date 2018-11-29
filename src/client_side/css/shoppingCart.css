@@ -1,69 +1,47 @@
 /*main background with oppacity*/
 #mainBG{
   background-color: rgba(255,255,255,.4);
-  height:50em;
-  margin: 5em;
+  height: 30em;
+  margin: 3em;
+  margin-bottom: 5em;
   padding: 4em;
-
 }
+
 /* put the cart beside shoppingcart*/
-#mainBG h2{
+h2{
   display: inline-block;
+  font-size: 2em;
 }
-/*wrapper for all three divs(left right and order button)*/
-#cartPriceWrapper{
-  margin:5em -16.75em;
 
-}
-/*left div with cart items*/
-#cartItems{
-  float: left;
-  height:40em;
-  width:50em;
-  background-color: rgba(255,255,255,1);
-  margin-right: 2em;
-  margin-left: 15em;
-
-}
-/*contains button and info*/
-#rightDiv{
-  margin-left: 70em;
-  height:40em;
-  width:25em;
-  margin-right: 50em;
-}
-#cartItems img{
-  width:10em;
-  height:10em;
-  display: block;
-  margin: 2em 0;
-  margin-left: 12em;
-}
 .Price{
   width:10em;
   height:10em;
   margin: 1em 0;
   margin-left: 4em;
 }
-#grandTotal{
-  float: left;
-}
-#totalPrice{
-  margin-left: 14em;
+
+#total{
+  font-size: 2.5em;
+  height: 2em;
+  margin-top: 0em;
+  background-color: rgba(255, 255, 255, 1);
 }
 
 #total p{
-  display: inline;
+  padding-left: 2em;
+  padding-top: 0.25em;
 }
 
 /*info on right side*/
 #content{
-    height:35em;
+    height: 20em;
     background-color: rgba(255, 255, 255, 1);
+    overflow-y: auto;
 }
 /*button under info*/
 button[name=checkOut]{
-  width:100%;
+  width: 50%;
+  float: right;
   margin-top: 0em;
   height: 2em;
   background-color: #67879c;

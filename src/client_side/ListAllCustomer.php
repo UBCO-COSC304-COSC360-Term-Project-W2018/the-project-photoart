@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="css/reset.css" />
 <link rel="stylesheet" href="css/general.css" />
+<link rel="stylesheet" href="css/listallCustomer.css"/>
 
 <?php
 
@@ -7,13 +8,14 @@
   require("../server_side/header.php");
 
 ?>
+<div class="search-container">
 <form method='post' action='ListAllCustomer.php'>
-<input type= 'text' name='searchBar' placeholder='Usersearch' class='shadow'/>
-<button type='submit'>Search</button></form>
+<input type= 'text' name='searchBar' placeholder='Search for a user..' class='shadow'/>
+<button type='submit'></button></form></div>
 <form class="" action="PhotoArtEditProfileAdmin.php" method="post">
-  <button type="submit" name="button">Add User</button>
+<button type="submit" name="button">Add User</button></form>
 
-</form>
+<div id="mainBG" class="shadow">
 <?php
 if(isset($_SESSION['adminUsername'])){
 if(isset($_POST['searchBar'])){
@@ -24,8 +26,13 @@ if(isset($_POST['searchBar'])){
     $sql->bind_param('ssss',$search,$search,$search,$search);
       $sql->execute();
       $sql->bind_result($uName,$fName,$lName,$email);
-    
+
+
 echo "<table><tr><th>Username</th><th>First name</th><th>Last Name</th><th>Email</th><th>EditProfile</th><th>Remove</th></tr>";
+
+      $sql->fetch();
+echo "<table><tr><th>Username</th><th>First name</th><th>Last Name</th><th>Email</th><th>Edit Profile</th><th>Remove</th></tr>";
+
  while($sql->fetch()){
       echo "<tr><td>".$uName."</td><td>".$fName."</td><td>".$lName."</td><td>".$email."</td>";
       if($uName!=null){
@@ -49,6 +56,6 @@ echo "</table>";
 }else{
   header("location: ../server_side/processLogin.php");
 }
-
 $con->close();
  ?>
+</div>
