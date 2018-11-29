@@ -28,7 +28,6 @@ for (i = 0; i < coll.length; i++) {
 //get product price
 var price;
 $.post("../server_side/quantityChange.php", {upc:<?php echo($_GET["upc"]); ?>}, function(result){
-        // document.getElementById("picCost").innerHTML = "$"+result;//*$("#quantity").val();
         price = result;
       });
 
@@ -36,6 +35,15 @@ $.post("../server_side/quantityChange.php", {upc:<?php echo($_GET["upc"]); ?>}, 
 document.getElementById("addCart").addEventListener("click", addToCart, false);
 //add event listener to input for quantity
 $("#quantity").on("change paste keyup", function() {
+  //check range
+  if($("#quantity").val().length != 0){
+    if($("#quantity").val()<1)
+      $("#quantity").val(1);
+  }
+  //allow only numbers
+  var sanitized = $("#quantity").val().replace(/[^0-9]/g, '');
+  $("#quantity").val(sanitized);
+  //update price
   document.getElementById("picCost").innerHTML = "$"+(price*$("#quantity").val()).toFixed(2);
 });
 }
@@ -58,7 +66,6 @@ function toastNotify() {
 
 //AJAX
 function addToCart() {
-  // alert("test");
   var upc = 1;
   var quantity = 1;
   var xhttp;
@@ -71,6 +78,9 @@ function addToCart() {
   xhttp.open("POST", "../server_side/addToCart.php", true);
   xhttp.send();
 }
+
+  <?php $msg = "Item(s) added to cart"; ?>
+  toastNotify();
 </script>
 
 <?php
@@ -165,12 +175,21 @@ $msg = "Review text cannot be submitted empty";
       <div id="stockDiv">
       In Stock:
       <?php
-      echo(5);
+      $sql = "Select quantity From StoredAt Where upc = ".$upc;
+      $results = mysqli_query($con, $sql);
+      //foreach result(row) in results
+      $totQuantity = 0;
+      if (isset($results)){
+        while ($row = mysqli_fetch_row($results)){
+          $totQuantity += $row[0];
+        }
+      }
+      echo($totQuantity);
        ?>
     </div>
       <div id="quantityDiv">
       Quantity:
-      <input type="number" name="quantity" id="quantity" min="1" value="1">
+      <input type="number" name="quantity" id="quantity" min="1" max="<?php echo($totQuantity); ?>" value="1">
     </div>
       <p class="picCost" id="picCost">$<?php echo($imagePrice); ?></p>
     </div>
