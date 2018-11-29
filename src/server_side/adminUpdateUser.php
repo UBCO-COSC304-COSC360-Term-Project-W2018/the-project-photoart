@@ -3,7 +3,7 @@ require('connection.php');
 session_start();
 if(isset($_SESSION['adminUsername'])){
 if($_SERVER["REQUEST_METHOD"]=="POST"){
-
+  //pre-exising user
   if(isset($_POST['email'])&& isset($_GET['username'])){
     $pwd=$_POST['newPass'];
     $hashed=md5($pwd);
@@ -28,25 +28,14 @@ if($check==true){
 
   while($results->fetch()){
     if((strcasecmp($db_email,$email)==0)){
-    // echo "<script type ='text/javascript'>
-    // alert('e-mail already in use')
-    // location='../client_side/PhotoArtEditProfileAdmin.php'
-    // </script>";
+    echo "<script type ='text/javascript'>
+    alert('e-mail already in use')
+    location='../client_side/PhotoArtEditProfileAdmin.php'
+    </script>";
       $check = false;
 
     }
   }
-}
-
-if(strlen($pwd)!=0 &&$check ==true && $stmt1=$con->prepare( "UPDATE User set firstName=?, lastName=?, email=?,password=?,bio=? where username=?")){
-
-     $stmt1->bind_param('ssssss',$firstN,$lastN,$email,$hashed,$bio,$uName);
-     $stmt1->execute();
-     echo "<script type ='text/javascript'>
-      alert('Profile updated!')
-      location='../client_side/ListAllCustomer.php'
-     </script>";
-
 }elseif($check ==true && $stmt1=$con->prepare( "UPDATE User set firstName=?, lastName=?, email=?,bio=? where username=?")){
   $stmt1->bind_param('sssss',$firstN,$lastN,$email,$bio,$uName);
   $stmt1->execute();
@@ -56,6 +45,7 @@ if(strlen($pwd)!=0 &&$check ==true && $stmt1=$con->prepare( "UPDATE User set fir
   </script>";
 
 }
+//new user
 }elseif(strlen($_POST['password'])!=0 &&strlen($_POST['email'])!=0){
   $user=$_POST['username'];
   $pwd=$_POST['password'];
@@ -66,7 +56,7 @@ if(strlen($pwd)!=0 &&$check ==true && $stmt1=$con->prepare( "UPDATE User set fir
   $check=true;
   if($check==true){
     $results=$con->prepare("SELECT email from User where username !=?");
-    $results->bind_param('s',$uName);
+    $results->bind_param('s',$user);
     $results->execute();
     $results->bind_result($db_email);
 

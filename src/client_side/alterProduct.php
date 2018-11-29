@@ -7,7 +7,11 @@ require("../server_side/connection.php");
 require("../server_side/header.php");
 ?>
 <form method='post' action='alterProduct.php'><input type= 'text' name='searchBar' placeholder='Usersearch' class='shadow'/>
-<button type='submit'>Search</button></form>
+<button type='submit'>Search</button>
+</form>
+<form class="" action="editProductAdmin.php" method="post">
+  <button type="submit" name="button"> Add Product</button>
+</form>
 <?php
 if(isset($_SESSION['adminUsername'])){
 if(isset($_POST['searchBar'])){
@@ -23,7 +27,7 @@ echo "<table><tr><th>UPC</th><th>Title</th><th>Category</th><th>Price</th><th>Im
   while($sql->fetch()){
     echo  "<tr><td>".$upc."</td><td>".$title."</td><td>".$cat."</td><td>".$price."</td><td>".$imageLink."</td><td>".$description."</td>";
       if($upc!=null){
-          echo "<td><a href='editProductAdmin.php?upc=".$upc."'>Edit</a></td><td><a href='../server_side/.php?username=".$upc."' >Remove</a></td></tr>"
+          echo "<td><a href='editProductAdmin.php?upc=".$upc."'>Edit</a></td><td><a href='../server_side/removeProduct.php?username=".$upc."' >Remove</a></td></tr>"
           ."</table";
         }
       }
@@ -35,7 +39,7 @@ echo "<table><tr><th>UPC</th><th>Title</th><th>Category</th><th>Price</th><th>Im
   while($row=$stmt->fetch_assoc()){
     echo "<tr><td>".$row['upc']."</td><td>".$row['title']."</td><td>".$row['category']."</td><td>".$row['price']."</td>"
         ."<td>".$row['imageLink']."</td><td>".$row['description']."</td>
-        <td><a href='editProductAdmin.php?upc=".$row['upc']."'>Edit</a></td><td><a href='../server_side/removeUser.php?username=".$row['title']."' >Remove</a></td></tr>";
+        <td><a href='editProductAdmin.php?upc=".$row['upc']."'>Edit</a></td><td><a href='../server_side/removeProduct.php?upc=".$row['upc']."' >Remove</a></td></tr>";
 
   }
   echo "</table>";

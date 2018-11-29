@@ -18,13 +18,13 @@
 if(isset($_SESSION['adminUsername'])){
 if(isset($_POST['searchBar'])){
   $search="%".$_POST['searchBar']."%";
-  
+
 
   if($sql=$con->prepare("SELECT username, firstName,lastName,email from User where (username like ?) or (firstName like ?) or (lastName like ?) or (email like ?)")){
     $sql->bind_param('ssss',$search,$search,$search,$search);
       $sql->execute();
       $sql->bind_result($uName,$fName,$lName,$email);
-      $sql->fetch();
+    
 echo "<table><tr><th>Username</th><th>First name</th><th>Last Name</th><th>Email</th><th>EditProfile</th><th>Remove</th></tr>";
  while($sql->fetch()){
       echo "<tr><td>".$uName."</td><td>".$fName."</td><td>".$lName."</td><td>".$email."</td>";

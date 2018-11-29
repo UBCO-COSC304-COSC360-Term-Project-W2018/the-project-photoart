@@ -1,7 +1,6 @@
 
    <link rel="stylesheet" href="css/reset.css" />
    <link rel="stylesheet" href="css/general.css" />
-   <link rel="stylesheet" href="css/editprofile.css" />
    <script type="text/javascript" src="script/checkRequired.js"></script>
    <script type="text/javascript" src="script/profilePage.js"></script>
 

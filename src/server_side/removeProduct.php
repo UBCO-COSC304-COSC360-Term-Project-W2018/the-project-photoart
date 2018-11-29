@@ -11,12 +11,12 @@ if($check ==false &&$stmt=$con->prepare("DELETE from Product where upc=?")){
   $stmt->execute();
   echo "<script type ='text/javascript'>
   alert('Product has been dropped')
-  location='../client_side/ListAllCustomer.php'
+  location='../client_side/alterProduct.php'
   </script>";
 }else{
   echo "<script type ='text/javascript'>
-  alert('User could Not be dropped')
-  location='../client_side/ListAllCustomer.php'
+  alert('Product could Not be dropped')
+  location='../client_side/alterProduct.php'
   </script>";
 }
 }else{
