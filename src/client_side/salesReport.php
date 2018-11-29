@@ -1,8 +1,10 @@
 <link rel="stylesheet" href="css/reset.css" />
 <link rel="stylesheet" href="css/general.css" />
 <?php
+
 require("../server_side/connection.php");
 require("../server_side/header.php");
+if(isset($_SESSION['adminUsername'])){
 $results=mysqli_query($con,"SELECT timesOrdered,upc from Product");
 $dataPoints =array();
 $count =10;
@@ -10,6 +12,9 @@ while($row=$results->fetch_assoc()){
 
 $dataPoints[]= array("x"=>$count, "y"=>$row['timesOrdered'], "indexLabel"=>"'".$row['upc']."'");
 $count =$count +10;
+}
+}else {
+	header("location: ../server_side/processLogin.php");
 }
 
 ?>
