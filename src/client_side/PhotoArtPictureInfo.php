@@ -52,6 +52,12 @@ function myFunction() {
    $imageQuantity;
    $imageSrc;
 
+   //check if upc is a number, if not, show error message
+   if(!is_numeric($upc)){
+     echo("<br>Error: upc is not a number");
+     return;
+   }
+
    $results = mysqli_query($con, $sql);
    //foreach result(row) in results
    if (isset($results)){
@@ -67,11 +73,32 @@ function myFunction() {
    }
  }
 
+//if no product was found, show error message
+if(!isset($imageSrc)){
+  echo("<br>Error: product not found");
+  return;
+}
+
  //review submit
+ if(!isset($_SESSION["review"]))
+  $_SESSION["review"] = null;
 if(isset($_POST)){
- if(isset($_POST["review"])){
+  //this is to prevent refreshing page from making multiple copies and messing things up
+  if(isset($_POST["review"]) and $_POST["review"] != $_SESSION["review"]){
    if(isset($_SESSION["username"])){
+     //delete any previous reviews from this product and user before adding
+     if($stmt=$con->prepare("Delete From review Where upc = ? and username = ?")){
+        $stmt->bind_param('ss',$upc,$_SESSION["username"]);
+        $stmt->execute();
+      }
+     //add review
+     $_SESSION["review"] = $_POST["review"];
+     //TODO: Check if user has purchased product before they can write a review
      $msg = "Review has been added";
+     if($stmt=$con->prepare("Insert Into review(details, upc, username) values(?,?,?)")){
+        $stmt->bind_param('sss',$_POST["review"],$upc,$_SESSION["username"]);
+        $stmt->execute();
+      }
    }else{
      $msg = "You need to be logged in to add a review";
    }
@@ -105,23 +132,25 @@ if(isset($_POST)){
       <form method="POST">
         <textarea name="review" class="text" placeholder="Enter review here..."></textarea>
         <br>
-        <input type="submit" name="submit" class="shadow" value="Submit"><button type="button" name="cancel" class="shadow">Cancel</button>
+        <input type="submit" name="submit" class="shadow" value="Submit">
+        <button type="button" name="cancel" class="shadow">Cancel</button>
       </form>
     </div>
-    <div class="review shadow">
-      <p class="author">AgentMikster44</p> <!-- this will need to be dynamic -->
-      <p class="comment">Makes me want to go hiking now... 5/5</p>
-    </div>
-    <div class="review shadow">
-      <p class="author">DozenTortillas88</p>
-      <p class="comment">I appreciate this photo, however it reminds me of my girlfriend. 1/5</p>
-    </div>
-    <div class="review shadow">
-      <p class="author">XxPhotographerBlissxX</p>
-      <p class="comment">This photograph is very well layed out, I actually have purchased this exact one on canvas and it came in just a few days ago,
-        we already put it up on the wall near our dining table. Now whilst we are consuming some incredible vegan homemade food, we canvas
-        bask in the glory of this beautiful piece of art. Molto bello, magnifique! Muah, kisses from italy!</p>
-    </div>
+<?php
+//show all reviews for particular product
+if($stmt=$con->prepare("Select details, username From review Where upc = ?")){
+   $stmt->bind_param('s',$upc);
+   $stmt->execute();
+   $stmt->bind_result($details, $username);
+
+   while ($stmt->fetch()){
+     echo('<div class="review shadow">');
+     echo('<p class="author">'.$username.'</p>');
+     echo('<p class="comment">'.$details.'</p>');
+     echo('</div>');
+   }
+}
+ ?>
   </div>
   <footer>
     <p>&copy; 2018 PhotoArt All Rights Reserved | Website created for COSC 360/304</p>
@@ -131,7 +160,9 @@ if(isset($_POST)){
 <?php
 //this needs to be at the bottom so it loads after all the html has been loaded
 //Don't try to change this, window.onload also does not work
-if(isset($_POST["submit"])){
+if(isset($_POST["submit"]) and isset($msg)){
   echo "<script type='text/javascript'>myFunction();</script>";
 }
+
+mysqli_close($con);
  ?>
