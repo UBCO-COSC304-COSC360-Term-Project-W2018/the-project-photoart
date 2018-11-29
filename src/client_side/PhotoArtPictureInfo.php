@@ -128,7 +128,7 @@ if(isset($_POST)){
      $_SESSION["review"] = $_POST["review"];
      //TODO: Check if user has purchased product before they can write a review
      $msg = "Review has been added";
-     if($stmt=$con->prepare("Insert Into Review(details, upc, username) values(?,?,?)")){
+     if($stmt=$con->prepare("Insert Into Review(details, upc, username, date) values(?,?,?,?)")){
         $stmt->bind_param('sss',$_POST["review"],$upc,$_SESSION["username"]);
         $stmt->execute();
       }
