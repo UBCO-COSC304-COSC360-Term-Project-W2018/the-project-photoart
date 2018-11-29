@@ -27,7 +27,7 @@
         </p>
         <p>
           <a href="PhotoArtRegister.php" class="regStyle linkColor">Register</a> <!-- references register html page -->
-          <a href="PhotoArtPasswordReset" class="pswStyle linkColor">Forgot Password?</a> <!-- references password reset html page -->
+          <a href="PhotoArtPasswordReset.php" class="pswStyle linkColor">Forgot Password?</a> <!-- references password reset html page -->
           <a href="adminPortal.php"class="pswStyle linkColor">Admin login</a>
         </p>
     </fieldset>
