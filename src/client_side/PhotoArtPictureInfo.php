@@ -23,6 +23,11 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+refresh(); // This will run on page load
+// setInterval(function(){
+//     refresh(); // this will run after every 5 seconds
+// }, 5000);
 }
 
 function cancelWriteReview() {
@@ -30,7 +35,7 @@ function cancelWriteReview() {
   document.getElementById('textArea').value = '';
  }
 
-function myFunction() {
+function toastNotify() {
     // Get the snackbar DIV
     var x = document.getElementById("snackbar");
 
@@ -40,6 +45,28 @@ function myFunction() {
     // After 3 seconds, remove the show class from DIV
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 6000);
 }
+
+function refresh(){
+
+  <?php
+
+  echo('
+    var div = document.getElementById("reviewSec");
+    var rev = document.createElement("div");
+    rev.setAttribute("class","review shadow");
+    var pa = document.createElement("p");
+    pa.setAttribute("class","'.'some author'.'");
+    pa.innerHTML = "author";
+    var pc = document.createElement("p");
+    pc.setAttribute("class","comment");
+    pc.innerHTML = "comment";
+    rev.appendChild(pa);
+    rev.appendChild(pc);
+    div.appendChild(rev);
+    ');
+    ?>
+}
+
 </script>
 
    <?php
@@ -171,7 +198,7 @@ if($stmt=$con->prepare("Select details, username From Review Where upc = ?")){
 //this needs to be at the bottom so it loads after all the html has been loaded
 //Don't try to change this, window.onload also does not work
 if(isset($_POST["submit"]) and isset($msg)){
-  echo "<script type='text/javascript'>myFunction();</script>";
+  echo "<script type='text/javascript'>toastNotify();</script>";
 }
 
 mysqli_close($con);
