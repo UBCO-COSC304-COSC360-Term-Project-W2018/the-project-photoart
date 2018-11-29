@@ -2,10 +2,8 @@
       require('../server_side/connection.php');?>
    <link rel="stylesheet" href="css/reset.css" />
    <link rel="stylesheet" href="css/general.css" />
-<<<<<<< HEAD
-=======
+
    <link rel="stylesheet" href="css/editprofileAdmin.css" />
->>>>>>> be875a02085858942773043e8616964899561a2d
    <script type="text/javascript" src="script/checkRequired.js"></script>
    <script type="text/javascript" src="script/profilePage.js"></script>
 

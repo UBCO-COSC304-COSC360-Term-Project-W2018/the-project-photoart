@@ -12,8 +12,9 @@
 
 </head>
 <body>
-<?php require('../server_side/header.php');
-      require('../server_side/connection.php');
+<?php
+    require('../server_side/header.php');
+    require('../server_side/connection.php');
     $sql = $con->prepare("SELECT username, firstName, lastName, email,bio FROM User WHERE username = ?");
     $sql->bind_param("s", $_SESSION['username']);
     $sql->execute();
@@ -26,8 +27,13 @@
     <div id="entireBG" class="shadow">
       <h2>My Profile</h2>
       <div id="sideBar">
-        <img id="profileImg" src="profPic.jpg" alt="Profile Picture" title="Profile Picture">
-        <a href="" id="changePic">Change Profile Picture</a>
+
+        <form enctype="multipart/form-data" class="" action="../server_side/userProfilePicture.php" method="post">
+          <input type="hidden" name="MAX_FILE_SIZE" value="1000000000" />
+        <input type="file" name="userImage" value=""/>
+        <input type="submit"  value="Profile"/>
+        </form>
+
         <!-- CHANGING PROFILE PICTURE HOWTO LINK: https://stackoverflow.com/questions/40441482/making-user-edited-profile-pictures-html -->
         <a href="" class="sbarFunctions"><strong>Edit Profile</strong></a>
         <a href="PhotoArtPaymentInfo.php" class="sbarFunctions">Payment/Shipping Information</a>
@@ -44,7 +50,7 @@
               <tr><td><label>Email</label></td></tr>
               <tr><td colspan="2"><input class="button2 required" type="text" name="email" value= "<?php echo $email; ?>"/></td></tr>
               <tr><td><label>Change Password</label></td></tr>
-              <tr><td><input class="button1" type="password" name="oldPass" placeholder="Old Password"/></td></tr> <!-- should be the type "password" or "text"? -->
+              <tr><td><input class="button1" type="password" name="oldPass" placeholder="Old Password"/></td></tr>
               <tr><td><input class="button1" type="password" name="newPass" placeholder="New Password"/></td>
                   <td><input class="button1" type="password" name="confPass" placeholder="Confirm Password"/></td></tr>
               <tr><td colspan="2"><button id="submit" class="button2" type="submit" name="confChanges">Confirm Changes</button></td></tr>
