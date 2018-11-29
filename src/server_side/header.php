@@ -17,8 +17,8 @@ echo "<header>
   <a href='PhotoArtMain.php'><h1>PhotoArt</h1></a>
   <nav>
     <a href='PhotoArtExplore.php' class='navBtns'>Explore</a>
-    <a href='PhotoArtRegister.php' class='navBtns'>Register</a>
     <a href='PhotoArtCart.php' class='navBtns'>Cart</a>
+    <a href='PhotoArtRegister.php' class='navBtns'>Register</a>
     <a href='../server_side/processLogin.php' class='navBtns'>Login</a>
   </nav>
 </header>";
