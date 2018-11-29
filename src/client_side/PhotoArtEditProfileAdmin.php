@@ -36,7 +36,7 @@
         <a href="PhotoArtPaymentInfo.php" class="sbarFunctions">Payment/Shipping Information</a>
         <a href="logout.php" class="sbarFunctions">Log Out</a> <!-- this button logs out the page -->
       </div>
-        <form method="post" action='../server_side/adminUpdate.php?username=<?php echo $uName; ?>'>
+        <form method="post" action='../server_side/adminUpdateUser.php?username=<?php echo $uName; ?>'>
           <fieldset>
             <table>
               <tbody>
