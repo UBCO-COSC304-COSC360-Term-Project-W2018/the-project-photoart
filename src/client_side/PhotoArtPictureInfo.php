@@ -5,9 +5,8 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/general.css">
   <link rel="stylesheet" href="css/picInfo.css">
-  //get jquery library
-  <script src="jquery-3.3.1.min.js"></script>
-  <script src="ajaxPicInfo.js"></script>
+  <!-- get jquery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
 window.onload = function() {
@@ -25,6 +24,20 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+//get product price
+var price;
+$.post("../server_side/quantityChange.php", {upc:<?php echo($_GET["upc"]); ?>}, function(result){
+        // document.getElementById("picCost").innerHTML = "$"+result;//*$("#quantity").val();
+        price = result;
+      });
+
+//add event listener to add to cart button
+document.getElementById("addCart").addEventListener("click", addToCart, false);
+//add event listener to input for quantity
+$("#quantity").on("change paste keyup", function() {
+  document.getElementById("picCost").innerHTML = "$"+(price*$("#quantity").val()).toFixed(2);
+});
 }
 
 function cancelWriteReview() {
@@ -43,7 +56,21 @@ function toastNotify() {
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 6000);
 }
 
-
+//AJAX
+function addToCart() {
+  // alert("test");
+  var upc = 1;
+  var quantity = 1;
+  var xhttp;
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("txtHint").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("POST", "../server_side/addToCart.php", true);
+  xhttp.send();
+}
 </script>
 
 <?php
@@ -135,9 +162,19 @@ $msg = "Review text cannot be submitted empty";
       <h2>Image Info</h2>
       <p id="uniqueInfo"><?php echo($imageDesc); ?></p>
       <button type="button" name="shareBtn">Share</button>
-      <p class="picCost">$<?php echo($imagePrice); ?></p>
+      <div id="stockDiv">
+      In Stock:
+      <?php
+      echo(5);
+       ?>
     </div>
-    <button type="button" onclick="addToCart()" name="addCart">Add to Cart</button>
+      <div id="quantityDiv">
+      Quantity:
+      <input type="number" name="quantity" id="quantity" min="1" value="1">
+    </div>
+      <p class="picCost" id="picCost">$<?php echo($imagePrice); ?></p>
+    </div>
+    <button type="button" id="addCart" name="addCart">Add to Cart</button>
   </div></div>
   <div id="reviewSec" class="shadow">
     <h3>Reviews</h3>
