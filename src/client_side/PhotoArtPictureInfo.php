@@ -5,8 +5,10 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/general.css">
   <link rel="stylesheet" href="css/picInfo.css">
-  <!-- will add stylesheets, js and php header and footers
-   (STYLE THEM AND THEN WE CAN COPY AND PASTE THEM INTO A HEADER AND FOOOTER PHP PAGES LATER ON) -->
+  //get jquery library
+  <script src="jquery-3.3.1.min.js"></script>
+  <script src="ajaxPicInfo.js"></script>
+
 <script>
 window.onload = function() {
 var coll = document.getElementsByClassName("collapsible");
@@ -23,11 +25,6 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
-
-refresh(); // This will run on page load
-// setInterval(function(){
-//     refresh(); // this will run after every 5 seconds
-// }, 5000);
 }
 
 function cancelWriteReview() {
@@ -46,100 +43,84 @@ function toastNotify() {
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 6000);
 }
 
-function refresh(){
-
-  <?php
-
-  echo('
-    var div = document.getElementById("reviewSec");
-    var rev = document.createElement("div");
-    rev.setAttribute("class","review shadow");
-    var pa = document.createElement("p");
-    pa.setAttribute("class","'.'some author'.'");
-    pa.innerHTML = "author";
-    var pc = document.createElement("p");
-    pc.setAttribute("class","comment");
-    pc.innerHTML = "comment";
-    rev.appendChild(pa);
-    rev.appendChild(pc);
-    div.appendChild(rev);
-    ');
-    ?>
-}
 
 </script>
 
-   <?php
-   require('../server_side/header.php');
-   include("../server_side/connection.php");
+<?php
+require('../server_side/header.php');
+include("../server_side/connection.php");
+$lastDate = date("Y-m-d h:i:s");
+//get product info
+$sql = "Select upc, price, imageLink, description, title From Product";
 
-   //get product info
-   $sql = "Select upc, price, imageLink, description, title From Product";
+//get upc of product from referring page
+$upc = $_GET["upc"];
+$imageDesc;
+$imageTitle;
+$imagePrice;
+$imageQuantity;
+$imageSrc;
 
-   //get upc of product from referring page
-   $upc = $_GET["upc"];
-   $imageDesc;
-   $imageTitle;
-   $imagePrice;
-   $imageQuantity;
-   $imageSrc;
-
-   //check if upc is a number, if not, show error message
-   if(!is_numeric($upc)){
-     echo("<br>Error: upc is not a number");
-     return;
-   }
-
-   $results = mysqli_query($con, $sql);
-   //foreach result(row) in results
-   if (isset($results)){
-   while ($row = mysqli_fetch_row($results)){
-     if ($row[0]==$upc){
-       $imageDesc = $row[3];
-       $imageTitle = $row[4];
-       $imagePrice = $row[1];
-       //get the image quantity by summing all warehouse quantities
-       // $imageQuantity = ..
-       $imageSrc = $row[2];
-     }
-   }
- }
-
-//if no product was found, show error message
-if(!isset($imageSrc)){
-  echo("<br>Error: product not found");
+//check if upc is a number, if not, show error message
+if(!is_numeric($upc)){
+  echo("<br>Error: upc is not a number");
   return;
 }
 
- //review submit
- if(!isset($_SESSION["review"]))
-  $_SESSION["review"] = null;
-if(isset($_POST)){
-  //this is to prevent refreshing page from making multiple copies and messing things up
-  if(isset($_POST["review"]) and $_POST["review"] != $_SESSION["review"]){
-   if(isset($_SESSION["username"]) and !empty($_POST["review"])){
-     $review = $_POST["review"];
-     //delete any previous reviews from this product and user before adding
-     if($stmt=$con->prepare("Delete From Review Where upc = ? and username = ?")){
-        $stmt->bind_param('ss',$upc,$_SESSION["username"]);
-        $stmt->execute();
-      }
-     //add review
-     $_SESSION["review"] = $_POST["review"];
-     //TODO: Check if user has purchased product before they can write a review
-     $msg = "Review has been added";
-     if($stmt=$con->prepare("Insert Into Review(details, upc, username, date) values(?,?,?,?)")){
-        $stmt->bind_param('sss',$_POST["review"],$upc,$_SESSION["username"]);
-        $stmt->execute();
-      }
-   }else{
-     $msg = "You need to be logged in to add a review";
-   }
-   if(empty($_POST["review"]))
-   $msg = "Review text cannot be submitted empty";
- }
+$results = mysqli_query($con, $sql);
+//foreach result(row) in results
+if (isset($results)){
+while ($row = mysqli_fetch_row($results)){
+  if ($row[0]==$upc){
+    $imageDesc = $row[3];
+    $imageTitle = $row[4];
+    $imagePrice = $row[1];
+    //get the image quantity by summing all warehouse quantities
+    // $imageQuantity = ..
+    $imageSrc = $row[2];
+  }
 }
-   ?>
+}
+
+//if no product was found, show error message
+if(!isset($imageSrc)){
+echo("<br>Error: product not found");
+return;
+}
+
+//review submit
+if(!isset($_SESSION["review"]))
+$_SESSION["review"] = null;
+if(isset($_POST)){
+//this is to prevent refreshing page from making multiple copies and messing things up
+if(isset($_POST["review"]) and $_POST["review"] != $_SESSION["review"]){
+if(isset($_SESSION["username"]) and !empty($_POST["review"])){
+  $review = $_POST["review"];
+  //delete any previous reviews from this product and user before adding
+  if($stmt=$con->prepare("Delete From Review Where upc = ? and username = ?")){
+     $stmt->bind_param('ss',$upc,$_SESSION["username"]);
+     $stmt->execute();
+   }
+  //add review
+  $_SESSION["review"] = $_POST["review"];
+  //TODO: Check if user has purchased product before they can write a review
+  if($stmt=$con->prepare("Insert Into Review(details, upc, username, postDate) values(?,?,?,?)")){
+    $time = date("Y-m-d h:i:s");
+     $stmt->bind_param('ssss',$_POST["review"],$upc,$_SESSION["username"],$time);
+     $stmt->execute();
+     $msg = "Review has been added";
+   }else{
+     $msg = "Problem adding review";
+   }
+}else{
+  $msg = "You need to be logged in to add a review";
+}
+if(empty($_POST["review"]))
+$msg = "Review text cannot be submitted empty";
+}
+}
+?>
+
 </head>
 <body>
 <div id="snackbar" class="shadow"><?php echo($msg); ?></div>
@@ -156,7 +137,7 @@ if(isset($_POST)){
       <button type="button" name="shareBtn">Share</button>
       <p class="picCost">$<?php echo($imagePrice); ?></p>
     </div>
-    <button type="button" name="addCart">Add to Cart</button>
+    <button type="button" onclick="addToCart()" name="addCart">Add to Cart</button>
   </div></div>
   <div id="reviewSec" class="shadow">
     <h3>Reviews</h3>
@@ -171,20 +152,18 @@ if(isset($_POST)){
     </div>
 <?php
 //show all reviews for particular product
-if($stmt=$con->prepare("Select details, username From Review Where upc = ?")){
+if($stmt=$con->prepare("Select details, username, postDate From Review Where upc = ? Order By postDate")){
    $stmt->bind_param('s',$upc);
    $stmt->execute();
-   $stmt->bind_result($details, $username);
+   $stmt->bind_result($details, $username, $postDate);
 
    while ($stmt->fetch()){
      echo('<div class="review shadow">');
-     echo('<p class="author">'.$username.'</p>');
+     echo('<p class="author">'.$username.'  </p>');
+     // echo('Date posted: '.$postDate);
      echo('<p class="comment">'.$details.'</p>');
      echo('</div>');
-   }
-
-   if($stmt->num_rows() == 0){
-     echo("<br><br><br><br>No reviews to display.");
+     $lastDate = $postDate;
    }
 }
  ?>
