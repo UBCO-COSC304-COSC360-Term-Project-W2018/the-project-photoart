@@ -4,7 +4,8 @@ include('../server_side/connection.php');
 include('../server_side/header.php');
 echo  "<link rel='stylesheet' href='css/reset.css' />
  <link rel='stylesheet' href='css/general.css' />
- <link rel='stylesheet' href='css/editprofile.css' />
+ <link rel='stylesheet' href='css/editprofile.css'/>
+ <link rel='stylesheet' href='css/profileView.css' />
  <script type='text/javascript' src='script/checkRequired.js'></script>
  <script type='text/javascript' src='script/profilePage.js'></script>";
 if(isset($_SESSION['username'])){
@@ -41,7 +42,7 @@ if(isset($_SESSION['username'])){
                    <tr><td colspan='2'><p class='button2 required'>".$username."</p></td></tr>
                    <tr><td><label>About Me</label></td></tr>
                    <tr><td colspan='2'><p>".$bio."</p></td></tr>
-                   <tr><td><label>Email</label></td></tr>
+                   <tr><td><br><label>Email</label></td></tr>
                    <tr><td colspan='2'><p class='button2 required'>".$email."</p></td></tr>
                    </tbody></table>
 
