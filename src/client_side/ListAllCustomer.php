@@ -11,7 +11,7 @@
 <div class="search-container">
 <form method='post' action='ListAllCustomer.php'>
 <input type= 'text' name='searchBar' placeholder='Search for a user..' class='shadow'/>
-<button type='submit'></button></form></div>
+<button type='submit' name="searchButton">Search</button></form></div>
 <form class="" action="PhotoArtEditProfileAdmin.php" method="post">
 <button type="submit" name="button">Add User</button></form>
 

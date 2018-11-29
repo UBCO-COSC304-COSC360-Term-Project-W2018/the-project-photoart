@@ -35,7 +35,7 @@ background-color: rgba(255, 255, 255, 0.7);
   width:31%;
   height:30em;
   text-align: center;
-  overflow: hidden;
+  overflow-y:auto;
 }
 
 #middle{
@@ -43,7 +43,7 @@ width: 30%;
 height:37%;
 text-align: center;
 height: 30em;
-overflow: hidden;
+overflow-y:auto;
 }
 
 /* this is the size styling for the image of the week*/

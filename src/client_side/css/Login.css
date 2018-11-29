@@ -82,3 +82,9 @@ button[name=loginSubmit]:hover{
 .linkColor:visited{
   color: rgba(103, 135, 156, 1);
 }
+
+#adminLogin{
+position: relative;
+top: 10em;
+left: -53em;
+}

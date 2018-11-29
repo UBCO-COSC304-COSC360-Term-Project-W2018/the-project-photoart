@@ -1,0 +1,46 @@
+/*selects backContainer*/
+#mainBG{
+  padding:2em;
+  background-color: rgba(255,255,255,.3);
+  height: 30em;
+  margin:4em;
+  overflow-y:auto;
+}
+
+#sidebyside{
+  position: relative;
+  display: inline;
+}
+
+/*images that are returned from search result*/
+#images{
+  width: 90%;
+  height: auto;
+  max-width: 30em;
+  max-height: 30em;
+  padding-left: 4.75em;
+  padding-top: 2em;
+}
+
+/*titles of the images*/
+#titles{
+  font-style:italic;
+}
+
+/*this is the white background that contains the individual search results*/
+#columnWrapper{
+  margin-top:3.5em;
+  margin-left:2em;
+  margin-right:2em;
+  width:40em;
+  height:25em;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+h3{
+  text-align: center;
+}
+
+#ital{
+  font-style: italic;
+}

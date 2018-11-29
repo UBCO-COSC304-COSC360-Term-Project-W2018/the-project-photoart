@@ -15,7 +15,7 @@ require('../server_side/connection.php');
 echo "<div id='columnWrapper' class='shadow'>";
 
   $search = $_GET["searchBar"];
-  $sql = ("SELECT title, imageLink, upc FROM Product WHERE title LIKE '%". $search . "%'");
+  $sql = ("SELECT title, imageLink, upc, description FROM Product WHERE title LIKE '%". $search . "%'");
   $result = mysqli_query($con, $sql);
   if(mysqli_num_rows($result) > 0){
 
@@ -30,11 +30,12 @@ echo "<div id='columnWrapper' class='shadow'>";
       $title = $row['title'];
       $imgLink = $row['imageLink'];
       $imgUPC = $row['upc'];
+      $description = $row['description'];
 
       echo "<div id='resultSection' class='shadow'>";
       echo "<h3 id='titles'>".$title."</h3>";
-      echo "<a href='PhotoArtPictureInfo.php?upc=".$imgUPC."'><img src=".$imgLink." id='images'></a></div>";
-
+      echo "<a href='PhotoArtPictureInfo.php?upc=".$imgUPC."'><img src=".$imgLink." id='images'></a>";
+      echo "<p>".$description. "</p></div>";
 
   }
 }

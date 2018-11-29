@@ -28,10 +28,10 @@
         <p>
           <a href="PhotoArtRegister.php" class="regStyle linkColor">Register</a> <!-- references register html page -->
           <a href="PhotoArtPasswordReset.php" class="pswStyle linkColor">Forgot Password?</a> <!-- references password reset html page -->
-          <a href="adminPortal.php"class="pswStyle linkColor">Admin login</a>
         </p>
     </fieldset>
   </form>
+    <a href="adminPortal.php"class="pswStyle linkColor" id="adminLogin">Admin login</a>
   </div>
   <footer>
     <p>&copy; 2018 PhotoArt All Rights Reserved | Website created for COSC 360/304</p>
