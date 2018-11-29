@@ -133,7 +133,7 @@ if(isset($_POST)){
         <textarea name="review" class="text" placeholder="Enter review here..."></textarea>
         <br>
         <input type="submit" name="submit" class="shadow" value="Submit">
-        <button type="button" name="cancel" class="shadow">Cancel</button>
+        <button type="button" name="cancel" class="shadow collapsible">Cancel</button>
       </form>
     </div>
 <?php

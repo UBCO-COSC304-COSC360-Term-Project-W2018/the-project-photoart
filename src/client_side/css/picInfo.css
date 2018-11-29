@@ -126,10 +126,6 @@ button[name=writeReview]{
   height: 1.25em;
   color: white;
 }
-/*hover for write review button*/
-button:hover{
-  background-color: #516b7c;
-}
 
 /* css for collapsible review */
 
@@ -174,6 +170,15 @@ button[name=cancel]{
   height: 1.25em;
   color: white;
   margin: 0.5em;
+}
+/*hover for write review button*/
+button:hover{
+  /* background-color: #516b7c; */
+  background-color: #516b7c;
+}
+input:hover{
+  /* background-color: #516b7c; */
+  background-color: #516b7c;
 }
 
 /* For toast Notification */
