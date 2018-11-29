@@ -2,8 +2,12 @@
    <link rel="stylesheet" href="css/reset.css" />
    <link rel="stylesheet" href="css/general.css" />
 
-<?php require('../server_side/header.php');
-      require('../server_side/connection.php');
+<?php
+
+
+  require('../server_side/header.php');
+  require('../server_side/connection.php');
+  if(isset($_SESSION['adminUsername'])){
       if(isset($_GET['upc'])){
         $upc=$_GET['upc'];
       }
@@ -23,6 +27,8 @@
     }
     echo "<tr><td colspan= '2'><button id='submit' class='button2' type='submit' name='confChanges'>Confirm Changes</button></td></tr>";
 
-
+}else{
+  header("location: ../server_side/processLogin.php");
+}
 
 ?>

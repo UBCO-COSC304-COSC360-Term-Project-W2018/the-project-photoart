@@ -2,6 +2,7 @@
 require("connection.php");
 session_start();
 $check=false;
+if(isset($_SESSION['adminUsername'])){
 if(isset($_GET['username'])){
   if(strcasecmp($_SESSION['adminUsername'],$_GET['username'])==0){
     echo "<script type ='text/javascript'>
@@ -24,6 +25,10 @@ if($check ==false &&$stmt=$con->prepare("DELETE from User where username=?")){
   alert('User could Not be dropped')
   location='../client_side/ListAllCustomer.php'
   </script>";
+}
+}else {
+
+  header("location: processLogin.php");
 }
 $con->close()
 
