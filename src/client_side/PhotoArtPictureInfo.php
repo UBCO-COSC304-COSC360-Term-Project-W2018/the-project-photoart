@@ -23,9 +23,19 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+refresh(); // This will run on page load
+// setInterval(function(){
+//     refresh(); // this will run after every 5 seconds
+// }, 5000);
 }
 
-function myFunction() {
+function cancelWriteReview() {
+  document.getElementById("writeReview").click();
+  document.getElementById('textArea').value = '';
+ }
+
+function toastNotify() {
     // Get the snackbar DIV
     var x = document.getElementById("snackbar");
 
@@ -33,8 +43,30 @@ function myFunction() {
     x.className = "show";
 
     // After 3 seconds, remove the show class from DIV
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 6000);
 }
+
+function refresh(){
+
+  <?php
+
+  echo('
+    var div = document.getElementById("reviewSec");
+    var rev = document.createElement("div");
+    rev.setAttribute("class","review shadow");
+    var pa = document.createElement("p");
+    pa.setAttribute("class","'.'some author'.'");
+    pa.innerHTML = "author";
+    var pc = document.createElement("p");
+    pc.setAttribute("class","comment");
+    pc.innerHTML = "comment";
+    rev.appendChild(pa);
+    rev.appendChild(pc);
+    div.appendChild(rev);
+    ');
+    ?>
+}
+
 </script>
 
    <?php
@@ -42,7 +74,7 @@ function myFunction() {
    include("../server_side/connection.php");
 
    //get product info
-   $sql = "Select upc, price, imageLink, description, title From product";
+   $sql = "Select upc, price, imageLink, description, title From Product";
 
    //get upc of product from referring page
    $upc = $_GET["upc"];
@@ -85,9 +117,10 @@ if(!isset($imageSrc)){
 if(isset($_POST)){
   //this is to prevent refreshing page from making multiple copies and messing things up
   if(isset($_POST["review"]) and $_POST["review"] != $_SESSION["review"]){
-   if(isset($_SESSION["username"])){
+   if(isset($_SESSION["username"]) and !empty($_POST["review"])){
+     $review = $_POST["review"];
      //delete any previous reviews from this product and user before adding
-     if($stmt=$con->prepare("Delete From review Where upc = ? and username = ?")){
+     if($stmt=$con->prepare("Delete From Review Where upc = ? and username = ?")){
         $stmt->bind_param('ss',$upc,$_SESSION["username"]);
         $stmt->execute();
       }
@@ -95,7 +128,7 @@ if(isset($_POST)){
      $_SESSION["review"] = $_POST["review"];
      //TODO: Check if user has purchased product before they can write a review
      $msg = "Review has been added";
-     if($stmt=$con->prepare("Insert Into review(details, upc, username) values(?,?,?)")){
+     if($stmt=$con->prepare("Insert Into Review(details, upc, username, date) values(?,?,?,?)")){
         $stmt->bind_param('sss',$_POST["review"],$upc,$_SESSION["username"]);
         $stmt->execute();
       }
@@ -127,18 +160,18 @@ if(isset($_POST)){
   </div></div>
   <div id="reviewSec" class="shadow">
     <h3>Reviews</h3>
-    <button type="button" name="writeReview" class="shadow collapsible">Write Review</button>
+    <button type="button" id="writeReview" name="writeReview" class="shadow collapsible">Write Review</button>
     <div class="content review shadow">
       <form method="POST">
-        <textarea name="review" class="text" placeholder="Enter review here..."></textarea>
+        <textarea id="textArea" name="review" class="text" placeholder="Enter review here..."></textarea>
         <br>
         <input type="submit" name="submit" class="shadow" value="Submit">
-        <button type="button" name="cancel" class="shadow collapsible">Cancel</button>
+        <button type="button" name="cancel" onclick="cancelWriteReview()" class="shadow collapsible">Cancel</button>
       </form>
     </div>
 <?php
 //show all reviews for particular product
-if($stmt=$con->prepare("Select details, username From review Where upc = ?")){
+if($stmt=$con->prepare("Select details, username From Review Where upc = ?")){
    $stmt->bind_param('s',$upc);
    $stmt->execute();
    $stmt->bind_result($details, $username);
@@ -148,6 +181,10 @@ if($stmt=$con->prepare("Select details, username From review Where upc = ?")){
      echo('<p class="author">'.$username.'</p>');
      echo('<p class="comment">'.$details.'</p>');
      echo('</div>');
+   }
+
+   if($stmt->num_rows() == 0){
+     echo("<br><br><br><br>No reviews to display.");
    }
 }
  ?>
@@ -161,7 +198,7 @@ if($stmt=$con->prepare("Select details, username From review Where upc = ?")){
 //this needs to be at the bottom so it loads after all the html has been loaded
 //Don't try to change this, window.onload also does not work
 if(isset($_POST["submit"]) and isset($msg)){
-  echo "<script type='text/javascript'>myFunction();</script>";
+  echo "<script type='text/javascript'>toastNotify();</script>";
 }
 
 mysqli_close($con);

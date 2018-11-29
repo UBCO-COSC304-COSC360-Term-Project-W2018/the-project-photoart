@@ -6,7 +6,7 @@ if(isset($_SESSION['adminUsername'])){
     <nav>
       <p>Hello, ". $_SESSION['adminUsername'] . "
       <a href='ListAllCustomer.php' class='navBtns'>List all Customers</a>
-      <a href='SalesReport.php' class='navBtns'>Sales Report</a>
+      <a href='../client_side/salesReport.php' class='navBtns'>Sales Report</a>
       <a href ='AlterProduct.php' class='navBtns'>Alter Product</a>
       <a href='../server_side/logout.php' class='navBtns'>Logout</a>
     </nav>

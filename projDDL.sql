@@ -139,6 +139,7 @@ create table Review (
 	username 	varchar(50),
 	upc		int,
 	details		text,
+    postDate    datetime,
 	primary key (username, upc),
 	foreign key (username) references User (username) on delete cascade on update cascade,
 	foreign key (upc) references Product (upc) on delete cascade on update cascade
