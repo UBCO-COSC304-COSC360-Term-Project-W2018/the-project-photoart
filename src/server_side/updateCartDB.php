@@ -124,5 +124,29 @@ if(isset($_SESSION["username"])){
         $stmt->execute();
       }
   }
+  //if logged in but no cart session, remove all products from DB
+  else{
+    //get cartId
+    $cartIdVar;
+    if($stmt=$con->prepare("Select cartId From Cart Where username = ?")){
+       $stmt->bind_param('s', $_SESSION["username"]);
+       $stmt->execute();
+       $stmt->bind_result($cartId);
+       while ($stmt->fetch()){
+         $cartIdVar = $cartId;
+       }
+     }
+     //remove all products from DB cart
+     if($stmt=$con->prepare("Delete From InCart Where cartId = ?")){
+        $stmt->bind_param('s',$cartIdVar);
+        $stmt->execute();
+      }
+
+      //remove cart
+      if($stmt=$con->prepare("Delete From Cart Where cartId = ?")){
+         $stmt->bind_param('s',$cartIdVar);
+         $stmt->execute();
+       }
+  }
 }
  ?>

@@ -13,7 +13,7 @@
     <div id="mainBG" class="shadow">
       <h2>Explore - Click on a photo to view similar photos!</h2>
         <div id="columnWrapper" class="shadow">
-          <a href="PhotoArtAbstract.php"><img src="images/Abstract/Fire.jpg" alt="A vibrant fire" id="images"></a>
+          <a href="PhotoArtAbstract.php"><img src="images/Abstract/fire.jpg" alt="A vibrant fire" id="images"></a>
           <h3>Abstract -<span id="ital"> Explore the wild side</span></h3>
         </div>
         <div id="columnWrapper" class="shadow">
@@ -21,7 +21,7 @@
           <h3>Landscape -<span id="ital"> Wider angles makes your mouth dangle</span></h3>
         </div>
         <div id=columnWrapper class="shadow">
-          <a href="PhotoArtNature.php"><img src="images/Nature/Creek.jpg" alt="A creek with clear water" id="images"></a>
+          <a href="PhotoArtNature.php"><img src="images/Nature/creek.jpg" alt="A creek with clear water" id="images"></a>
           <h3>Nature -<span id="ital"> Beautiful escapes provided by mother Earth</h3>
         </div>
         <div id="columnWrapper" class="shadow">

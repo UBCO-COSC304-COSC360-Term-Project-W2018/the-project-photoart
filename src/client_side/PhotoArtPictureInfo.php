@@ -123,6 +123,8 @@ $_SESSION["review"] = null;
 if(isset($_POST)){
 //this is to prevent refreshing page from making multiple copies and messing things up
 if(isset($_POST["review"]) and $_POST["review"] != $_SESSION["review"]){
+  if(empty($_POST["review"]))
+  $msg = "Review text cannot be submitted empty";
 if(isset($_SESSION["username"]) and !empty($_POST["review"])){
   $review = $_POST["review"];
   //delete any previous reviews from this product and user before adding
@@ -138,14 +140,13 @@ if(isset($_SESSION["username"]) and !empty($_POST["review"])){
      $stmt->bind_param('ssss',$_POST["review"],$upc,$_SESSION["username"],$time);
      $stmt->execute();
      $msg = "Review has been added";
+     $_POST["review"] = "";
    }else{
      $msg = "Problem adding review";
    }
 }else{
   $msg = "You need to be logged in to add a review";
 }
-if(empty($_POST["review"]))
-$msg = "Review text cannot be submitted empty";
 }
 }
 ?>
