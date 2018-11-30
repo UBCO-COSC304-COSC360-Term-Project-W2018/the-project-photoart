@@ -68,7 +68,6 @@ function toastNotify() {
 function addToCart() {
   var quantity = $("#quantity").val();
   $.post("../server_side/addToCart.php", {upc:<?php echo($_GET["upc"]); ?>, quantity:quantity}, function(result){
-    alert(result);
   });
 
   <?php $msg = "Item(s) added to cart"; ?>
