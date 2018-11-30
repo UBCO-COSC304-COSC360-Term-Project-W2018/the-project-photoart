@@ -1,0 +1,62 @@
+/*images that are returned from search result*/
+#images{
+  width: 90%;
+  height: auto;
+  max-width: 30em;
+  max-height: 30em;
+}
+
+/*titles of the images*/
+#titles{
+  font-style:italic;
+}
+
+/*p tag for the number of results returned*/
+#results{
+  float: left;
+  padding-left: 1em;
+  margin-top: 40px;
+}
+
+/*this is the white background that contains the individual search results*/
+#columnWrapper{
+  margin-top:3.5em;
+  margin-left:2em;
+  margin-right:2em;
+  height:40em;
+  background-color: rgba(255, 255, 255, 0.7);
+  overflow-y: auto;
+}
+
+/*individual search results*/
+#resultSection{
+  float:left;
+  padding-left: 2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  padding-right: 55em;
+  margin-left:2em;
+  margin-top: 2em;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+/*no results page */
+#noResults{
+  margin-top:1em;
+  margin-left:1em;
+}
+
+#return{
+  font-style: italic;
+  margin-left: 8em;
+}
+
+h1{
+  margin-left: 0.75em;
+  margin-top: 1em;
+}
+
+#ital{
+  font-style:italic;
+}
