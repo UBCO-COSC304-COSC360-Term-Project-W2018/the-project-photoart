@@ -1,0 +1,42 @@
+#mainBG{
+  background-color: rgba(255,255,255,.4);
+  height: 20em;
+  margin: 3em;
+  margin-top: 2em;
+  margin-bottom: 5em;
+  padding: 4em;
+  overflow-y: auto;
+}
+
+input {
+    height: 2em;
+}
+
+button[name=confChanges]{
+  font-size: 1.5em;
+  border: 0;
+  background-color: rgba(103, 135, 156, 1);
+  border-radius: 0px;
+  height: 2em;
+  color: white;
+  width: 20em;
+}
+
+button[name=confChanges]:hover{
+  background-color: #516b7c;
+}
+
+table{
+  position: relative;
+  margin-top: 2em;
+  margin-left: -1.75em;
+}
+
+td{
+  padding: 2em;
+}
+
+button{
+  float: left;
+  margin-left: 16.5em;
+}

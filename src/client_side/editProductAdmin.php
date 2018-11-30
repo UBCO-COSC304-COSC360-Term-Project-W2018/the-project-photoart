@@ -1,12 +1,10 @@
-
+<?php require('../server_side/header.php');
+require('../server_side/connection.php'); ?>
    <link rel="stylesheet" href="css/reset.css" />
    <link rel="stylesheet" href="css/general.css" />
-
+   <link rel="stylesheet" href="css/editproductAdmin.css"/>
+<div id="mainBG">
 <?php
-
-
-  require('../server_side/header.php');
-  require('../server_side/connection.php');
   if(isset($_SESSION['adminUsername'])){
       if(isset($_GET['upc'])){
         $upc=$_GET['upc'];
@@ -36,7 +34,7 @@
       ."<td><input type='text' name='price' /></td>"
       ."<td><input type='text' name='imageLink' /></td>"
       ."<td><input type='text' name='description' /></td></tr>";
-    echo "<tr><td colspan= '2'><button id='submit' class='button2' type='submit' name='confChanges'>Confirm Changes</button></td></tr>";
+    echo "<tr><td colspan= '6'><button id='submit' class='button2' type='submit' name='confChanges'>Add Product</button></td></tr>";
 
 }
 }else{
@@ -44,3 +42,4 @@
 }
 
 ?>
+</div>

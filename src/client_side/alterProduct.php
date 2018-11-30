@@ -6,12 +6,13 @@
 require("../server_side/connection.php");
 require("../server_side/header.php");
 ?>
-<form method='post' action='alterProduct.php'><input type= 'text' name='searchBar' placeholder='Usersearch' class='shadow'/>
-<button type='submit'>Search</button>
-</form>
+<div class="search-container"><form method='post' action='alterProduct.php'><input type= 'text' name='searchBar' placeholder='Search for a product..' class='shadow'/>
+<button type='submit' name="searchButton">Search</button>
+</form></div>
 <form class="" action="editProductAdmin.php" method="post">
-  <button type="submit" name="button"> Add Product</button>
+  <button type="submit" name="button">Add Product</button>
 </form>
+<div id="mainBG">
 <?php
 if(isset($_SESSION['adminUsername'])){
 if(isset($_POST['searchBar'])){
@@ -23,12 +24,12 @@ if(isset($_POST['searchBar'])){
       $sql->execute();
       $sql->bind_result($upc,$title,$cat,$price,$imageLink,$description);
 
-echo "<table><tr><th>UPC</th><th>Title</th><th>Category</th><th>Price</th><th>Imagelink</th><th>Description</th><th>edit</th><th>remove</th></tr>";
+echo "<table><tr><th>UPC</th><th>Title</th><th>Category</th><th>Price</th><th>Image Link</th><th>Description</th><th>edit</th><th>remove</th></tr>";
   while($sql->fetch()){
     echo  "<tr><td>".$upc."</td><td>".$title."</td><td>".$cat."</td><td>".$price."</td><td>".$imageLink."</td><td>".$description."</td>";
       if($upc!=null){
           echo "<td><a href='editProductAdmin.php?upc=".$upc."'>Edit</a></td><td><a href='../server_side/removeProduct.php?username=".$upc."' >Remove</a></td></tr>"
-          ."</table";
+          ."</table>";
         }
       }
   }else{
@@ -49,3 +50,4 @@ echo "<table><tr><th>UPC</th><th>Title</th><th>Category</th><th>Price</th><th>Im
 }
 
  ?>
+</div>
