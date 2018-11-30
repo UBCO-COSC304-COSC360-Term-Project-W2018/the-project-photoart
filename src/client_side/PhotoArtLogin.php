@@ -12,7 +12,7 @@
 </head>
 <body>
 <?php require('../server_side/header.php'); ?>
-  <div id="mainDiv" class="shadow">
+  <div id="mainDiv">
   <form method="post" action="../server_side/login.php" class="shadow"> <!-- server.php will have to be changed to an appropriate location -->
     <fieldset>
       <p id="formLogo" class="shadow">PhotoArt<p>
