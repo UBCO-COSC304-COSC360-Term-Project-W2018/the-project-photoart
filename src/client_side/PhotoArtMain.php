@@ -28,7 +28,7 @@
       </p>
     </div>
     <div class="column shadow" id="middle">
-      <h2>Photo of the Week</h2>
+      <h2>Top Photos</h2>
       <?php
       $sql = ("SELECT title, imageLink, upc, timesOrdered FROM Product ORDER BY timesOrdered DESC LIMIT 1");
       $result = mysqli_query($con, $sql);

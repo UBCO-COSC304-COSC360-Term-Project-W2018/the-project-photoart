@@ -13,7 +13,7 @@ fieldset{
 
 /*table layout*/
 table{
-  float: left;
+  display: inline-block;
   padding-top: 3em;
   padding-left: 3em;
   padding: 2em;
@@ -32,7 +32,6 @@ input[type=text]{
 
 /*styling for button*/
 button[name=saveChanges]{
-
   color: white;
   font-size: 2.5em;
   border: 0;
@@ -40,7 +39,6 @@ button[name=saveChanges]{
   border-radius: 0px;
   height: 1.25em;
   width: 100%;
-
 }
 
 /*hover styling*/
@@ -60,26 +58,27 @@ font-size: 1.125em;
   margin: 2em 0;
   margin-left: .5em;
 }
-#Items{
-  margin-left: 42em;
-  background-color: rgba(255, 255, 255, 1);
-  padding: 1em 0em;
-  margin-right: 2em;
-  overflow: auto;
-
-}
-#total h2{
-  display: inline;
-}
-#total p{
-  margin-left: 10em;
-  display: inline;
+#total h3{
+  margin-bottom: 2em;
 }
 #total{
-  margin-top: 3em;
-  margin-left: 42em;
-  margin-bottom: 2em;
-  margin-right: 2em;
+  margin-left: 2em;
+}
+#total p{
+  margin: 1em;
+}
+#rightPanel{
+  display: inline-block;
+  width: 40%;
+}
+button[name=checkout]{
+  color: white;
+  font-size: 2.5em;
+  border: 0;
+  background-color: rgba(103, 135, 156, 1);
+  border-radius: 0px;
+  height: 1.25em;
+  width: 100%;
 }
 
 /*dropdown bars*/
