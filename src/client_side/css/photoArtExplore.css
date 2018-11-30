@@ -2,14 +2,8 @@
 #mainBG{
   padding:2em;
   background-color: rgba(255,255,255,.3);
-  height: 30em;
+  height: auto;
   margin:4em;
-  overflow-y:auto;
-}
-
-#sidebyside{
-  position: relative;
-  display: inline;
 }
 
 /*images that are returned from search result*/
@@ -35,6 +29,7 @@
   width:40em;
   height:25em;
   background-color: rgba(255, 255, 255, 0.7);
+  display: inline-block;
 }
 
 h3{

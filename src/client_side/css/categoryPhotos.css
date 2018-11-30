@@ -13,7 +13,6 @@
 
 /*p tag for the number of results returned*/
 #results{
-  float: left;
   padding-left: 1em;
   margin-top: 40px;
 }
@@ -23,22 +22,24 @@
   margin-top:3.5em;
   margin-left:2em;
   margin-right:2em;
-  height:40em;
+  height:auto;
   background-color: rgba(255, 255, 255, 0.7);
-  overflow-y: auto;
+  margin-bottom: 4em;
+  padding-bottom: 2em;
 }
 
 /*individual search results*/
 #resultSection{
-  float:left;
+  width: 35%;
   padding-left: 2em;
   padding-top: 2em;
   padding-bottom: 2em;
-  padding-right: 55em;
+  padding-right: 2em;
   margin-left:2em;
   margin-top: 2em;
   box-sizing: border-box;
   background-color: white;
+  display: inline-block;
 }
 
 /*no results page */
@@ -52,9 +53,9 @@
   margin-left: 8em;
 }
 
-h1{
-  margin-left: 0.75em;
-  margin-top: 1em;
+#columnWrapper h1{
+  padding-left: 1em;
+  padding-top: 1em;
 }
 
 #ital{
