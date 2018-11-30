@@ -22,7 +22,7 @@
       <a href="" class="sbarFunctions"><strong>Payment/Shipping Information</strong></a>
       <a href="" class="sbarFunctions">Log Out</a><!-- these buttons will have to have functionality added -->
     </div>
-  <form method="post" action="profile.php"> <!-- profile.php will have to be changed to appropriate location -->
+  <form method="post" action="../server_side/updatePaymentInfo.php"> <!-- profile.php will have to be changed to appropriate location -->
     <fieldset>
       <table>
         <tbody>
@@ -60,6 +60,8 @@
             </select>
           </td>
         </tr>
+        <tr><td><label>PostalCode</label></td><tr>
+        <tr><td><input type="text" name="postal" value=""></td></tr>
         <tr><td colspan="2"><label>Email</label></td></tr>
         <tr><td colspan="2"><input class="button2 required" type="text" name="email"/></td></tr>
         <tr><td colspan="2"><label>Payment method</label></td></tr>
