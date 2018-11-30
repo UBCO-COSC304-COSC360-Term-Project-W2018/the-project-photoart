@@ -20,7 +20,8 @@ if(!isset($_SESSION["cart"])){
     $_SESSION["cart"][$upc] = $quantity;
   }
 }
-
+$_SESSION["test"] = 0;
 //try to write to DB
 include("addCartDB.php");
+echo($_SESSION["test"]);
  ?>
