@@ -24,6 +24,11 @@
     //   $(this).parent().find(".subtotal").html("Price: $"+(29.99*$(this).val()).toFixed(2));
     // });
 
+    //if checkout is clicked
+    $("#checkout").on("click", function(){
+      window.location.href = "PhotoArtCheckout.php";
+    });
+
     //remove an item from cart
     $(".remItem").on("click", function(){
       var upc = $(this).attr("name");
@@ -71,7 +76,7 @@ if(isset($_SESSION["cart"]) and !empty($_SESSION["cart"])){
 }
          ?>
     </div>
-    <button class="shadow" type="button" name="checkout">Checkout</button>
+    <button class="shadow" type="button" name="checkout" id="checkout">Checkout</button>
   <div id="total" class="shadow">
     <p>Subtotal: $
 <?php
