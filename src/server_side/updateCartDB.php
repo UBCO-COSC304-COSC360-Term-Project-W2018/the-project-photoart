@@ -51,13 +51,13 @@ if(isset($_SESSION["username"])){
                //update quantity if quantities don't match
                array_push($updateArray,$upc);
                 }
+               $hasItem = true;
              }
-            $hasItem = true;
           }
+          if(!$hasItem){
+            //mark to remove item from database
+            array_push($remArray,$upc);
          }
-         if(!$hasItem){
-           //mark to remove item from database
-           array_push($remArray,$upc);
         }
       }
       //update quantities
@@ -69,12 +69,12 @@ if(isset($_SESSION["username"])){
        }
 
        //remove old items
-       foreach($remArray as $key)
+       foreach($remArray as $key){
        if($stmt=$con->prepare("Delete From InCart Where upc = ? and cartId = ?")){
           $stmt->bind_param('ss',$key,$cartIdVar);
           $stmt->execute();
         }
-
+}
     //put cart items into database
     foreach($_SESSION["cart"] as $key => $itemQuantity){
       if($stmt=$con->prepare("Select upc From InCart Where cartId = ? and upc = ?")){
@@ -107,6 +107,22 @@ if(isset($_SESSION["username"])){
         }
        }
     }
+
+    //calculate totalPrice - no tax
+    $totalPrice = 0;
+    if($stmt=$con->prepare("Select price, quantity From InCart Where cartId = ?")){
+       $stmt->bind_param('s', $cartIdVar);
+       $stmt->execute();
+       $stmt->bind_result($price, $quantity);
+       while ($stmt->fetch()){
+         $totalPrice += ($price * $quantity);
+       }
+     }
+     //update totalPrice - no tax
+     if($stmt=$con->prepare("Update Cart Set cartTotal = ? Where cartId = ?")){
+        $stmt->bind_param('ss', $totalPrice, $cartIdVar);
+        $stmt->execute();
+      }
   }
 }
  ?>

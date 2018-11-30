@@ -1,45 +1,39 @@
 /*main background with oppacity*/
 #mainBG{
   background-color: rgba(255,255,255,.4);
-  height: 30em;
+  height: auto;
   margin: 3em;
   margin-bottom: 5em;
   padding: 4em;
+  padding-top: 3em;
 }
 
 /* put the cart beside shoppingcart*/
 h2{
   display: inline-block;
-  font-size: 2em;
-}
-
-.Price{
-  width:10em;
-  height:10em;
-  margin: 1em 0;
-  margin-left: 4em;
+  font-size: 2.5em;
 }
 
 #total{
   font-size: 2.5em;
   height: 2em;
   margin-top: 0em;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 #total p{
-  padding-left: 2em;
-  padding-top: 0.25em;
+  text-align: center;
+vertical-align: middle;
+line-height: 2em;
 }
 
 /*info on right side*/
 #content{
-    height: 20em;
-    background-color: rgba(255, 255, 255, 1);
-    overflow-y: auto;
+  margin-top: 1em;
+  height: auto;
 }
 /*button under info*/
-button[name=checkOut]{
+button[name=checkout]{
   width: 50%;
   float: right;
   margin-top: 0em;
@@ -51,7 +45,52 @@ button[name=checkOut]{
   border-radius: 0px;
 }
 
-button[name=checkOut]:hover{
+button[name=checkout]:hover{
   background-color: #516b7c;
+}
 
+/* Styling for products */
+.item{
+  height: 10em;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin: 1em;
+  position: relative;
+}
+.prodImg{
+  max-height: 80%;
+  margin: 1em;
+}
+.title{
+  position: absolute;
+  color: #516b7c;
+  top: 0.75em;
+  font-size: 1.5em;
+}
+.quantity{
+  width: 5em;
+}
+.priceInfo{
+  width: 10em;
+  display: inline-block;
+  color: #516b7c;
+  position: absolute;
+  right: 2em;
+  bottom: 1em;
+}
+.subtotal{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.remItem{
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  background-color: #67879c;
+  color: white;
+  font-size: 1em;
+  border: 0;
+  border-radius: 0px;
+}
+button:hover{
+  background-color: #516b7c;
 }

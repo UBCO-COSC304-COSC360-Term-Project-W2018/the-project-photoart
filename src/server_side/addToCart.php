@@ -20,6 +20,6 @@ if(!isset($_SESSION["cart"])){
     $_SESSION["cart"][$upc] = $quantity;
   }
 }
-//try to write to DB
-include("addCartDB.php");
+//update DB
+include("updateCartDB.php");
  ?>

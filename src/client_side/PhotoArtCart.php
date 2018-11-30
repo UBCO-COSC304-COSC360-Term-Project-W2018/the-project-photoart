@@ -5,23 +5,109 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/general.css">
   <link rel="stylesheet" href="css/shoppingCart.css">
-  <!-- will add stylesheets, js and php header and footers
-   (STYLE THEM AND THEN WE CAN COPY AND PASTE THEM INTO A HEADER AND FOOOTER PHP PAGES LATER ON) -->
+  <!-- get jquery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script>
+  window.onload = function() {
+    //dynamically update quantity
+    // $(".quantity").on("change paste keyup", function() {
+    //   //check range
+    //   if($(this).val().length != 0){
+    //     if($(this).val()<1)
+    //       $(this).val(1);
+    //   }
+    //   //allow only numbers
+    //   var sanitized = $(this).val().replace(/[^0-9]/g, '');
+    //   $(this).val(sanitized);
+    //   //update price
+    //   $(this).parent().find(".subtotal").html("Price: $"+(29.99*$(this).val()).toFixed(2));
+    // });
+
+    //remove an item from cart
+    $(".remItem").on("click", function(){
+      var upc = $(this).attr("name");
+      var div = "#prod" + upc;
+      $(div).remove();
+      //remove item from cart
+      $.post("../server_side/removeItemFromCart.php", {upc:upc}, function(result){});
+    });
+  }
+  </script>
+
+
 </head>
 <body>
   <?php require('../server_side/header.php'); ?>
   <div id="mainBG">
     <h2>Shopping Cart</h2>
-    <img src="shoppingCartPic.jpg" alt="Cart" title="Cart" id="cartPic"> <!-- find picture of shopping cart -->
-      <div id="content" class= "shadow">
-        <div class="Price">
-          <p>Picture of tasty food</p>
-          <p>$50.00 </p>
-        </div>
+    <!-- <img src="shoppingCartPic.jpg" alt="Cart" title="Cart" id="cartPic"> -->
+      <div id="content">
+        <?php
+include("../server_side/connection.php");
+if(isset($_SESSION["cart"]) and !empty($_SESSION["cart"])){
+  foreach($_SESSION["cart"] as $key => $quantity){
+    if($stmt=$con->prepare("Select price, imageLink, description, title From Product Where upc = ?")){
+       $stmt->bind_param('s',$key);
+       $stmt->execute();
+       $stmt->bind_result($price, $imageLink, $description, $title);
+       while ($stmt->fetch()){
+         $stock = 1;
+         echo("<div class='item shadow' id='prod".$key."'>");
+         echo("<img class='prodImg shadow' src='".$imageLink."' alt='Product Picture'>");
+         echo("<span class='title'>".$title."</span>");
+         echo("<div class='priceInfo'>");
+         echo('<button type="button" class="remItem" name="'.$key.'">Remove Item</button>');
+         echo("<p class='stock'>In Stock: ".$stock."</p>");
+         echo('<p>Quantity: <input type="number"  name="'.$price.'" class="quantity" id="quant'.$key.'" min="1" value="'.$quantity.'"></p>');
+         echo("<br><p class='subtotal'>Price: $".$price*$quantity."</p>");
+         echo("</div></div>");
+       }
+     }
+   }
+}else{
+  //if cart is not set
+  echo("<p>Nothing in cart</p>");
+}
+         ?>
     </div>
-  <a href="PhotoArtCheckout.php"><button class="shadow" type="button" name="checkOut">Proceed</button></a>
+    <button class="shadow" type="button" name="checkout">Checkout</button>
   <div id="total" class="shadow">
-    <p>Grand total: $150.00</p> <!-- price will go here JAN -->
+    <p>Subtotal: $
+<?php
+//get subtotal price
+if(isset($_SESSION["username"])){
+if($stmt=$con->prepare("Select cartTotal From Cart Where username = ?")){
+   $stmt->bind_param('s', $_SESSION["username"]);
+   $stmt->execute();
+   $stmt->bind_result($cartTotal);
+   while ($stmt->fetch()){
+     echo($cartTotal);
+   }
+ }}
+ else if(isset($_SESSION["cart"])){
+   $cartIdVar;
+   if($stmt=$con->prepare("Select cartId From Cart Where username = ?")){
+      $stmt->bind_param('s', $_SESSION["username"]);
+      $stmt->execute();
+      $stmt->bind_result($cartId);
+      while ($stmt->fetch()){
+        $cartIdVar = $cartId;
+      }}
+   $total = 0;
+   foreach($_SESSION["cart"] as $key => $quantity){
+     if($stmt=$con->prepare("Select price From Product Where upc = ?")){
+        $stmt->bind_param('s', $key);
+        $stmt->execute();
+        $stmt->bind_result($price);
+        while ($stmt->fetch()){
+          $total += $price * $quantity;
+        }}
+   }
+   echo($total);
+ }
+ ?>
+</p>
   </div>
   </div>
   <footer>
