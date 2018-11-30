@@ -13,11 +13,7 @@ if(isset($_SESSION['username'])){
     $sql->bind_param("s", $_SESSION['username']);
     $sql->execute();
     $sql->bind_result($username, $firstN, $lastN, $email,$bio);
-    $outArray = array();
-    while($row = $sql->fetch()){
-      $outArray = array('username'=>$username, 'firstName'=>$firstN, 'lastName'=>$lastN, 'email'=>$email,'bio'=>$bio);
-
-}
+    $sql->fetch();
 include('../server_side/profilePic.php');
       echo"<div id='entireBG' class='shadow'>
            <h2>My Profile</h2>

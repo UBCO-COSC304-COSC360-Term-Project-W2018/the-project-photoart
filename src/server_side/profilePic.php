@@ -10,6 +10,8 @@ if($stmt =$con->prepare("SELECT username,imageLink,contentType from ProfilePic w
   $stmt->store_result();
   $stmt-> bind_result($uID,$image,$type);
   $stmt->fetch();
+
+
   $pic='<img src ="data:image/'.$type.';base64,'.base64_encode($image).'"/>';
 }else{
   echo "could not prepare";
