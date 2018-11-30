@@ -1,5 +1,4 @@
 <?php
-$_SESSION["test"] = 0;
 include("connection.php");
 if(isset($_SESSION["username"])){
   //if logged in
@@ -36,34 +35,45 @@ if(isset($_SESSION["username"])){
 
     //if items in cart
     //remove all old items from cart in database that are not in cart anymore and update quantities
-    if($stmt=$con->prepare("Select upc,Cart.cartId,quantity From InCart Join Cart Where InCart.cartId = Cart.cartId and username = ?")){
-       $stmt->bind_param('s',$_SESSION["username"]);
+    $updateArray = array();
+    $remArray = array();
+    if($stmt=$con->prepare("Select upc,quantity From InCart Where cartId = ?")){
+       $stmt->bind_param('s',$cartId);
        $stmt->execute();
-       $stmt->bind_result($upc,$cartId,$quantity);
+       $stmt->bind_result($upc,$quantity);
+       $hasItem = false;
        while ($stmt->fetch()){
          $hasItem = false;
          foreach($_SESSION["cart"] as $key => $itemQuantity){
            //check if cart has item
            if($upc==$key){
              if($quantity!=$itemQuantity){
-               //update quantity
-               if($stmt=$con->prepare("Update InCart Set quantity = ? Where upc = ? and cartId = ?")){
-                  $stmt->bind_param('sss',$itemQuantity,$upc,$cartIdVar);
-                  $stmt->execute();
+               //update quantity if quantities don't match
+               array_push($updateArray,$upc);
                 }
              }
             $hasItem = true;
           }
          }
          if(!$hasItem){
-           //remove item from database
-           if($stmt=$con->prepare("Delete From InCart Where upc = ? and cartId = ?")){
-              $stmt->bind_param('ss',$upc,$cartIdVar);
-              $stmt->execute();
-            }
+           //mark to remove item from database
+           array_push($remArray,$upc);
         }
+      }
+      //update quantities
+      foreach($updateArray as $key)
+      if($stmt2=$con->prepare("Update InCart Set quantity = ? Where cartId = ? and upc = ?")){
+        $temp = $_SESSION["cart"][$key];
+         $stmt2->bind_param('sss',$temp,$cartIdVar,$key);
+         $stmt2->execute();
        }
-    }
+
+       //remove old items
+       foreach($remArray as $key)
+       if($stmt=$con->prepare("Delete From InCart Where upc = ? and cartId = ?")){
+          $stmt->bind_param('ss',$key,$cartIdVar);
+          $stmt->execute();
+        }
 
     //put cart items into database
     foreach($_SESSION["cart"] as $key => $itemQuantity){
@@ -73,7 +83,6 @@ if(isset($_SESSION["username"])){
          $stmt->bind_result($upc);
          $hasItem = false;
          while ($stmt->fetch()){
-           $_SESSION["test"] = 1;
            //if item is in DB
            $hasItem = true;
          }
@@ -89,8 +98,6 @@ if(isset($_SESSION["username"])){
                 $price = $cost;
               }
             }
-
-              // $_SESSION["test"] = 1;
            //add item to database
            if($stmt=$con->prepare("Insert Into InCart(cartId,price,quantity,totalPrice,upc) Values(?,?,?,?,?)")){
              $totalPrice = $itemQuantity*$price;
