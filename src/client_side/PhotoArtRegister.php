@@ -11,7 +11,7 @@
 </head>
 <body>
   <?php require('../server_side/header.php'); ?>
-  <div id="mainDiv">
+  <div id="mainDiv" class="shadow">
   <form method="post" action="../server_side/register.php" id="mainForm"> <!-- server.php will have to be changed to an appropriate location -->
     <fieldset>
       <h2>Sign up</h2>
