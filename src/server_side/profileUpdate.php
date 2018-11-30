@@ -25,7 +25,7 @@ if($check==true){
     $stmt->store_result();
     $stmt->bind_result($db_pwd);
     $stmt->fetch();
-    
+
 
 
   }
@@ -52,7 +52,7 @@ if($check==true){
   location='../client_side/PhotoArtEditProfile.php'
   </script>";
 
-  $check ==false;
+  $check =false;
 }
 }
 if($check ==true && $stmt1=$con->prepare( "UPDATE User set email=?,password=?,bio=? where username=?")){

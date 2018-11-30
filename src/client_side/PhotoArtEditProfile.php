@@ -31,7 +31,7 @@ include('../server_side/profilePic.php');
         <form enctype="multipart/form-data" class="" action="../server_side/userUpdateProfilePicture.php" method="post">
           <input type="hidden" name="MAX_FILE_SIZE" value="1000000000" />
         <input type="file" name="userImage" value=""/>
-        <input type="submit"  value="Profile"/>
+        <input type="submit"  value="Submit"/>
         </form>
 
         <!-- CHANGING PROFILE PICTURE HOWTO LINK: https://stackoverflow.com/questions/40441482/making-user-edited-profile-pictures-html -->
