@@ -10,19 +10,35 @@
 
   <script>
   window.onload = function() {
+
     //dynamically update quantity
-    // $(".quantity").on("change paste keyup", function() {
-    //   //check range
-    //   if($(this).val().length != 0){
-    //     if($(this).val()<1)
-    //       $(this).val(1);
-    //   }
-    //   //allow only numbers
-    //   var sanitized = $(this).val().replace(/[^0-9]/g, '');
-    //   $(this).val(sanitized);
-    //   //update price
-    //   $(this).parent().find(".subtotal").html("Price: $"+(29.99*$(this).val()).toFixed(2));
-    // });
+    $(".quantity").on("change paste keyup", function() {
+      var upc = $(this).attr("name");
+      var quantity = $(this).val();
+      //make sure value is valid
+      if(quantity.length != 0){
+        if(quantity<1){
+          quantity = 1;
+          $(this).val(quantity);
+        }
+      }
+      //allow only numbers
+      var sanitized = quantity.replace(/[^0-9]/g, '');
+      $(this).val(sanitized);
+
+      var price;
+      //get price and update database
+      $.post("../server_side/getPrice.php", {upc:upc,quantity:quantity}, function(result){
+        price = quantity * result;
+        var id = "#sub" + upc;
+        $(id).text("Price: $"+price);
+      });
+
+      //update total price
+      $.post("../server_side/getTotalPrice.php", {}, function(result1){
+        $("#subtotal").text("Subtotal: $"+result1);
+      });
+    });
 
     //if checkout is clicked
     $("#checkout").on("click", function(){
@@ -69,8 +85,8 @@ if(isset($_SESSION["cart"]) and !empty($_SESSION["cart"])){
          echo("<div class='priceInfo'>");
          echo('<button type="button" class="remItem" name="'.$key.'">Remove Item</button>');
          // echo("<p class='stock'>In Stock: ".$stock."</p>");
-         echo('<p>Quantity: <input type="number"  name="'.$price.'" class="quantity" id="quant'.$key.'" min="1" value="'.$quantity.'"></p>');
-         echo("<br><p class='subtotal'>Price: $".$price*$quantity."</p>");
+         echo('<p>Quantity: <input type="number"  name="'.$key.'" class="quantity" id="quant'.$key.'" min="1" value="'.$quantity.'"></p>');
+         echo("<br><p id='sub".$key."' class='subtotal'>Price: $".$price*$quantity."</p>");
          echo("</div></div>");
        }
      }
@@ -86,36 +102,18 @@ if(isset($_SESSION["cart"]) and !empty($_SESSION["cart"])){
     <p id="subtotal">Subtotal: $
 <?php
 //get subtotal price
-if(isset($_SESSION["username"])){
-if($stmt=$con->prepare("Select cartTotal From Cart Where username = ?")){
-   $stmt->bind_param('s', $_SESSION["username"]);
+$totalPrice = 0;
+foreach ($_SESSION["cart"] as $key => $quantity) {
+if($stmt=$con->prepare("Select price From Product Where upc = ?")){
+   $stmt->bind_param('s', $key);
    $stmt->execute();
-   $stmt->bind_result($cartTotal);
+   $stmt->bind_result($price);
    while ($stmt->fetch()){
-     echo($cartTotal);
+     $totalPrice += $price * $quantity;
    }
- }}
- else if(isset($_SESSION["cart"])){
-   $cartIdVar;
-   if($stmt=$con->prepare("Select cartId From Cart Where username = ?")){
-      $stmt->bind_param('s', $_SESSION["username"]);
-      $stmt->execute();
-      $stmt->bind_result($cartId);
-      while ($stmt->fetch()){
-        $cartIdVar = $cartId;
-      }}
-   $total = 0;
-   foreach($_SESSION["cart"] as $key => $quantity){
-     if($stmt=$con->prepare("Select price From Product Where upc = ?")){
-        $stmt->bind_param('s', $key);
-        $stmt->execute();
-        $stmt->bind_result($price);
-        while ($stmt->fetch()){
-          $total += $price * $quantity;
-        }}
-   }
-   echo($total);
  }
+}
+echo($totalPrice);
  ?>
 </p>
   </div>

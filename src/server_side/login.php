@@ -22,9 +22,10 @@ include('connection.php');
 $check = false;
     echo "Request method is invalid: Post is required.";
     mysqli_close($con);
+    return;
   }
   // if everything went right
-if($check= true){
+if($check== true){
  //making a variable to check if the username and password exist in the database
   $found = false;
   $results=mysqli_query($con,"SELECT username,password from User");
@@ -45,7 +46,7 @@ if($check= true){
 }
 }
 
-//update cart
+// //update cart
 if(isset($_SESSION["username"]) and !isset($_SESSION["cart"])){
 $cartIdVar;
 if($stmt=$con->prepare("Select cartId From Cart Where username = ?")){

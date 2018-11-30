@@ -28,6 +28,14 @@ foreach($_SESSION["cart"] as $key => $quantity){
    }
 }
 
+//update product ordered quanitities
+foreach($_SESSION["cart"] as $key => $quantity){
+  if($stmt=$con->prepare("Update Product Set timesOrdered = timesOrdered + ? Where upc = ?")){
+     $stmt->bind_param('ss', $quantity, $key);
+     $stmt->execute();
+   }
+}
+
 $_SESSION["ordered"] = 1;
 //show alert and go to homepage
 unset($_SESSION['cart']);
