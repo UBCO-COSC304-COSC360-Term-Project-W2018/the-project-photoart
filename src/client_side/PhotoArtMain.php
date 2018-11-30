@@ -9,7 +9,8 @@
    <link rel="stylesheet" type="text/css" href="css/main.css"/>
 </head>
 <body>
-  <?php require('../server_side/header.php'); ?>
+  <?php require('../server_side/header.php');
+  require('../server_side/connection.php');?>
   <div class="search-container">
     <form method="get" action="PhotoArtSearch.php"> <!-- this can be added later, also the following pages may be useful
       https://www.w3schools.com/howto/howto_css_searchbar.asp
@@ -28,16 +29,27 @@
     </div>
     <div class="column shadow" id="middle">
       <h2>Photo of the Week</h2>
+      <?php
+      $sql = ("SELECT title, imageLink, upc, timesOrdered FROM Product ORDER BY timesOrdered DESC LIMIT 1");
+      $result = mysqli_query($con, $sql);
+      if(mysqli_num_rows($result) > 0){
+
+        while($row = mysqli_fetch_assoc($result)){
+          $title = $row['title'];
+          $imgLink = $row['imageLink'];
+      echo"<br>
+      <p id='title'>".$title."</p>
       <br>
-      <p id="title">A walk in the forest</p>
-      <br>
-        <span><a href="PhotoArtPictureInfo.php"><img src="images/Nature/Forest.JPG" alt="Photo of the week" id="container"></a></span> <!-- this links to the photoart picture info page -->
+        <span><a href='PhotoArtTopPhotos.php'><img src=".$imgLink." alt='Photo of the week' id='container'></a></span> <!-- this links to the photoart picture info page -->
       <br>
       <br>
       <p>
         We chose this stunning image taken by Jan Reisler because it uniquely reminds us of simpler times... Going on hikes, enjoying the summer sun, and best of all no worries, hakuna matata.
       </p>
-    </div>
+    </div>";
+  }
+}
+    ?>
     <div class="column shadow" id = "right">
       <h2>Join Our Team</h2>
       <br>
