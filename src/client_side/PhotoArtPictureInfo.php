@@ -66,21 +66,12 @@ function toastNotify() {
 
 //AJAX
 function addToCart() {
-  var upc = 1;
-  var quantity = 1;
-  var xhttp;
-  xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("txtHint").innerHTML = this.responseText;
-    }
-  };
-  xhttp.open("POST", "../server_side/addToCart.php", true);
-  xhttp.send();
-}
+  var quantity = $("#quantity").val();
+  $.post("../server_side/addToCart.php", {upc:<?php echo($_GET["upc"]); ?>, quantity:quantity}, function(result){});
 
   <?php $msg = "Item(s) added to cart"; ?>
   toastNotify();
+}
 </script>
 
 <?php
