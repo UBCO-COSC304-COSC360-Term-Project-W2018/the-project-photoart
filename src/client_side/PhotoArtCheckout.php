@@ -16,7 +16,7 @@
 ?>
   <div id="mainBG">
     <h1>Payment and Shipping Information</h1>
-  <form method="post" action="profile.php"> <!-- profile.php will have to be changed to appropriate location -->
+  <form method="post" action="../server_side/newOrder.php"> <!-- profile.php will have to be changed to appropriate location -->
     <fieldset>
       <table>
         <tbody>
