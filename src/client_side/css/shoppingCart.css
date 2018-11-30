@@ -36,7 +36,7 @@ h2{
 #content{
     height: 20em;
     background-color: rgba(255, 255, 255, 1);
-    overflow: scroll;
+    overflow-y: auto;
 }
 /*button under info*/
 button[name=checkOut]{
