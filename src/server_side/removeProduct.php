@@ -5,9 +5,10 @@ $check=false;
 if(isset($_SESSION['adminUsername'])){
 if(isset($_GET['upc'])){
     $upc=$_GET['upc'];
+
   }
 if($check ==false &&$stmt=$con->prepare("DELETE from Product where upc=?")){
-  $stmt->bind_param('s',$upc);
+  $stmt->bind_param('i',$upc);
   $stmt->execute();
   echo "<script type ='text/javascript'>
   alert('Product has been dropped')

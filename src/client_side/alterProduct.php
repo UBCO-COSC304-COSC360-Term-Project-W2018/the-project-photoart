@@ -16,22 +16,23 @@ require("../server_side/header.php");
 <?php
 if(isset($_SESSION['adminUsername'])){
 if(isset($_POST['searchBar'])){
-  $search=$_POST['searchBar'];
+  $search="%".$_POST['searchBar']."%";
   $search = filter_var($search,FILTER_SANITIZE_STRING);
 
-  if($sql=$con->prepare("SELECT upc, title,category,price,imageLink,description from Product where upc like '%".$search."%' or title like '%".$search."%' or category like '%".$search."%' or price like '%".$search."%' or imageLink like '%".$search. "%'or description like '%".$search."%'")){
-
+  if($sql=$con->prepare("SELECT upc, title,category,price,imageLink,description from Product where (upc like ?) or (title like ?) or (category like ?) or (price like ?) or (imageLink like ?) or (description like ?)")){
+      $sql->bind_param('ssssss',$search,$search,$search,$search,$search,$search);
       $sql->execute();
       $sql->bind_result($upc,$title,$cat,$price,$imageLink,$description);
 
 echo "<table><tr><th>UPC</th><th>Title</th><th>Category</th><th>Price</th><th>Image Link</th><th>Description</th><th>edit</th><th>remove</th></tr>";
   while($sql->fetch()){
     echo  "<tr><td>".$upc."</td><td>".$title."</td><td>".$cat."</td><td>".$price."</td><td>".$imageLink."</td><td>".$description."</td>";
-      if($upc!=null){
-          echo "<td><a href='editProductAdmin.php?upc=".$upc."'>Edit</a></td><td><a href='../server_side/removeProduct.php?username=".$upc."' >Remove</a></td></tr>"
-          ."</table>";
+      if($upc>=0){
+          echo "<td><a href='editProductAdmin.php?upc=".$upc."'>Edit</a></td><td><a href='../server_side/removeProduct.php?upc=".$upc."' >Remove</a></td></tr>";
+
         }
       }
+      echo "</table>";
   }else{
     echo "bad";
   }

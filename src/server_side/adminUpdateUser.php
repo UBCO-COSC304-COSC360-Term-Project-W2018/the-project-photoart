@@ -4,28 +4,25 @@ session_start();
 if(isset($_SESSION['adminUsername'])){
 if($_SERVER["REQUEST_METHOD"]=="POST"){
   //pre-exising user
-  if(isset($_POST['email'])&& isset($_GET['username'])){
+  if(isset($_POST['email'])&&isset($_GET['username'])){
     $pwd=$_POST['newPass'];
     $hashed=md5($pwd);
     $firstN=$_POST['firstName'];
     $lastN = $_POST['lastName'];
     $email =$_POST['email'];
     $check=true;
-    $uName = $_GET['username'];
-
+    $uName =$_GET['username'];
 if($_SERVER["REQUEST_METHOD"]=="GET"){
 
   echo "wrong method";
   mysqli_close($con);
-}else{
-  echo "<p>fill out all fields</p>";
 }
 if($check==true){
   $results=$con->prepare("SELECT email from User where username !=?");
   $results->bind_param('s',$uName);
   $results->execute();
   $results->bind_result($db_email);
-
+echo "hello";
   while($results->fetch()){
     if((strcasecmp($db_email,$email)==0)){
     echo "<script type ='text/javascript'>
@@ -36,7 +33,7 @@ if($check==true){
 
     }
   }
-}elseif($check ==true && $stmt1=$con->prepare( "UPDATE User set firstName=?, lastName=?, email=?,bio=? where username=?")){
+}if($check ==true && $stmt1=$con->prepare( "UPDATE User set firstName=?, lastName=?, email=?,bio=? where username=?")){
   $stmt1->bind_param('sssss',$firstN,$lastN,$email,$bio,$uName);
   $stmt1->execute();
   echo "<script type ='text/javascript'>

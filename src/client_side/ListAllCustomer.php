@@ -26,11 +26,6 @@ if(isset($_POST['searchBar'])){
     $sql->bind_param('ssss',$search,$search,$search,$search);
       $sql->execute();
       $sql->bind_result($uName,$fName,$lName,$email);
-
-
-echo "<table><tr><th>Username</th><th>First name</th><th>Last Name</th><th>Email</th><th>EditProfile</th><th>Remove</th></tr>";
-
-      $sql->fetch();
 echo "<table><tr><th>Username</th><th>First name</th><th>Last Name</th><th>Email</th><th>Edit Profile</th><th>Remove</th></tr>";
 
  while($sql->fetch()){
