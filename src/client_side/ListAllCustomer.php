@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="css/reset.css" />
 <link rel="stylesheet" href="css/general.css" />
+<link rel="stylesheet" href="css/listallCustomer.css"/>
 
 <?php
 
@@ -7,18 +8,19 @@
   require("../server_side/header.php");
 
 ?>
+<div class="search-container">
 <form method='post' action='ListAllCustomer.php'>
-<input type= 'text' name='searchBar' placeholder='Usersearch' class='shadow'/>
-<button type='submit'>Search</button></form>
+<input type= 'text' name='searchBar' placeholder='Search for a user..' class='shadow'/>
+<button type='submit'></button></form></div>
 <form class="" action="PhotoArtEditProfileAdmin.php" method="post">
-  <button type="submit" name="button">Add User</button>
+<button type="submit" name="button">Add User</button></form>
 
-</form>
+<div id="mainBG" class="shadow">
 <?php
 if(isset($_SESSION['adminUsername'])){
 if(isset($_POST['searchBar'])){
   $search="%".$_POST['searchBar']."%";
-  
+
 
   if($sql=$con->prepare("SELECT username, firstName,lastName,email from User where (username like ?) or (firstName like ?) or (lastName like ?) or (email like ?)")){
     $sql->bind_param('ssss',$search,$search,$search,$search);
@@ -49,6 +51,6 @@ echo "</table>";
 }else{
   header("location: ../server_side/processLogin.php");
 }
-
 $con->close();
  ?>
+</div>
