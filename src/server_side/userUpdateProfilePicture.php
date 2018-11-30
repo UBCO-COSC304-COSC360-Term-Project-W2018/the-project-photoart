@@ -1,7 +1,7 @@
 <?php
 require("connection.php");
 session_start();
-$uName = $_SESSION['username'];
+
 
 $validExt = array('gif','png','jpg');
 $max_file_size= 1000000;
@@ -22,15 +22,16 @@ if(isset($_SESSION['username'])&&isset($_FILES['userImage'])){
             //moving file to folder
 
          //inserting image
-         if($sql =$con->prepare("INSERT INTO ProfilePic (username,imageLink,contentType)VALUES(?,?,?)")){
+         if($sql =$con->prepare("UPDATE ProfilePic set imageLink=?,contentType=? where username=?")){
          $null=NULL;
-         $sql->bind_param('ssb',$user,$ext,$null );
-         $sql->send_long_data(2,$imagedata);
+         $sql->bind_param('bss',$null,$ext,$user );
+         $sql->send_long_data(0,$imagedata);
          $sql->execute();
          echo "<script type ='text/javascript'>
           alert('photo added!')
           location='../client_side/PhotoArtEditProfile.php'
          </script>";
+
        }
      }
    }

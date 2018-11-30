@@ -18,11 +18,11 @@ if(isset($_SESSION['username'])){
       $outArray = array('username'=>$username, 'firstName'=>$firstN, 'lastName'=>$lastN, 'email'=>$email,'bio'=>$bio);
 
 }
+include('../server_side/profilePic.php');
       echo"<div id='entireBG' class='shadow'>
            <h2>My Profile</h2>
-           <div id='sideBar'>
-             <img id='profileImg' src='profPic.jpg' alt='Profile Picture' title='Profile Picture'>
-             <a href='' id='changePic'>Change Profile Picture</a>
+           <div id='sideBar'>"
+           .$pic."
              <a href='PhotoArtEditProfile.php' class='sbarFunctions'><strong>Edit Profile</strong></a>
              <a href='PhotoArtPaymentInfo.php' class='sbarFunctions'>Payment/Shipping Information</a>
 

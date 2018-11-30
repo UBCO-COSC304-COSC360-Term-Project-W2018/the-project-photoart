@@ -23,12 +23,13 @@
     while($row = $sql->fetch()){
       $outArray = array('username'=>$username, 'firstName'=>$firstN, 'lastName'=>$lastN, 'email'=>$email,'bio'=>$bio);
 }
+include('../server_side/profilePic.php');
 ?>
     <div id="entireBG" class="shadow">
       <h2>My Profile</h2>
       <div id="sideBar">
-
-        <form enctype="multipart/form-data" class="" action="../server_side/userProfilePicture.php" method="post">
+        <?php echo $pic ?>
+        <form enctype="multipart/form-data" class="" action="../server_side/userUpdateProfilePicture.php" method="post">
           <input type="hidden" name="MAX_FILE_SIZE" value="1000000000" />
         <input type="file" name="userImage" value=""/>
         <input type="submit"  value="Profile"/>
