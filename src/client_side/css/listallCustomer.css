@@ -5,6 +5,7 @@
   margin-top: 1em;
   margin-bottom: 5em;
   padding: 4em;
+  overflow-y: auto;
 }
 
 .search-container{
