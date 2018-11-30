@@ -4,6 +4,7 @@ session_start();
 include('connection.php');
 //setting a variable to make sure all the code does not get executed if it set to false
   $check = true;
+
   //checking to see if the method is a post
   //look at html from tag
   //$_POST is a super global that takes info from html form

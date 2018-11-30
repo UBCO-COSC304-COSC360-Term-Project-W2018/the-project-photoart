@@ -14,19 +14,21 @@ require('../server_side/connection.php');
 
 echo "<div id='columnWrapper' class='shadow'>";
 
-  $search = $_GET["searchBar"];
-  $sql = ("SELECT title, imageLink, upc, description FROM Product WHERE title LIKE '%". $search . "%'");
-  $result = mysqli_query($con, $sql);
-  if(mysqli_num_rows($result) > 0){
+  $search = '%' . $_GET["searchBar"] . '%';
+  $sql = $con->prepare("SELECT title, imageLink, upc, description FROM Product WHERE title LIKE ?");
+  $sql->bind_param("s", $search);
+  $sql->execute();
+  $result = $sql->get_result();
+  if($result->num_rows > 0){
 
-    if(mysqli_num_rows($result) > 1){ //Checks to see how many results there are
-    echo "<h1 id='results'>There are " . mysqli_num_rows($result) . " results!</h1><br><br>"; //if there are plural results
+    if($result->num_rows > 1){ //Checks to see how many results there are
+    echo "<h1 id='results'>There are " . $result->num_rows . " results!</h1><br><br>"; //if there are plural results
   }
   else{
-    echo "<h1 id='results'>There is " . mysqli_num_rows($result) . " result!</h1> <br><br>"; //if there is a singular result
+    echo "<h1 id='results'>There is " . $result->num_rows . " result!</h1> <br><br>"; //if there is a singular result
   }
 
-    while($row = mysqli_fetch_assoc($result)){
+    while($row = $result->fetch_assoc()){
       $title = $row['title'];
       $imgLink = $row['imageLink'];
       $imgUPC = $row['upc'];
@@ -36,13 +38,13 @@ echo "<div id='columnWrapper' class='shadow'>";
       echo "<h3 id='titles'>".$title."</h3>";
       echo "<a href='PhotoArtPictureInfo.php?upc=".$imgUPC."'><img src=".$imgLink." id='images'></a>";
       echo "<p>".$description. "</p></div>";
-
   }
 }
   else{
   echo "<h1 id='noResults'>There are no results matching your search!</h1>";
   echo "<a href='PhotoArtMain.php'><h2 id='return'>Return to the previous page</h2></a>";
   }
+  $sql->close(); /*close connection*/
  ?>
 </div>
 </body>

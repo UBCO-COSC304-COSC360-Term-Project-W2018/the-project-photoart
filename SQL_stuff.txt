@@ -27,6 +27,30 @@ Insert Into Product(description, imageLink, price, timesOrdered, upc, title, cat
 Insert Into Product(description, imageLink, price, timesOrdered, upc, title, category) values("Thunder, the baby Malti-Poo Affen-Pinscher","../client_side/images/Dogs/Thunder.jpg",29.99,0,22,"Thunder","Dogs");
 Insert Into Product(description, imageLink, price, timesOrdered, upc, title, category) values("The whole herd of dogs; Mowgli, Thunder, Tank, and Sassy","../client_side/images/Dogs/WholeGang.jpg",45.99,0,23,"Whole Herd","Dogs");
 
+Insert Into Warehouse(name, address, city, province, country) values ("Big Warehouse", "123 Rowdy Road", "Kelowna","BC","Canada");
+Insert Into StoredAt(upc, warehouse, quantity) values (1, "Big Warehouse", 3);  
+Insert Into StoredAt(upc, warehouse, quantity) values (2, "Big Warehouse", 7);  
+Insert Into StoredAt(upc, warehouse, quantity) values (3, "Big Warehouse", 2);  
+Insert Into StoredAt(upc, warehouse, quantity) values (4, "Big Warehouse", 8);  
+Insert Into StoredAt(upc, warehouse, quantity) values (5, "Big Warehouse", 9);  
+Insert Into StoredAt(upc, warehouse, quantity) values (6, "Big Warehouse", 10);  
+Insert Into StoredAt(upc, warehouse, quantity) values (7, "Big Warehouse", 2);  
+Insert Into StoredAt(upc, warehouse, quantity) values (8, "Big Warehouse", 3);  
+Insert Into StoredAt(upc, warehouse, quantity) values (9, "Big Warehouse", 5);  
+Insert Into StoredAt(upc, warehouse, quantity) values (10, "Big Warehouse", 4);  
+Insert Into StoredAt(upc, warehouse, quantity) values (11, "Big Warehouse", 6);  
+Insert Into StoredAt(upc, warehouse, quantity) values (12, "Big Warehouse", 8);  
+Insert Into StoredAt(upc, warehouse, quantity) values (13, "Big Warehouse", 6);  
+Insert Into StoredAt(upc, warehouse, quantity) values (14, "Big Warehouse", 7);  
+Insert Into StoredAt(upc, warehouse, quantity) values (15, "Big Warehouse", 11);  
+Insert Into StoredAt(upc, warehouse, quantity) values (16, "Big Warehouse", 12);  
+Insert Into StoredAt(upc, warehouse, quantity) values (17, "Big Warehouse", 14);  
+Insert Into StoredAt(upc, warehouse, quantity) values (18, "Big Warehouse", 5);  
+Insert Into StoredAt(upc, warehouse, quantity) values (19, "Big Warehouse", 4);  
+Insert Into StoredAt(upc, warehouse, quantity) values (20, "Big Warehouse", 9);  
+Insert Into StoredAt(upc, warehouse, quantity) values (21, "Big Warehouse", 3);  
+Insert Into StoredAt(upc, warehouse, quantity) values (22, "Big Warehouse", 13);  
+Insert Into StoredAt(upc, warehouse, quantity) values (23, "Big Warehouse", 5);  
 
 
 //Drop all tables
