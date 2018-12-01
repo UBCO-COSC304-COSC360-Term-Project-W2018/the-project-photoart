@@ -31,6 +31,7 @@
       $.post("../server_side/getPrice.php", {upc:upc,quantity:quantity}, function(result){
         price = quantity * result;
         var id = "#sub" + upc;
+        price = price.toFixed(2);
         $(id).text("Price: $"+price);
       });
 
@@ -49,6 +50,7 @@
     $(".remItem").on("click", function(){
       //update price total
       $.post("../server_side/calculateSubtotal.php", {upc:upc}, function(result){
+        result = result.toFixed(2);
         document.getElementById("subtotal").innerHTML = "Subtotal: $" + result;
       });
 
@@ -102,6 +104,7 @@ if(isset($_SESSION["cart"]) and !empty($_SESSION["cart"])){
     <p id="subtotal">Subtotal: $
 <?php
 //get subtotal price
+if(isset($_SESSION["cart"])){
 $totalPrice = 0;
 foreach ($_SESSION["cart"] as $key => $quantity) {
 if($stmt=$con->prepare("Select price From Product Where upc = ?")){
@@ -114,6 +117,7 @@ if($stmt=$con->prepare("Select price From Product Where upc = ?")){
  }
 }
 echo($totalPrice);
+}
  ?>
 </p>
   </div>
