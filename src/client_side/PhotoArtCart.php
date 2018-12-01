@@ -10,19 +10,35 @@
 
   <script>
   window.onload = function() {
+
     //dynamically update quantity
-    // $(".quantity").on("change paste keyup", function() {
-    //   //check range
-    //   if($(this).val().length != 0){
-    //     if($(this).val()<1)
-    //       $(this).val(1);
-    //   }
-    //   //allow only numbers
-    //   var sanitized = $(this).val().replace(/[^0-9]/g, '');
-    //   $(this).val(sanitized);
-    //   //update price
-    //   $(this).parent().find(".subtotal").html("Price: $"+(29.99*$(this).val()).toFixed(2));
-    // });
+    $(".quantity").on("change paste keyup", function() {
+      var upc = $(this).attr("name");
+      var quantity = $(this).val();
+      //make sure value is valid
+      if(quantity.length != 0){
+        if(quantity<1){
+          quantity = 1;
+          $(this).val(quantity);
+        }
+      }
+      //allow only numbers
+      var sanitized = quantity.replace(/[^0-9]/g, '');
+      $(this).val(sanitized);
+
+      var price;
+      //get price and update database
+      $.post("../server_side/getPrice.php", {upc:upc,quantity:quantity}, function(result){
+        price = quantity * result;
+        var id = "#sub" + upc;
+        $(id).text("Price: $"+price);
+      });
+
+      //update total price
+      $.post("../server_side/getTotalPrice.php", {}, function(result){
+        $("#subtotal").text("Subtotal: $"+result);
+      });
+    });
 
     //if checkout is clicked
     $("#checkout").on("click", function(){
@@ -69,8 +85,8 @@ if(isset($_SESSION["cart"]) and !empty($_SESSION["cart"])){
          echo("<div class='priceInfo'>");
          echo('<button type="button" class="remItem" name="'.$key.'">Remove Item</button>');
          // echo("<p class='stock'>In Stock: ".$stock."</p>");
-         echo('<p>Quantity: <input type="number"  name="'.$price.'" class="quantity" id="quant'.$key.'" min="1" value="'.$quantity.'"></p>');
-         echo("<br><p class='subtotal'>Price: $".$price*$quantity."</p>");
+         echo('<p>Quantity: <input type="number"  name="'.$key.'" class="quantity" id="quant'.$key.'" min="1" value="'.$quantity.'"></p>');
+         echo("<br><p id='sub".$key."' class='subtotal'>Price: $".$price*$quantity."</p>");
          echo("</div></div>");
        }
      }
