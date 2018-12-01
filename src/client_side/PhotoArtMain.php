@@ -12,10 +12,11 @@
   <?php require('../server_side/header.php');
   require('../server_side/connection.php');
   if(isset($_SESSION["ordered"]))
-  if($_SESSION["ordered"] == 1){
-    $_SESSION["ordered"] = 0;
-  echo("<script>alert('Thank you, the items have been ordered.');</script>");
-  }
+  // if($_SESSION["ordered"] == 1){
+  //   $_SESSION["ordered"] = 0;
+  // echo("<script>alert('Thank you, the items have been ordered.');</script>");
+  // }
+    echo("<script>alert(".$_SESSION['ordered'].");</script>");
   ?>
   <div class="search-container">
     <form method="get" action="PhotoArtSearch.php"> <!-- this can be added later, also the following pages may be useful

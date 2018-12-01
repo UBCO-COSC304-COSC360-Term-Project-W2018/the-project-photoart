@@ -44,6 +44,28 @@ if($check= true){
     header("location: ".$_SERVER['HTTP_REFERER']);
 }
 }
-mysqli_close($con);
 
+//update cart
+if(isset($_SESSION["username"]) and !isset($_SESSION["cart"])){
+$cartIdVar;
+if($stmt=$con->prepare("Select cartId From Cart Where username = ?")){
+   $stmt->bind_param('s', $_SESSION["username"]);
+   $stmt->execute();
+   $stmt->bind_result($cartId);
+   while ($stmt->fetch()){
+     $cartIdVar = $cartId;
+   }
+ }
+ $_SESSION["cart"] = array();
+ if($stmt=$con->prepare("Select upc,quantity From InCart Where cartId = ?")){
+    $stmt->bind_param('s',$cartId);
+    $stmt->execute();
+    $stmt->bind_result($upc,$quantity);
+    while ($stmt->fetch()){
+      $_SESSION["cart"][$upc] = $quantity;
+    }
+ }
+}
+
+mysqli_close($con);
  ?>

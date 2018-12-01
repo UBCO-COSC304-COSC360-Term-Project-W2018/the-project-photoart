@@ -93,6 +93,8 @@
            $subTotal = $cartTotal;
          }
        }}
+       if(empty($subTotal))
+        $subTotal = 0;
        $gst = 0.05 * $subTotal;
        $gst = round($gst,2);
        $pst = 0.07 * $subTotal;
@@ -114,3 +116,6 @@
 </footer>
 </body>
 </html>
+<?php
+mysqli_close($con);
+ ?>

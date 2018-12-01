@@ -10,7 +10,7 @@
    (STYLE THEM AND THEN WE CAN COPY AND PASTE THEM INTO A HEADER AND FOOOTER PHP PAGES LATER ON) -->
 </head>
 <body>
-  <?php require('../server_side/header.php'); ?>
+  <?php require('../server_side/header.php');  ?>
   <div id="mainDiv" class="shadow">
   <form method="post" action="../server_side/register.php" id="mainForm"> <!-- server.php will have to be changed to an appropriate location -->
     <fieldset>
