@@ -200,11 +200,10 @@ $msg = "Review text cannot be submitted empty";
     </div>
 <?php
 //show all reviews for particular product
-if($stmt=$con->prepare("Select details, username, postDate From Review Where upc = ? Order By postDate")){
+if($stmt=$con->prepare("Select details, username, reviewDate From Review Where upc = ? Order By reviewDate")){
    $stmt->bind_param('s',$upc);
    $stmt->execute();
    $stmt->bind_result($details, $username, $postDate);
-
    while ($stmt->fetch()){
      echo('<div class="review shadow">');
      echo('<p class="author">'.$username.'  </p>');
