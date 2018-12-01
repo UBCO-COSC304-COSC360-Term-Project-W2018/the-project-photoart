@@ -133,7 +133,7 @@ if(isset($_SESSION["username"]) and !empty($_POST["review"])){
   //add review
   $_SESSION["review"] = $_POST["review"];
   //TODO: Check if user has purchased product before they can write a review
-  if($stmt=$con->prepare("Insert Into Review(details, upc, username, postDate) values(?,?,?,?)")){
+  if($stmt=$con->prepare("Insert Into Review(details, upc, username, reviewDate) values(?,?,?,?)")){
     $time = date("Y-m-d h:i:s");
      $stmt->bind_param('ssss',$_POST["review"],$upc,$_SESSION["username"],$time);
      $stmt->execute();

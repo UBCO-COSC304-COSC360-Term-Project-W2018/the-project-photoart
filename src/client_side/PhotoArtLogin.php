@@ -38,3 +38,12 @@
   </footer>
 </body>
 </html>
+
+  <?php
+  if(isset($_SESSION["checkout"])){
+    if($_SESSION["checkout"]==1){
+      echo("<script>alert('You must be logged in to go to checkout');</script>");
+      $_SESSION["checkout"] = 0;
+    }
+  }
+   ?>
