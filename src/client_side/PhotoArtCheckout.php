@@ -13,6 +13,10 @@
 <body>
 <?php require('../server_side/header.php');
   include("../server_side/connection.php");
+  if(!isset($_SESSION["username"])){
+    //redirect to login
+
+  }
 ?>
   <div id="mainBG">
     <h1>Payment and Shipping Information</h1>

@@ -31,6 +31,11 @@
 
     //remove an item from cart
     $(".remItem").on("click", function(){
+      //update price total
+      $.post("../server_side/calculateSubtotal.php", {upc:upc}, function(result){
+        document.getElementById("subtotal").innerHTML = "Subtotal: $" + result;
+      });
+
       var upc = $(this).attr("name");
       var div = "#prod" + upc;
       $(div).remove();
@@ -78,7 +83,7 @@ if(isset($_SESSION["cart"]) and !empty($_SESSION["cart"])){
     </div>
     <button class="shadow" type="button" name="checkout" id="checkout">Checkout</button>
   <div id="total" class="shadow">
-    <p>Subtotal: $
+    <p id="subtotal">Subtotal: $
 <?php
 //get subtotal price
 if(isset($_SESSION["username"])){
