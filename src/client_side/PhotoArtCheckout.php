@@ -19,6 +19,32 @@
     header("Location: PhotoArtLogin.php");
     exit;
   }
+
+  //get payment info
+  $address;
+  $city;
+  $postal;
+  $cardNum;
+  $country;
+  $nameOnCard;
+  $province;
+  if(isset($_SESSION['username'])){
+        $user=$_SESSION['username'];
+        $sql=$con->prepare("SELECT billingAddress,city,postalcode,cardNum,country,nameOnCard,province from PaymentInfo where username=?");
+        $sql->bind_param('s',$user);
+        $sql->execute();
+        $sql->bind_result($addressT,$cityT,$postalT,$cardNumT,$countryT,$nameOnCardT,$provinceT);
+        $sql->fetch();
+        $address = $addressT;
+          $city = $cityT;
+          $postal = $postalT;
+          $cardNum = $cardNumT;
+          $country = $countryT;
+          $nameOnCard = $nameOnCardT;
+          $province = $provinceT;
+
+
+      }
 ?>
   <div id="mainBG">
     <h1>Payment and Shipping Information</h1>
@@ -35,18 +61,18 @@
           <td><input class="button1 required" type="text" name="lastName" required/></td>
         </tr>
         <tr><td colspan="2"><label>Shipping Address</label><td></tr>
-        <tr><td colspan="2"><input class="button2 required" type="text" name="address" required/></td></tr>
+        <tr><td colspan="2"><input class="button2 required" type="text" name="address"value="<?php if(isset($address)){echo $address;} ?>" required/></td></tr>
         <tr>
             <td><label>Country</label></td>
             <td><label>Province</label></td>
         </tr>
         <tr>
           <td>
-            <select name="country">
+            <select name="country" value =" <?php if(isset($country)){echo $country;} ?>">
               <option value="CA">CA</option>
             </select></td>
           <td colspan="2">
-            <select name="Province">
+            <select name="Province" value ="<?php if(isset($province)){echo $province;} ?>">
               <option value="BC">BC</option>
               <option value="AB">AB</option>
               <option value="SK">SK</option>
@@ -61,7 +87,7 @@
           </td>
         </tr>
         <tr><td colspan="2"><label>Email</label></td></tr>
-        <tr><td colspan="2"><input class="button2 required" type="text" name="email" required/></td></tr>
+        <tr><td colspan="2"><input class="button2 required" type="text" name="email" value= required/></td></tr>
         <tr><td colspan="2"><label>Payment method</label></td></tr>
         <tr><td colspan="2">
           <select name="Payment">
@@ -74,7 +100,7 @@
             <td><label>Expiry Date</label></td>
             <td><label>CSV</label></td>
         </tr>
-        <tr>  <td><input maxlength="16" class="button2 required" type="text" name="CardNumber" required></td>
+        <tr>  <td><input maxlength="16" class="button2 required" type="text" name="CardNumber" value ="<?php if(isset($cardNum)){echo $cardNum;} ?>" required></td>
               <td><input class="button2" type="month" name="CardDate" value="2020-01" required></td>
               <td><input maxlength="3" class="button2 required" type="text" name="CardCSV" required></td>
         </tr>
