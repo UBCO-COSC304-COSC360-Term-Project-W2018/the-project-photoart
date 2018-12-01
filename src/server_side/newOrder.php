@@ -28,10 +28,11 @@ foreach($_SESSION["cart"] as $key => $quantity){
    }
 }
 
+$_SESSION["ordered"] = 1;
 //show alert and go to homepage
-$_SESSION["ordered"] = $orderId;
 unset($_SESSION['cart']);
 include("updateCartDB.php");
+mysqli_close($con);
 header("Location: ../client_side/PhotoArtMain.php");
 exit;
  ?>

@@ -19,6 +19,31 @@
     header("Location: PhotoArtLogin.php");
     exit;
   }
+
+  //get payment info
+  $address;
+  $city;
+  $postal;
+  $cardNum;
+  $country;
+  $nameOnCard;
+  $province;
+  if(isset($_SESSION['username'])){
+        $user=$_SESSION['username'];
+        $sql=$con->prepare("SELECT billingAddress,city,postalcode,cardNum,country,nameOnCard,province from PaymentInfo where username=?");
+        $sql->bind_param('s',$user);
+        $sql->execute();
+        $sql->bind_result($addressT,$cityT,$postalT,$cardNumT,$countryT,$nameOnCardT,$provinceT);
+        while ($sql->fetch()){
+          $address = $addressT;
+          $city = $cityT;
+          $postal = $postalT;
+          $cardNum = $cardNumT;
+          $country = $countryT;
+          $nameOnCard = $nameOnCardT;
+          $province = $provinceT;
+        }
+      }
 ?>
   <div id="mainBG">
     <h1>Payment and Shipping Information</h1>

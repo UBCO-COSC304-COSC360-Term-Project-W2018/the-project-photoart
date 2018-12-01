@@ -12,16 +12,13 @@
   <?php require('../server_side/header.php');
   require('../server_side/connection.php');
   if(isset($_SESSION["ordered"]))
-  // if($_SESSION["ordered"] == 1){
-  //   $_SESSION["ordered"] = 0;
-  // echo("<script>alert('Thank you, the items have been ordered.');</script>");
-  // }
-    echo("<script>alert(".$_SESSION['ordered'].");</script>");
+  if($_SESSION["ordered"] == 1){
+    $_SESSION["ordered"] = 0;
+  echo("<script>alert('Thank you, the items have been ordered.');</script>");
+  }
   ?>
   <div class="search-container">
-    <form method="get" action="PhotoArtSearch.php"> <!-- this can be added later, also the following pages may be useful
-      https://www.w3schools.com/howto/howto_css_searchbar.asp
-      https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar3 -->
+    <form method="get" action="PhotoArtSearch.php">
     <input type="text" name="searchBar" placeholder="Search Photos.." class="shadow"/>
     <button type="submit"><!-- image of magnifying glass similar to the link above!--></button>
     </form>
@@ -40,7 +37,6 @@
       $sql = ("SELECT title, imageLink, upc, timesOrdered FROM Product ORDER BY timesOrdered DESC LIMIT 1");
       $result = mysqli_query($con, $sql);
       if(mysqli_num_rows($result) > 0){
-
         while($row = mysqli_fetch_assoc($result)){
           $title = $row['title'];
           $imgLink = $row['imageLink'];

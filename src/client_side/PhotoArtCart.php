@@ -68,7 +68,7 @@ if(isset($_SESSION["cart"]) and !empty($_SESSION["cart"])){
          echo("<span class='title'>".$title."</span>");
          echo("<div class='priceInfo'>");
          echo('<button type="button" class="remItem" name="'.$key.'">Remove Item</button>');
-         echo("<p class='stock'>In Stock: ".$stock."</p>");
+         // echo("<p class='stock'>In Stock: ".$stock."</p>");
          echo('<p>Quantity: <input type="number"  name="'.$price.'" class="quantity" id="quant'.$key.'" min="1" value="'.$quantity.'"></p>');
          echo("<br><p class='subtotal'>Price: $".$price*$quantity."</p>");
          echo("</div></div>");

@@ -165,21 +165,21 @@ if(isset($_SESSION["username"]) and !empty($_POST["review"])){
       <h2>Image Info</h2>
       <p id="uniqueInfo"><?php echo($imageDesc); ?></p>
       <button type="button" name="shareBtn">Share</button>
-      <div id="stockDiv">
-      In Stock:
+      <!-- <div id="stockDiv">
+      In Stock: -->
       <?php
-      $sql = "Select quantity From StoredAt Where upc = ".$upc;
-      $results = mysqli_query($con, $sql);
-      //foreach result(row) in results
-      $totQuantity = 0;
-      if (isset($results)){
-        while ($row = mysqli_fetch_row($results)){
-          $totQuantity += $row[0];
-        }
-      }
-      echo($totQuantity);
+      // $sql = "Select quantity From StoredAt Where upc = ".$upc;
+      // $results = mysqli_query($con, $sql);
+      // //foreach result(row) in results
+      // $totQuantity = 0;
+      // if (isset($results)){
+      //   while ($row = mysqli_fetch_row($results)){
+      //     $totQuantity += $row[0];
+      //   }
+      // }
+      // echo($totQuantity);
        ?>
-    </div>
+    <!-- </div> -->
       <div id="quantityDiv">
       Quantity:
       <input type="number" name="quantity" id="quantity" min="1" max="<?php echo($totQuantity); ?>" value="1">
