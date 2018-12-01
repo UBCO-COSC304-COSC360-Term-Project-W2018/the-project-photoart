@@ -11,14 +11,30 @@
    <script type="text/javascript" src="script/paymentInfoCheck.js"></script>
 </head>
 <body>
-<?php require('../server_side/header.php'); ?>
+<?php require('../server_side/header.php');
+      include('../server_side/profilePic.php');
+      require('../server_side/connection.php');
+      if(isset($_SESSION['username'])){
+        $user=$_SESSION['username'];
+        $sql=$con->prepare("SELECT billingAddress,city,postalcode,cardNum from PaymentInfo where username=?");
+        $sql->bind_param('s',$user);
+        $sql->execute();
+        $sql->bind_result($address,$city,$postal,$cardNum);
+        $sql->fetch();
+      }
+
+
+
+
+
+        ?>
   <div id="entireBG">
     <h2>Payment and Shipping Information</h2>
     <div id="sideBar">
-      <img id="profileImg" src="profPic.jpg" alt="Profile Picture" title="Profile Picture">
-      <a href="" id="changePic">Change Profile Picture</a>
+
+      <?php echo $pic; ?>
       <!-- CHANGING PROFILE PICTURE HOWTO LINK: https://stackoverflow.com/questions/40441482/making-user-edited-profile-pictures-html -->
-      <a href="PhotoArtProfilePage.html" class="sbarFunctions">Edit Profile</a>
+      <a href="PhotoArtEditProfile.php" class="sbarFunctions">Edit Profile</a>
       <a href="" class="sbarFunctions"><strong>Payment/Shipping Information</strong></a>
       <a href="" class="sbarFunctions">Log Out</a><!-- these buttons will have to have functionality added -->
     </div>
@@ -35,7 +51,7 @@
           <td><input class="button1 required" type="text" name="lastName"/></td>
         </tr>
         <tr><td colspan="2"><label>Shipping Address</label><td></tr>
-        <tr><td colspan="2"><input class="shipping required" type="text" name="address"/></td></tr>
+        <tr><td colspan="2"><input class="shipping required" type="text" name="address"value= "<?php if(isset($address)){echo $address;} ?>"></td></tr>
         <tr>
             <td><label>Country</label></td>
             <td><label>Province</label></td>
@@ -60,10 +76,8 @@
             </select>
           </td>
         </tr>
-        <tr><td><label>PostalCode</label></td><tr>
-        <tr><td><input type="text" name="postal" value=""></td></tr>
-        <tr><td colspan="2"><label>Email</label></td></tr>
-        <tr><td colspan="2"><input class="button2 required" type="text" name="email"/></td></tr>
+        <tr><td>City</td> <td><label>PostalCode</label></td><tr>
+        <tr><td><input type="text" name="city" value="<?php if(isset($city)){echo $city;} ?>"> <td><input type="text" name="postal" value="<?php if(isset($postal)){echo $postal;} ?>"></td></tr>
         <tr><td colspan="2"><label>Payment method</label></td></tr>
         <tr><td colspan="2">
           <select name="Payment">
@@ -76,7 +90,7 @@
             <td><label>Expiry Date</label></td>
             <td><label>CSV</label></td>
         </tr>
-        <tr>  <td><input maxlength="16" class="button2 required" type="text" name="CardNumber"></td>
+        <tr>  <td><input maxlength="16" class="button2 required" type="text" name="CardNumber"value="<?php if(isset($cardNum)){echo $cardNum;} ?>"></td>
               <td><input class="button2" type="month" name="CardDate" value="2020-01" required></td>
               <td><input maxlength="3" class="button2 required" type="text" name="CardCSV"></td>
         </tr>

@@ -19,10 +19,7 @@
     $sql->bind_param("s", $_SESSION['username']);
     $sql->execute();
     $sql->bind_result($username, $firstN, $lastN, $email,$bio);
-    $outArray = array();
-    while($row = $sql->fetch()){
-      $outArray = array('username'=>$username, 'firstName'=>$firstN, 'lastName'=>$lastN, 'email'=>$email,'bio'=>$bio);
-}
+    $sql->fetch();
 include('../server_side/profilePic.php');
 ?>
     <div id="entireBG" class="shadow">
@@ -49,7 +46,7 @@ include('../server_side/profilePic.php');
 
               <tr>
               <tr><td><label>About Me</label></td></tr>
-              <tr><td colspan="2"><textarea class="button2" placeholder="Tell us about yourself!" name="bio" value= "<?php echo $bio; ?>"></textarea></td></tr>
+              <tr><td colspan="2"><input class="button2" placeholder="Tell us about yourself!" name="bio" value= "<?php echo $bio; ?>"/></td></tr>
               <tr><td><label>Email</label></td></tr>
               <tr><td colspan="2"><input class="button2 required" type="text" name="email" value= "<?php echo $email; ?>"/></td></tr>
               <tr><td><label>Change Password</label></td></tr>
