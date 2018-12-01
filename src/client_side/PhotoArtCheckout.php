@@ -15,7 +15,9 @@
   include("../server_side/connection.php");
   if(!isset($_SESSION["username"])){
     //redirect to login
-
+    $_SESSION["checkout"] = 1;
+    header("Location: PhotoArtLogin.php");
+    exit;
   }
 ?>
   <div id="mainBG">

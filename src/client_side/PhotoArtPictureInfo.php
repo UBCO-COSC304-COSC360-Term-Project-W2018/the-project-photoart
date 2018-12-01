@@ -133,7 +133,7 @@ if(isset($_SESSION["username"]) and !empty($_POST["review"])){
   //add review
   $_SESSION["review"] = $_POST["review"];
   //TODO: Check if user has purchased product before they can write a review
-  if($stmt=$con->prepare("Insert Into Review(details, upc, username, postDate) values(?,?,?,?)")){
+  if($stmt=$con->prepare("Insert Into Review(details, upc, username, reviewDate) values(?,?,?,?)")){
     $time = date("Y-m-d h:i:s");
      $stmt->bind_param('ssss',$_POST["review"],$upc,$_SESSION["username"],$time);
      $stmt->execute();
@@ -200,11 +200,10 @@ $msg = "Review text cannot be submitted empty";
     </div>
 <?php
 //show all reviews for particular product
-if($stmt=$con->prepare("Select details, username, postDate From Review Where upc = ? Order By postDate")){
+if($stmt=$con->prepare("Select details, username, reviewDate From Review Where upc = ? Order By reviewDate")){
    $stmt->bind_param('s',$upc);
    $stmt->execute();
    $stmt->bind_result($details, $username, $postDate);
-
    while ($stmt->fetch()){
      echo('<div class="review shadow">');
      echo('<p class="author">'.$username.'  </p>');
